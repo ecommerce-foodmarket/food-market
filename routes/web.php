@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,19 @@ Route::group(['prefix' => 'category'], function () {
     Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('category.edit');
     Route::put('/update/{category}', [CategoryController::class, 'update'])->name('category.update');
     Route::delete('/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+});
+
+//RUTAS DE CATEGORY
+
+Route::group(['prefix' => 'status'], function () {
+    Route::get('/', [StatusController::class, 'index'])->name('status.index');
+    Route::get('/create', [StatusController::class, 'create'])->name('status.create');
+    Route::post('/save', [StatusController::class, 'store'])->name('status.store');
+    Route::get('/show/{status}', [StatusController::class, 'show'])->name('status.show');
+    Route::get('/{status}/edit', [StatusController::class, 'edit'])->name('status.edit');
+    Route::put('/update/{status}', [StatusController::class, 'update'])->name('status.update');
+    Route::delete('/destroy/{status}', [StatusController::class, 'destroy'])->name('status.destroy');
 
 });
 

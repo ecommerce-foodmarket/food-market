@@ -2,63 +2,51 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Status;
 use Illuminate\Http\Request;
 
 class StatusController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $statuses= Status::all();
+        return view('status.index', compact('statuses'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('status.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+         $status = new Status;
+         $status-> name_status = $request-> name_status;
+         $status-> save();
+        return redirect()->route('status.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(Status $status)
     {
-        //
+        return view('status.edit', compact('status'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+    public function update(Request $request, Status $status)
+{
+        $status->update([
+        'name_status' => $request->name_status,
+    ]);
+    
+        return redirect()->route('status.index');
+}
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+     public function show(Status $status)
+     {
+         return view('status.show', compact('status'));
+     }
+     public function destroy(Status $status)
+     {
+        $status->delete();
+        return redirect()->route('status.index');
+     }
 }
