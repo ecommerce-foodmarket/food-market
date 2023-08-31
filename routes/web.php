@@ -23,11 +23,11 @@ Route::get('/', function () {
 // Route::get('/user', [UserController::class, 'index'])->name('allUsers');
 
 Route::group(['prefix' => 'user'], function () {
-    Route::get('/all', [UserController::class, 'index'])->name('allusers');
-    Route::get('/create', [UserController::class, 'create'])->name('createuser');
-    Route::post('/save', [UserController::class, 'store'])->name('storeuser');
-    Route::get('/show/{slug}', [UserController::class, 'show'])->name('showuser');
-    Route::put('/edit/{slug}', [UserController::class, 'edit'])->name('edituser');
+    Route::get('/', [UserController::class, 'index'])->name('user.index');
+    Route::get('/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('/store', [UserController::class, 'store'])->name('user.store');
+    Route::get('/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/update/{user}', [UserController::class, 'update'])->name('user.update');
 });
 
 // Route::get('/user/show/{id}')
