@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +32,12 @@ Route::group(['prefix' => 'user'], function () {
 });
 
 // Route::get('/user/show/{id}')
+
+Route::get('/products',[ProductsController::class, 'index'])->name('products.index');
+Route::get('/products/create',[ProductsController::class, 'create'])->name('products.create');
+Route::post('/products/store',[ProductsController::class, 'store'])->name('products.store');
+Route::get('/products/edit/{product}',[ProductsController::class, 'edit'])->name('products.edit');
+Route::put('/products/update/{product}',[ProductsController::class, 'update'])->name('products.update');
+Route::get('/products/show/{product}',[ProductsController::class, 'show'])->name('products.show');
+Route::delete('/products/destroy/{product}',[ProductsController::class, 'destroy'])->name('products.destroy');
+
