@@ -27,5 +27,10 @@ class StatusSeeder extends Seeder
             'id'=> 3,
             'name_status'=> 'En Reparto'
         ]);
+
+        Status::create([
+            'id'=> 3,
+            'name_status'=> 'Completado'
+        ]);
     }
 }
