@@ -3,22 +3,27 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
+
 
 class ProductsController extends Controller
 {
     public function index()
     {
         $products= Product::all();
-        return view('products.index', compact('products'));
+        $categories= Category::all();
+        return view('products.index', compact('products', 'categories'));
     }
 
     public function create()
     {
-        return view('products.create');
+        $categories= Category::all();
+        return view('products.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
+        $categories= Category::all();
          $product = new Product;
          $product-> name_product = $request-> name_product;
          $product-> description = $request-> description;
@@ -31,10 +36,12 @@ class ProductsController extends Controller
     }
     public function edit(Product $product)
     {
+        $categories= Category::all();
         return view('products.edit', compact('product'));
     }
     public function update(Request $request, Product $product)
      {
+         $categories= Category::all();
         $product->update([
         'name_product' => $request-> name_product,
         'description' => $request-> description,
