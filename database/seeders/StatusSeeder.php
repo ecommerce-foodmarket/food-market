@@ -29,7 +29,7 @@ class StatusSeeder extends Seeder
         ]);
 
         Status::create([
-            'id'=> 3,
+            'id'=> 4,
             'name_status'=> 'Completado'
         ]);
     }
