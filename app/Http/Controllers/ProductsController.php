@@ -10,9 +10,9 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products= Product::all();
-        $categories= Category::all();
-        return view('products.index', compact('products', 'categories'));
+        $products = Product::with('category')->get();
+
+        return view('products.index', compact('products'));
     }
 
     public function create()
