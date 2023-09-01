@@ -48,16 +48,15 @@ class UserController extends Controller
         return redirect()->route('user.index');
     }
 
-
-
-
-    public function show($user)
+    public function show(User $user)
     {
+        return view('user.show', compact('user'));
     }
 
-    public function destroy(string $id)
+    public function destroy(User $user)
     {
-
+        $user->delete();
+        return redirect()->route('user.index');
     }
 }
 

@@ -1,11 +1,11 @@
-@extends('layoutsUser\app')
+@extends('layoutsUser.app')
 @section('content')
 <a href="{{route('user.index')}}">Back</a>
     <form method="POST" action="{{ route('user.update', $user->id) }}">
         @method('PUT')
         @csrf
         <label for="name">Full Name</label>
-        <input type="text" name="name"value="{{ $user->user }}">
+        <input type="text" name="name"value="{{ $user->name }}">
         <br>
         <label for="email">Email Address</label>
         <input type="email" name="email" value="{{ $user->email }}">
