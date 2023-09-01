@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name_product');
             $table->text('description');
-            $table->bigInteger('id_category');
+            $table->unsignedBigInteger('id_category');
             $table->float('price');
             $table->string('picture')->nullable();
             $table->timestamps();

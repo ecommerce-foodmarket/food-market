@@ -10,13 +10,20 @@ use App\Models\Product;
 class Order extends Model
 {
     use HasFactory;
-    // protected $guarded=[];
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'cost',
         'id_user',
         'id_status',
     ];
+    // protected $guarded=[];
+
+
     
     public function products():BelongsToMany
     {
