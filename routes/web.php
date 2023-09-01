@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -47,7 +48,7 @@ Route::group(['prefix' => 'category'], function () {
 
 });
 
-//RUTAS DE CATEGORY
+//RUTAS DE STATUS
 
 Route::group(['prefix' => 'status'], function () {
     Route::get('/', [StatusController::class, 'index'])->name('status.index');
@@ -57,6 +58,19 @@ Route::group(['prefix' => 'status'], function () {
     Route::get('/{status}/edit', [StatusController::class, 'edit'])->name('status.edit');
     Route::put('/update/{status}', [StatusController::class, 'update'])->name('status.update');
     Route::delete('/destroy/{status}', [StatusController::class, 'destroy'])->name('status.destroy');
+
+});
+
+//RUTAS DE ROLE
+
+Route::group(['prefix' => 'role'], function () {
+    Route::get('/', [RoleController::class, 'index'])->name('role.index');
+    Route::get('/create', [RoleController::class, 'create'])->name('role.create');
+    Route::post('/save', [RoleController::class, 'store'])->name('role.store');
+    Route::get('/show/{role}', [RoleController::class, 'show'])->name('role.show');
+    Route::get('/{role}/edit', [RoleController::class, 'edit'])->name('role.edit');
+    Route::put('/update/{role}', [RoleController::class, 'update'])->name('role.update');
+    Route::delete('/destroy/{role}', [RoleController::class, 'destroy'])->name('role.destroy');
 
 });
 
