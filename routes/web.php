@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrdersProductsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +31,18 @@ Route::group(['prefix' => 'user'], function () {
     Route::put('/edit/{slug}', [UserController::class, 'edit'])->name('edituser');
 });
 
-// Route::get('/user/show/{id}')
+Route::group(['prefix' => 'cart'], function () {
+    Route::get('/', [OrdersProductsController::class, 'index'])->name('cart.index');
+    // Route::get('/create', [OrdersProductsController::class, 'create'])->name('createuser');
+    // Route::post('/save', [Orders_productsController::class, 'store'])->name('storeuser');
+    // Route::get('/show', [Orders_productsControllerr::class, 'show'])->name('showuser');
+    Route::post('/update', [OrdersProductsController::class, 'update'])->name('cart.update');
+    Route::delete('cart/{order}{product}', [OrdersProductsController::class, 'destroy'])->name('cart.destroy');
+    Route::get('/empty', [OrdersProductsController::class, 'index'])->name('cart.empty');
+    
+});
+
+Route::get('cart/empty', function(){
+    return view('cart.empty')->name('cart.empty');
+});
+
