@@ -21,13 +21,13 @@
         <input type="text" name="address">
         <br>
         <label for="house_n">House No.</label>
-        <input type="number" name="house_n">
+        <input type="text" name="house_n">
         <br>
         <label for="city">City</label>
         <input type="text" name="city">
         <br>
-        <label for="id_rol">Rol</label>
-        <input type="number" name="id_rol">
+        
+        <input type="hidden" name="id_rol" value="3">
         <br>
         <label for="picture">Photo</label>
         <br>

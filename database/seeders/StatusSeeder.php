@@ -17,7 +17,7 @@ class StatusSeeder extends Seeder
             'id'=> 1,
             'name_status'=> 'Pendiente'
         ]);
-    
+
         Status::create([
             'id'=> 2,
             'name_status'=> 'Pagado'
@@ -31,6 +31,10 @@ class StatusSeeder extends Seeder
         Status::create([
             'id'=> 4,
             'name_status'=> 'Completado'
+        ]);
+        Status::create([
+            'id'=> 5,
+            'name_status'=> 'Cancelado'
         ]);
     }
 }

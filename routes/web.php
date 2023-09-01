@@ -6,27 +6,14 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::resource('/user', UserController::class);
-
-// Route::get('/user', [UserController::class, 'index'])->name('allUsers');
+//RUTAS DE PRODUCTS
 Route::group(['prefix' => 'products'], function () {
     Route::get('/',[ProductsController::class, 'index'])->name('products.index');
     Route::get('/create',[ProductsController::class, 'create'])->name('products.create');
@@ -46,7 +33,7 @@ Route::group(['prefix' => 'category'], function () {
     Route::put('/update/{category}', [CategoryController::class, 'update'])->name('category.update');
     Route::delete('/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
 });
-
+//RUTAS DE USERS
 Route::group(['prefix' => 'user'], function () {
     Route::get('/', [UserController::class, 'index'])->name('user.index');
     Route::get('/create', [UserController::class, 'create'])->name('user.create');
@@ -55,27 +42,6 @@ Route::group(['prefix' => 'user'], function () {
     Route::put('/update/{user}', [UserController::class, 'update'])->name('user.update');
     Route::get('show/{user}', [UserController::class, 'show']) ->name('user.show');
     Route::delete('/destroy{user}', [UserController::class, 'destroy']) ->name('user.destroy');
-});
-
-Route::group(['prefix' => 'order'], function () {
-    Route::get('/all', [OrderController::class, 'index'])->name('order.index');
-    Route::get('/create', [OrderController::class, 'create'])->name('order.create');
-    Route::post('/save', [OrderController::class, 'store'])->name('order.store');
-    Route::get('/show/{order}', [OrderController::class, 'show'])->name('order.show');
-    Route::get('/edit/{order}', [OrderController::class, 'edit'])->name('order.edit');
-    Route::put('/update/{order}', [OrderController::class, 'update'])->name('order.update');
-    Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('order.destroy');
-
-
-//RUTAS DE STATUS
-Route::group(['prefix' => 'status'], function () {
-    Route::get('/', [StatusController::class, 'index'])->name('status.index');
-    Route::get('/create', [StatusController::class, 'create'])->name('status.create');
-    Route::post('/save', [StatusController::class, 'store'])->name('status.store');
-    Route::get('/show/{status}', [StatusController::class, 'show'])->name('status.show');
-    Route::get('/{status}/edit', [StatusController::class, 'edit'])->name('status.edit');
-    Route::put('/update/{status}', [StatusController::class, 'update'])->name('status.update');
-    Route::delete('/destroy/{status}', [StatusController::class, 'destroy'])->name('status.destroy');
 });
 //RUTAS DE ROLE
 Route::group(['prefix' => 'role'], function () {
@@ -87,9 +53,24 @@ Route::group(['prefix' => 'role'], function () {
     Route::put('/update/{role}', [RoleController::class, 'update'])->name('role.update');
     Route::delete('/destroy/{role}', [RoleController::class, 'destroy'])->name('role.destroy');
 });
-
-
-
-
-
+//RUTAS DE ORDERS
+Route::group(['prefix' => 'order'], function () {
+    Route::get('/all', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/create', [OrderController::class, 'create'])->name('order.create');
+    Route::post('/save', [OrderController::class, 'store'])->name('order.store');
+    Route::get('/show/{order}', [OrderController::class, 'show'])->name('order.show');
+    Route::get('/edit/{order}', [OrderController::class, 'edit'])->name('order.edit');
+    Route::put('/update/{order}', [OrderController::class, 'update'])->name('order.update');
+    Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('order.destroy');
 });
+//RUTAS DE STATUS
+Route::group(['prefix' => 'status'], function () {
+    Route::get('/', [StatusController::class, 'index'])->name('status.index');
+    Route::get('/create', [StatusController::class, 'create'])->name('status.create');
+    Route::post('/save', [StatusController::class, 'store'])->name('status.store');
+    Route::get('/show/{status}', [StatusController::class, 'show'])->name('status.show');
+    Route::get('/{status}/edit', [StatusController::class, 'edit'])->name('status.edit');
+    Route::put('/update/{status}', [StatusController::class, 'update'])->name('status.update');
+    Route::delete('/destroy/{status}', [StatusController::class, 'destroy'])->name('status.destroy');
+});
+

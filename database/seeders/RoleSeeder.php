@@ -17,7 +17,7 @@ class RoleSeeder extends Seeder
             'id'=> 1,
             'type'=> 'SuperAdmin'
         ]);
-    
+
         Role::create([
             'id'=> 2,
             'type'=> 'Staff'
@@ -25,9 +25,9 @@ class RoleSeeder extends Seeder
 
         Role::create([
             'id'=> 3,
-            'type'=> 'Users'
+            'type'=> 'User'
         ]);
 
-    
+
     }
 }
