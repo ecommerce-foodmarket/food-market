@@ -16,7 +16,7 @@ return new class extends Migration
             $table->float('cost');
             $table->bigInteger('id_user');
             $table->bigInteger('id_status');
-            $table->timestamps();
+            $table->timestamps('');
         });
     }
 

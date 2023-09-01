@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +31,13 @@ Route::group(['prefix' => 'user'], function () {
     Route::put('/edit/{slug}', [UserController::class, 'edit'])->name('edituser');
 });
 
-// Route::get('/user/show/{id}')
+Route::group(['prefix' => 'order'], function () {
+    Route::get('/all', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/create', [OrderController::class, 'create'])->name('order.create');
+    Route::post('/save', [OrderController::class, 'store'])->name('order.store');
+    Route::get('/show/{order}', [OrderController::class, 'show'])->name('order.show');
+    Route::get('/edit/{order}', [OrderController::class, 'edit'])->name('order.edit');
+    Route::put('/update/{order}', [OrderController::class, 'update'])->name('order.update');
+    Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('order.destroy');
+
+});
