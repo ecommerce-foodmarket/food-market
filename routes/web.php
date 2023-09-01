@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
