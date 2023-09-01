@@ -29,7 +29,7 @@
                 <td>{{ $product->id }}</td>
                 <td><a href="{{ route('products.show', $product->id) }}">{{ $product->name_product }}</a></td>
                 <td>{{ $product->description }}</td>
-                <td>{{ $product->name_category }}</td>
+                <td>{{ $product->category->name_category }}</td>
                 <td>{{ $product->price }}</td>
                 <td>{{ $product->picture }}</td>
                 <td>
@@ -43,47 +43,7 @@
             </tr>
             @endforeach
         </tbody>
-    {{-- @foreach ($products as $product)
-    <p><a href="{{route('products.show', $product->id)}}">{{$product->name_product}}</a>
-        <a href="{{route('products.edit', $product->id)}}">EDIT</a>
-        <form method="POST" action="{{route('products.destroy', $product->id)}}">
-            @csrf
-            @method('DELETE')
-            <input type="submit" value="DELETE"/>
-        </form>
-    </p>
-    <p><a href="{{route('products.show', $product->id)}}">{{$product->description}}</a>
-         <a href="{{route('products.edit', $product->id)}}">EDIT</a>
-         <form method="POST" action="{{route('products.destroy', $product->id)}}">
-            @csrf
-            @method('DELETE')
-            <input type="submit" value="DELETE"/>
-        </form>
-        </p>
-    <p><a href="{{route('products.show', $product->id)}}"></a>{{$product->id_category}}</a>
-        <a href="{{route('products.edit', $product->id)}}">EDIT</a>
-        <form method="POST" action="{{route('products.destroy', $product->id)}}">
-            @csrf
-            @method('DELETE')
-            <input type="submit" value="DELETE"/>
-        </form>
-    </p>
-    <p><a href="{{route('products.show', $product->id)}}"></a>{{$product->price}}</a>
-        <a href="{{route('products.edit', $product->id)}}">EDIT</a>
-        <form method="POST" action="{{route('products.destroy', $product->id)}}">
-            @csrf
-            @method('DELETE')
-            <input type="submit" value="DELETE"/>
-        </form>
-    </p>
-    <p><a href="{{route('products.show', $product->id)}}"></a>{{$product->picture}}</a>
-        <a href="{{route('products.edit', $product->id)}}">EDIT</a>
-        <form method="POST" action="{{route('products.destroy', $product->id)}}">
-            @csrf
-            @method('DELETE')
-            <input type="submit" value="DELETE"/>
-        </form>
-    @endforeach --}}
+    
 </div>
 </body>
 </html>
