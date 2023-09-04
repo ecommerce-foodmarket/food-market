@@ -79,7 +79,14 @@ Route::group(['prefix' => 'cart'], function () {
     Route::post('/pay', [OrderController::class, 'pay'])->name('pay');
     // Route::get('/pastorders', [OrdersProductsController::class, 'pastorders'])->name('cart.pastorders');
     Route::get('/confirm', [OrdersProductsController::class, 'confirm'])->name('cart.confirm');
-    
+
 });
 
+// Rutas de autenticación...
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+// Rutas de registro...
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
