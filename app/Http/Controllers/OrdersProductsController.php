@@ -12,7 +12,7 @@ class OrdersProductsController extends Controller
 {
     public function index()
     {
-        $order = Order::with('products')->find(1); 
+        $order = Order::with('products')->find(2); 
 
         if($order){
             return view('cart.index', ['order'=>$order]);

@@ -28,17 +28,8 @@ public function category(): BelongsTo
 }
 
 
-
-
     protected $guarded = [];
 
-    protected $fillable = [
-        'name_product',
-        'description',
-        'id_category',
-        'price',
-        
-    ];
 
     
    

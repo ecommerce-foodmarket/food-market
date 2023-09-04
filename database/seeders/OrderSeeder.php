@@ -18,7 +18,6 @@ class OrderSeeder extends Seeder
             [
                 'id'=>1,
                 'id_user'=>1,
-                
                 'id_status'=>1,
                 'cost'=>6.90
 

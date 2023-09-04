@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Your order</title>
+    <link rel="stylesheet" href="{{asset('css/cart.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css">
 </head>
 <body>
-<h2>Pedido {{$order->id}}</h2>
+{{-- <h3>hola, {{auth()->user()->name}} este es tu pedido</h3> --}}
 <h3>hola, {{$order->id_user}} este es tu pedido</h3>
 
 @php
@@ -32,7 +34,7 @@ $totalPrice = 0;
             > 
             @csrf
             @method('DELETE')
-            <input type="submit" value="DELETE" />
+            <input type="submit" value="DELETE" onsubmit="return confirm('Are you sure you want to remove this item from your cart?')" />
         </form>
         <div>
             <form action={{route('cart.update')}} method="POST">
@@ -62,5 +64,13 @@ $totalPrice += $subtotal
 
 <h3>Total: €{{$totalPrice}}</h3>
 
-<button>Pay</button>
+<form action="{{route('pay')}}" method="POST">
+    @csrf
+    <input type="hidden" name="totalPrice" value="{{$totalPrice}}">
+    <button type="submit">Pay</button>
+</form>
+<a href="route{{'products.index'}}">
+<button>Back to Products</button>
+</a>
+
 

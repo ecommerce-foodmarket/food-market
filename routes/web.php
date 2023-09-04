@@ -19,14 +19,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Route::resource('/user', UserController::class);
-
-// Route::get('/user', [UserController::class, 'index'])->name('allUsers');
-
 Route::group(['prefix' => 'user'], function () {
     Route::get('/', [UserController::class, 'index'])->name('user.index');
     Route::get('/create', [UserController::class, 'create'])->name('user.create');
@@ -45,6 +37,7 @@ Route::group(['prefix' => 'order'], function () {
     Route::get('/edit/{order}', [OrderController::class, 'edit'])->name('order.edit');
     Route::put('/update/{order}', [OrderController::class, 'update'])->name('order.update');
     Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('order.destroy');
+});
 
 //RUTAS DE CATEGORY
 Route::group(['prefix' => 'category'], function () {
@@ -76,30 +69,22 @@ Route::group(['prefix' => 'role'], function () {
     Route::put('/update/{role}', [RoleController::class, 'update'])->name('role.update');
     Route::delete('/destroy/{role}', [RoleController::class, 'destroy'])->name('role.destroy');
 });
-Route::get('/products',[ProductsController::class, 'index'])->name('products.index');
-Route::get('/products/create',[ProductsController::class, 'create'])->name('products.create');
-Route::post('/products/store',[ProductsController::class, 'store'])->name('products.store');
-Route::get('/products/edit/{product}',[ProductsController::class, 'edit'])->name('products.edit');
-Route::put('/products/update/{product}',[ProductsController::class, 'update'])->name('products.update');
-Route::get('/products/show/{product}',[ProductsController::class, 'show'])->name('products.show');
-Route::delete('/products/destroy/{product}',[ProductsController::class, 'destroy'])->name('products.destroy');
-//C
+
 Route::group(['prefix' => 'cart'], function () {
     Route::get('/', [OrdersProductsController::class, 'index'])->name('cart.index');
-    // Route::get('/create', [OrdersProductsController::class, 'create'])->name('createuser');
-    // Route::post('/save', [Orders_productsController::class, 'store'])->name('storeuser');
-    // Route::get('/show', [Orders_productsControllerr::class, 'show'])->name('showuser');
     Route::post('/update', [OrdersProductsController::class, 'update'])->name('cart.update');
     Route::delete('cart/{order}{product}', [OrdersProductsController::class, 'destroy'])->name('cart.destroy');
-    Route::get('/empty', [OrdersProductsController::class, 'index'])->name('cart.empty');
+    Route::get('/empty', [OrdersProductsController::class, 'empty'])->name('cart.empty');
+    Route::post('/pay', [OrderController::class, 'pay'])->name('pay');
     
 });
 
-Route::get('cart/empty', function(){
-    return view('cart.empty')->name('cart.empty');
-});
-
-
-
-
+Route::group(['prefix'=>'products'], function(){
+    Route::get('/products',[ProductsController::class, 'index'])->name('products.index');
+    Route::get('/products/create',[ProductsController::class, 'create'])->name('products.create');
+    Route::post('/products/store',[ProductsController::class, 'store'])->name('products.store');
+    Route::get('/products/edit/{product}',[ProductsController::class, 'edit'])->name('products.edit');
+    Route::put('/products/update/{product}',[ProductsController::class, 'update'])->name('products.update');
+    Route::get('/products/show/{product}',[ProductsController::class, 'show'])->name('products.show');
+    Route::delete('/products/destroy/{product}',[ProductsController::class, 'destroy'])->name('products.destroy');
 });

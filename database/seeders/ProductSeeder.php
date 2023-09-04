@@ -58,6 +58,16 @@ class ProductSeeder extends Seeder
             
         
     ]);
+    Product::create([
+        'id'=>'6',
+            'name_product'=>'Sopa de tomate',
+            'description'=>'Sopa caliente de tomate con albahaca y crutones',
+            'id_category'=>'3',
+            'price'=>'23.95',
+            'picture'=>'sopa_tomate.jpg',
+            
+        
+    ]);
         
     }
 }
