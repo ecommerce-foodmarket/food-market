@@ -12,7 +12,7 @@
                     </div>
                 </div>
             </div>
-    <div class=" w-full h-full p-10 md:w-full lg:w-full ">
+    <div class=" w-full h-full p-10 md:w-full lg:w-1/2 ">
         <form action="{{route('user.store')}}" method="POST" //enctype="multipart/form-data">
             {{csrf_field()}}
             @csrf
@@ -73,9 +73,15 @@
                         <br>
                         <input type="hidden" name="id_rol" value=1>
                         <br>
-                        <button href="{{route('user.store')}}" class="bg-DarkSlateGray  text-LightOrange font-semibold font-Poppins py-2 px-20  rounded shadow text-center w-full">
+                        <button href="{{route('user.store')}}" class="bg-DarkSlateGray  text-LightOrange font-semibold font-Poppins py-2 px-20  rounded shadow text-center w-full  lg:w-1/2">
                         Sing Up Now
                         </button>
+                        <div>
+                            <br>
+                            <p class=" text-gray-500 text-m text-center">
+                                I Already Have an Account <a class="text-orange-500  bold" href="{{route('user.create')}}">Log in</a>
+                                </p>
+                        </div>
                     </div>
                 </div>
             </div>
