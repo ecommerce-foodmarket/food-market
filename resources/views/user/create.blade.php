@@ -1,18 +1,21 @@
 @extends('layoutsUser.app')
 @section('content')
-<div>
-    <div class="container max-w-full mx-auto content-center">
-        <div class="flex flex-nowrap w-full m-2">
-        <a href="{{  url('/login')}}"  class=" w-8 h-8 bg-DarkSlateGray text-white font-bold text-xl rounded text-center align-content-center px-1 "><</a>
-        <div class="pl-5" >
-                <h1 class="text-dark font-Poppins text-3xl font-bold">Sing Up</h1>
-                <div>
-                    <p class="text-gray-300 font-Poppins text-md">Register and eat</p>
-                </div>
+<div class="container  ml-auto mr-auto flex items-center justify-center">
+    <div class="w-full md:w-1/2 " >
+        <div>
+            <div class="flex flex-nowrap w-full m-2">
+                <a href="{{  url('/login')}}"  class=" w-8 h-8 bg-DarkSlateGray text-white font-bold text-xl rounded text-center align-content-center px-1 "><</a>
+                <div class="pl-5" >
+                        <h1 class="text-dark font-Poppins text-3xl font-bold">Sing Up</h1>
+                        <div>
+                            <p class="text-gray-300 font-Poppins text-md">Register and eat</p>
+                        </div>
+        </div>
+        
         </div>
         </div>
-    </div>
-    <div>
+    
+    <div class=" justify-center mx-auto ">
             <form action="{{route('user.store')}}" method="POST" //enctype="multipart/form-data">
             {{csrf_field()}}
             @csrf
@@ -35,8 +38,7 @@
                 <br>
                 <input class="font-Poppins border border-gray-300 rounded" type="password" name="password" placeholder="Type your password">
                 <br>
-            </div>
-        <div class="container max-w-full mx-auto md:py-24 px-6">
+    
             <label for="phone">Phone No.</label>
             <br>
             <input class="font-Poppins border border-gray-300 rounded" type="text" name="phone" placeholder="Type your phone number">
@@ -53,14 +55,15 @@
             <br>
             <input class="font-Poppins border border-gray-300 rounded" type="text" name="city" placeholder="Select your city">
             <br>
-            <input type="hidden" name="id_rol" value="3">
+            <input type="hidden" name="id_rol" value=1>
             <br>
             <button href="{{route('user.store')}}" class="bg-DarkSlateGray  text-LightOrange font-semibold font-Poppins py-2 px-20  rounded shadow text-center">
             Sing Up Now
             </button>
     
     </form>
-        </div>
     </div>
+</div>
+</div>
 </div>
     @endsection
