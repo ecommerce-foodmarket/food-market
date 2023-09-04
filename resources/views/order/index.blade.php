@@ -1,25 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>index</title>
-</head>
-<body>
-<a href="{{route('order.create')}}">Create new order</a>
-    <ul>
-        @forelse ($orders as $order)
-            <li><a href="{{ route ('order.show', $order->id) }}">Order:{{$order->id}}</a> Total: {{$order->cost}}   <a href="{{ route('order.edit' , $order->id) }}"> EDIT </a> | 
-                <form method="POST" action="{{ route('order.destroy' , $order->id) }}"> 
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" value="DELETE" />
-                </form>
-            </li>
-            @empty
-            <p> No data </p>
-         @endforelse
-    </ul>
-</body>
-</html>
+@extends('layouts.app')
+
+
+@section('content')
+<h1>Orders List</h1>
+<a href="{{route('order.create')}}">Add new </a>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cost</th>
+                <th>User</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th width="200px">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($orders as $order)
+            <tr>
+               
+                <td><a href="{{ route('order.show', $order->id) }}">{{ $order->id }}</a></td>
+                <td>{{ $order->cost }}</td>
+                <td>{{ $order->user ? $order->user->name : 'N/A' }}</td>
+                <td>{{ $order->status->name_status }}</td>
+                <td>{{ $order->updated_at}}</td>
+                <td>
+                    <a href="{{ route('order.edit', $order->id) }}"><button type="submit">Edit</button></a>
+                    <form method="POST" action="{{ route('order.destroy', $order->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+</div>
+@endsection

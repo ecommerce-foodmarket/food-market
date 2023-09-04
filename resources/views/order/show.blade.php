@@ -11,8 +11,8 @@
     <ul>
             <li> id order: {{ $order->id}} </li>
             <li> id user: {{ $order->id_user}} </li>
-            <li> estado: {{ $order->id_status}} </li>
+            <li> estado: {{ $order->status->name_status }} </li>
     </ul>
-    
+
 </body>
 </html>
