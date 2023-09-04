@@ -10,7 +10,7 @@
 <body>
     <h1>Edit order</h1>
 <div class="w-full max-w-xs">
-    <form action="{{ route('order.update' , $order->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.order.update' , $order->id) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         {{csrf_field()}}
     <div class="mb-4">
