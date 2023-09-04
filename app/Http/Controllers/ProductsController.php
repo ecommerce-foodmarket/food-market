@@ -10,9 +10,9 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products= Product::all();
-        $categories= Category::all();
-        return view('products.index', compact('products', 'categories'));
+        $products = Product::with('category')->get();
+
+        return view('products.index', compact('products'));
     }
 
     public function create()
@@ -35,10 +35,10 @@ class ProductsController extends Controller
         return redirect()->route('products.index');
     }
     public function edit(Product $product)
-    {
-        $categories= Category::all();
-        return view('products.edit', compact('product'));
-    }
+{
+    $categories = Category::all();
+    return view('products.edit', compact('product', 'categories'));
+}
     public function update(Request $request, Product $product)
      {
          $categories= Category::all();

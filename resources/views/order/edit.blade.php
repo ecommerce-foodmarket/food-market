@@ -15,10 +15,15 @@
         <input type="text" name="cost" value="{{$order->cost}}">
         <label for="id_user">User ID</label>
         <input type="number" name="id_user" value="{{$order->id_user}}">
-        <label for="id_status">Status ID</label>
-        <input type="number" name="id_status" value="{{$order->id_status}}">
-        <label for="created_at">Date</label>
-        <input type="date" name="created_at	" value="{{$order->created_at}}">
+        <label for="id_status" class="block font-semibold">Status</label>
+            <select name="id_status" class="form-select" value="{{$order->id_status}}">
+                @foreach ($statuses as $status)
+                <option value="{{ $status->id }}" {{ $order->id_status == $status->id ? 'selected' : '' }}>
+                    {{ $status->name_status }}
+                </option>
+            @endforeach
+            </select>
+        
         <button type="Submit">Update</button>
     </form>
 </body>

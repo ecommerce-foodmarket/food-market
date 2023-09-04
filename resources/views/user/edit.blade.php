@@ -25,13 +25,19 @@
         <label for="city">City</label>
         <input type="text" name="city" value="{{ $user->city }}">
         <br>
-        <label for="id_rol">Rol</label>
-        <input type="number" name="id_rol" value="{{ $user->id_rol }}">
+        <label for="id_rol" class="block font-semibold">Rol</label>
+            <select name="id_rol" class="form-select" value="{{$user->id_rol}}">
+                @foreach ($roles as $role)
+                <option value="{{ $role->id }}" {{ $user->id_rol == $role->id ? 'selected' : '' }}>
+                    {{ $role->type }}
+                </option>
+            @endforeach
+            </select>
         <br>
         <label for="picture">Photo</label>
         <br>
         <input type="file" name="picture" id="user_picture" value="{{ $user->picture }}">
         <br><br>
-        <input type="submit" value="Update"> 
+        <input type="submit" value="Update">
     </form>
 @endsection

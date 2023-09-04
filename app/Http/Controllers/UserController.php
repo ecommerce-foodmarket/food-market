@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -11,7 +12,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::with('role')->get();
         return view('user.index', compact('users'));
     }
 
@@ -38,12 +39,14 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view ('user.edit', compact('user'));
-        
+        $roles = Role::all();
+        return view ('user.edit', compact('user', 'roles'));
+
     }
 
     public function update(Request $request, User $user)
     {
+        $roles = Role::all();
         $user->update($request->all());
         return redirect()->route('user.index');
     }

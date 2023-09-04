@@ -1,6 +1,6 @@
 @extends('layoutsUser.app')
 @section('content')
-    
+
     <a href="{{ route('user.create')}}">Create new user</a>
 
     <h1>User list:</h1>
@@ -17,6 +17,7 @@
                 <th>Address</th>
                 <th>House No.</th>
                 <th>City</th>
+                <th>Role</th>
                 <th>Photo</th>
                 <th>Details</th>
                 <th>Delete</th>
@@ -31,6 +32,7 @@
                 <td>{{ $user->address }}</td>
                 <td>{{ $user->house_n }}</td>
                 <td>{{ $user->city }}</td>
+                <td>{{ $user->role->type }}</td>
                 <td>{{ $user->photo }}</td>
                 <td>    <a href="{{ route('user.show', $user->id) }}"></a>     |
                         <a href="{{ route('user.edit', $user->id)}}">EDIT</a>
@@ -45,7 +47,7 @@
             </tr>
         </tbody>
         </table>
-    
+
         @endforeach
 
     @endif
