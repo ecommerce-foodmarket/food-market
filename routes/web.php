@@ -77,7 +77,7 @@ Route::group(['prefix' => 'cart'], function () {
     Route::delete('cart/{order}{product}', [OrdersProductsController::class, 'destroy'])->name('cart.destroy');
     Route::get('/empty', [OrdersProductsController::class, 'empty'])->name('cart.empty');
     Route::post('/pay', [OrderController::class, 'pay'])->name('pay');
-    // Route::get('/pastorders', [OrdersProductsController::class, 'pastorders'])->name('cart.pastorders');
+    Route::get('/pastorders', [OrdersProductsController::class, 'pastorders'])->name('cart.pastorders');
     Route::get('/confirm', [OrdersProductsController::class, 'confirm'])->name('cart.confirm');
     
 });

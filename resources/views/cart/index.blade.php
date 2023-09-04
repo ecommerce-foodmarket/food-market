@@ -11,7 +11,7 @@
 </head>
 <body class="min-h-screen flex flex-col">
     {{-- <h3>hola, {{ auth()->user()->name }} este es tu pedido</h3> --}}
-    <h3 class="p-4">hola, {{ $order->id_user }} este es tu pedido</h3>
+     <h3 class="p-4">hola, {{ $order->id_user }} este es tu pedido</h3>
 
     @php
     $totalPrice = 0;    
@@ -19,29 +19,42 @@
 
 <div class="bg-white p-4">
     <div class="bg-white p-4">
-        {{-- <ul class="flex">
+         <ul class="flex">
             <li class="mr-4">
-                <a href="{{ route('cart.index') }}" class="py-2 px-4 {{ request()->routeIs('cart.index') ? 'text-custom-selected' : 'text-custom-default' }}">Inprogress</a>
+                <a href="{{ route('cart.index') }}" class="py-2 px-4 {{ request()->routeIs('cart.index') ? 'text-custom-selected' : 'text-custom-default' }}">In Progress</a>
             </li>
             <li>
                 <a href="{{ route('cart.pastorders') }}" class="py-2 px-4 {{ request()->routeIs('cart.pastorders') ? 'text-custom-selected' : 'text-custom-default' }}">Past Orders</a>
             </li>
-        </ul> --}}
+        </ul> 
     </div>
 </div>
 
     <div class="bg-white p-4 rounded-lg flex-grow">
 
-        {{-- @if($pastOrdersView)
+        @if($pastOrdersView)
 
-        @foreach
+        
+        @foreach ($order as $pastOrder)
+        @if ($pastOrder->status_id == 4)
+            @foreach ($pastOrder->products as $product)
+                <div class="flex items-center justify-between border-b border-gray-300 pb-4 mb-4">
+                    <div class="flex items-center">
+                        <img src="imagen-producto.jpg" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
+                        <div class="ml-4">
+                            <h3>{{ $product->name_product }}</h3>
+                            <p>€{{ $product->price }}</p>
+                        </div>
+                    </div>
+                    @endforeach
+                    @endif
         @endforeach
 
         
             
         @else
             
-         --}}
+         
 
         @foreach ($order->products as $product)
         <div class="flex items-center justify-between border-b border-gray-300 pb-4 mb-4">
@@ -52,7 +65,7 @@
                     <p>€{{ $product->price }}</p>
                 </div>
             </div>
-            <div class="flex items-center space-x-4"> <!-- Alineación horizontal de botones -->
+            <div class="flex items-center space-x-4"> 
                 <form action="{{ route('cart.update') }}" method="POST" class="flex items-center">
                     @csrf
                     <input type="hidden" name="order_id" value="{{ $order->id }}">
@@ -82,6 +95,7 @@
                 <span class="text-gray-800 font-semibold">€{{ $totalPrice }}</span>
             </div>
         </div>
+        @endif
     </div>
 
     <footer class=" p-4">
@@ -93,6 +107,6 @@
 
         <a href="{{ route('products.index') }}" class="block mt-4 link hover:underline text-center">Volver a Productos</a>
     </footer>
-    {{-- @endif --}}
+    
 </body>
 </html>
