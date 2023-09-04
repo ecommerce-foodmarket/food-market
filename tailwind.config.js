@@ -13,6 +13,7 @@ module.exports = {
         DarkSlateGray: '#4A6159',
         LightOrange: '#F6AE96',
         White: '#ffffff',
+        dark: '#020202',
       },
       fontFamily: {
         Poppins: 'font-poppins',

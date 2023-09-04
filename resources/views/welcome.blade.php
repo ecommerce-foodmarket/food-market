@@ -11,10 +11,11 @@
       <img  src="/assets/images/ratatouille-removebg-preview.svg">
 
       <h2 class="font-Poppins font-bold text-White text-4xl m-5" >SpeedyBite</h2>
-  
-      <button href="" class="bg-White hover:bg-gray-100 text-gray-800 font-semibold py-2 px-20  border rounded shadow text-center text-DarkSlateGray">
+  <a href="{{ url('/login')}}">
+      <button  class="bg-White hover:bg-gray-100 font-semibold py-2 px-20  border rounded  text-center text-DarkSlateGray">
     Sing In
       </button>
+    </a>
     </div>
   </div>
 </body>
