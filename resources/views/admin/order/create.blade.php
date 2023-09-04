@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Add new order</h1>
-    <form action="{{route('order.store')}}"method="POST" enctype="multipart/form-data">
+    <form action="{{route('admin.order.store')}}"method="POST" enctype="multipart/form-data">
         {{csrf_field()}}
         <label for="cost">Order Total</label>
         <input type="text" name="cost">

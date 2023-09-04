@@ -9,16 +9,12 @@ use App\Models\Status;
 class OrderController extends Controller
 {
     public function index(){
-        $orders = Order::with('status')->get();
-        $orders = Order::with('user')->get();
-        //$orders = Order::all();
-        return view('order.index', compact('orders'));
+        $orders = Order::all();
+        return view('admin.order.index', compact('orders'));
     }
 
     public function create(){
-        $statuses= Status::all();
-        return view('order.create', compact('statuses'));
-
+            return view('admin.order.create');
     }
 
     public function store(Request $request){
@@ -30,12 +26,12 @@ class OrderController extends Controller
         $order->created_at = $request->created_at;
         $order->save();
 
-        return redirect()->route('order.index');
+        return redirect()->route('admin.order.index');
     }
 
     public function edit(Order $order){
-        $statuses= Status::all();
-         return view ('order.edit', compact('order', 'statuses'));
+        // $order = Order::find($id);
+         return view ('admin.order.edit', compact('order')); 
 
     }
 
@@ -43,52 +39,44 @@ class OrderController extends Controller
 
         $statuses= Status::all();
         $order->update($request->all());
-         return redirect()->route('order.index');
-
+         return redirect()->route('admin.order.index');
+        
     }
 
     public function show(Order $order){
-        return view('order.show' , compact('order'));
+        return view('admin.order.show' , compact('order'));
 
     }
 
     public function destroy(Order $order){
 
         $order->delete();
-        return redirect()->route('order.index');
+        return redirect()->route('admin.order.index');
     }
-
-   /*
-   
-   use Illuminate\Http\Request;
-use App\Models\Order;
-
-public function pay(Request $request)
-{
-    // Obtén el valor de $totalPrice desde el formulario
-    $totalPrice = $request->input('totalPrice');
-
-    // Aquí debes crear una nueva orden y guardarla en la base de datos
-    // Asegúrate de llenar los otros campos de la orden según sea necesario
-    $order = new Order;
-    $order->cost = $totalPrice;
-    $order->id_user = auth()->user()->id; // Asígnale el ID del usuario autenticado
-    $order->id_status = 1; // Supongamos que el ID del estado de la orden es 1
-    // Llena otros campos de la orden según tu estructura
-
-    $order->save();
-
-    // También debes guardar los productos relacionados con esta orden en la tabla pivot
-    // Recorre los productos en el carrito y guarda cada uno en la tabla pivot
-    foreach (auth()->user()->cart->products as $product) {
-        $order->products()->attach($product->id, ['amount' => $product->pivot->amount]);
-    }
-
-    // Luego, puedes redirigir al usuario a una página de confirmación o a donde sea necesario
-    return redirect()->route('confirmation');
 }
-   
-   
-   */
 
-};
+
+ 
+
+// public function pay(Request $request)
+// {
+//     // Obtén el valor de $totalPrice desde el formulario
+//     $totalPrice = $request->input('totalPrice');
+
+//     // Aquí debes crear una nueva orden y guardarla en la base de datos
+//     // Asegúrate de llenar los otros campos de la orden según sea necesario
+//     $order = new Order;
+//     $order->cost = $totalPrice;
+//     $order->id_user = auth()->user()->id; // Asígnale el ID del usuario autenticado
+//     $order->id_status = 1; // Supongamos que el ID del estado de la orden es 1
+//     // Llena otros campos de la orden según tu estructura
+
+//     $order->save();
+
+//     // También debes guardar los productos relacionados con esta orden en la tabla pivot
+//     // Recorre los productos en el carrito y guarda cada uno en la tabla pivot
+//     foreach (auth()->user()->cart->products as $product) {
+//         $order->products()->attach($product->id, ['amount' => $product->pivot->amount]);
+//     }
+
+// };
