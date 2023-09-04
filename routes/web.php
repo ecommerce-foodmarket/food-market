@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StatusController;
@@ -7,8 +9,34 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrdersProductsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\OrderController;
-use Illuminate\Support\Facades\Route;
 
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
 
 //RUTAS DE PRODUCTS
 Route::group(['prefix' => 'products'], function () {
@@ -70,7 +98,6 @@ Route::group(['prefix' => 'status'], function () {
     Route::put('/update/{status}', [StatusController::class, 'update'])->name('status.update');
     Route::delete('/destroy/{status}', [StatusController::class, 'destroy'])->name('status.destroy');
 });
-
 Route::group(['prefix' => 'cart'], function () {
     Route::get('/', [OrdersProductsController::class, 'index'])->name('cart.index');
     Route::post('/update', [OrdersProductsController::class, 'update'])->name('cart.update');
@@ -79,14 +106,13 @@ Route::group(['prefix' => 'cart'], function () {
     Route::post('/pay', [OrderController::class, 'pay'])->name('pay');
     // Route::get('/pastorders', [OrdersProductsController::class, 'pastorders'])->name('cart.pastorders');
     Route::get('/confirm', [OrdersProductsController::class, 'confirm'])->name('cart.confirm');
-
 });
 
-// Rutas de autenticación...
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// Rutas de registro...
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [RegisterController::class, 'register']);
+
+
+
+
+
+
+
