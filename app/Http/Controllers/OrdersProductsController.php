@@ -19,6 +19,24 @@ class OrdersProductsController extends Controller
         }else {
             return redirect()->route('cart.empty');
         }
+
+    }
+
+    // public function pastorders(){
+    //     $pastOrders = Order::where('id_status', '4')->get();
+    //     if($pastOrders->isEmpty()){
+    //         return view('cart.index', ['orders'=>$pastOrders, 'pastOrdersView'=>true]);
+
+    //     }else{
+    //         return view('cart.index', ['orders'=>$pastOrders, 'pastOrdersView'=>false]);
+    //     }
+       
+    // }
+
+    public function confirm(){
+        return "confirma aquí tu pedido";
+    }
+        
        
 
 
@@ -30,7 +48,7 @@ class OrdersProductsController extends Controller
         return view ('cart.index', compact('cart'));
         */ 
 
-    }
+    
 
     public function update(Request $request){
         $order = $request->input('order_id');

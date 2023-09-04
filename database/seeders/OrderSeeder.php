@@ -14,47 +14,11 @@ class OrderSeeder extends Seeder
      */
     public function run(): void
     {
-        Order::create(
-            [
-                'id'=>1,
-                'id_user'=>1,
-                'id_status'=>1,
-                'cost'=>6.90
-
-            ]
-        );
-        Order::create(
-            [
-                'id'=>2,
-                'id_user'=>1,
-                'id_status'=>1,
-                'cost'=>7.90
-                
-            ]
-        );
-        Order::create(
-            [
-                'id'=>3,
-                'id_user'=>1,
-                'id_status'=>1,
-                'cost'=>8.90
-                
-            ]
-        );
-        Order::create(
-            [
-                'id'=>4,
-                'id_user'=>1,
-                'id_status'=>1,
-                'cost'=>9.90
-                
-            ]
-        );
-
         DB::table('order_product')->insert([
             'order_id' => 1,
             'product_id'=> 4,
             'amount' => 3,
+            
         ]);
         DB::table('order_product')->insert([
             'order_id' => 1,
@@ -76,5 +40,46 @@ class OrderSeeder extends Seeder
             'product_id'=> 6,
             'amount' => 1,
         ]);
+
+
+
+        Order::create(
+            [
+                'id'=>1,
+                'id_user'=>1,
+                'id_status'=>0,
+                'cost'=>6.90
+
+            ]
+        );
+        Order::create(
+            [
+                'id'=>2,
+                'id_user'=>1,
+                'id_status'=>0,
+                'cost'=>7.90
+                
+            ]
+        );
+        Order::create(
+            [
+                'id'=>3,
+                'id_user'=>1,
+                'id_status'=>4,
+                'cost'=>8.90
+                
+            ]
+        );
+        Order::create(
+            [
+                'id'=>4,
+                'id_user'=>1,
+                'id_status'=>4,
+                'cost'=>9.90
+                
+            ]
+        );
+
+       
     }
 }
