@@ -42,14 +42,14 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 //RUTAS DE PRODUCTS
-Route::group(['prefix' => 'products'], function () {
-    Route::get('/',[ProductsController::class, 'index'])->name('products.index');
-    Route::get('/create',[ProductsController::class, 'create'])->name('products.create');
-    Route::post('/store',[ProductsController::class, 'store'])->name('products.store');
-    Route::get('/edit/{product}',[ProductsController::class, 'edit'])->name('products.edit');
-    Route::put('/update/{product}',[ProductsController::class, 'update'])->name('products.update');
-    Route::get('/show/{product}',[ProductsController::class, 'show'])->name('products.show');
-    Route::delete('/destroy/{product}',[ProductsController::class, 'destroy'])->name('products.destroy');
+Route::group(['prefix' => 'admin/products'], function () {
+    Route::get('/',[ProductsController::class, 'index'])->name('admin.products.index');
+    Route::get('/create',[ProductsController::class, 'create'])->name('admin.products.create');
+    Route::post('/store',[ProductsController::class, 'store'])->name('admin.products.store');
+    Route::get('/edit/{product}',[ProductsController::class, 'edit'])->name('admin.products.edit');
+    Route::put('/update/{product}',[ProductsController::class, 'update'])->name('admin.products.update');
+    Route::get('/show/{product}',[ProductsController::class, 'show'])->name('admin.products.show');
+    Route::delete('/destroy/{product}',[ProductsController::class, 'destroy'])->name('admin.products.destroy');
 });
 //RUTAS DE CATEGORY
 Route::group(['prefix' => 'category'], function () {
@@ -89,7 +89,7 @@ Route::group(['prefix' => 'admin/order'], function () {
     Route::get('/show/{order}', [OrderController::class, 'show'])->name('admin.order.show');
     Route::get('/edit/{order}', [OrderController::class, 'edit'])->name('admin.order.edit');
     Route::put('/update/{order}', [OrderController::class, 'update'])->name('admin.order.update');
-    Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('admin.order.destroy'); 
+    Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('admin.order.destroy');
 });
 
 Route::delete('/cancel', [OrderController::class, 'destroyUser'])->name('order.destroy');
@@ -113,7 +113,7 @@ Route::group(['prefix' => 'cart'], function () {
     Route::get('/empty', [OrdersProductsController::class, 'empty'])->name('cart.empty');
     Route::post('/pay', [OrderController::class, 'pay'])->name('pay');
     Route::get('/pastOrders', [OrderController::class, 'pastOrders'])->name('cart.pastOrders');
-  
+
     Route::get('/confirm', [OrdersProductsController::class, 'confirm'])->name('cart.confirm');
-    
+
 });

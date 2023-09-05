@@ -11,13 +11,13 @@ class OrderController extends Controller
     public function index(){
         $orders = Order::with('status')->get();
         $orders = Order::with('user')->get();
-        //$orders = Order::all();
         $orders = Order::all();
         return view('admin.order.index', compact('orders'));
     }
 
     public function create(){
-            return view('admin.order.create');
+        $statuses= Status::all();
+        return view('admin.order.create');
     }
 
     public function store(Request $request){
@@ -30,12 +30,12 @@ class OrderController extends Controller
         $order->save();
 
         return redirect()->route('admin.order.index');
-        return redirect()->route('admin.order.index');
     }
 
     public function edit(Order $order){
-        // $order = Order::find($id);
-         return view ('admin.order.edit', compact('order')); 
+        
+        $statuses= Status::all();
+         return view ('admin.order.edit', compact('order', 'statuses'));
 
     }
 
@@ -44,7 +44,7 @@ class OrderController extends Controller
         $statuses= Status::all();
         $order->update($request->all());
          return redirect()->route('admin.order.index');
-        
+
     }
 
     public function show(Order $order){
@@ -56,7 +56,7 @@ class OrderController extends Controller
 
         $order->delete();
         return redirect()->route('admin.order.index');
-        return redirect()->route('admin.order.index');
+
     }
 
     public function destroyUser(Order $order){
@@ -67,7 +67,7 @@ class OrderController extends Controller
 }
 
 
- 
+
 
 // public function pay(Request $request)
 // {
