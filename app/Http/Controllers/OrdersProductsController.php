@@ -36,7 +36,7 @@ class OrdersProductsController extends Controller
 
     public function confirm()
     {
-        return "confirma aquí tu pedido";
+        return view('cart.confirm') ;
     }
         
        

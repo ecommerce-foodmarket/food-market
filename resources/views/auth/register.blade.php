@@ -83,7 +83,7 @@
 
         <div>
             <x-input-label for="picture" :value="__('picture')" />
-            <x-text-input id="picture" class="block mt-1 w-full" type="file" name="picture" :value="old('picture')" required autofocus autocomplete="picture" />
+            <x-text-input id="picture" class="block mt-1 w-full" type="file" name="picture" :value="old('picture')" />
             <x-input-error :messages="$errors->get('picture')" class="mt-2" />
         </div>
 
