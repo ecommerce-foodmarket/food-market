@@ -4,8 +4,8 @@
 
 body{
     margin:0;
-    
-   
+
+
 }
 
 p{
@@ -40,5 +40,10 @@ line-height: normal;
 }
 
 
+.backWel{
+    background-color: #4A6159;
+    color: #fff;
+    
+}
 
 
