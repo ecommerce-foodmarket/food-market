@@ -38,5 +38,9 @@ Route::group(['prefix' => 'admin/order'], function () {
 
 });
 
+Route::group(['prefix' => 'admin/product'], function () {
+    Route::get('/all', [ProductController::class, 'index'])->name('admin.product.index');
+});
+
 
 

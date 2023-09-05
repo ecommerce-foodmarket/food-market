@@ -2,8 +2,9 @@
 @extends('layouts.admin')
 @section('content')
 
-   <div id="table" class="relative overflow-x-auto">
-     
+<body> 
+<div class="table-container">
+   <div id="table" class="relative overflow-x-auto w-full">    
     <table id="myTable" class="display">
         <h2> Processing Order details </h2>
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -51,8 +52,7 @@
     </tbody>
 </table>
 </div>
-
-
+</div>
 <script>
     $(document).ready(function() {
   $('#myTable').DataTable();
@@ -60,3 +60,5 @@
 </script>
 </div>  
 @endsection
+</body>
+</html>

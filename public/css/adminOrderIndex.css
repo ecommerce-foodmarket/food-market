@@ -4,8 +4,8 @@ background-color: #ffffff;
 }
 
 .main{
-    display: flex;
-    flex-direction: row;
+display: flex;
+flex-direction: row;
 
 }
 
@@ -33,4 +33,8 @@ height: 4rem;
 
 .bg-custom{
 background-color: #4A6159;
+}
+
+.table-container{
+    width: 100%;
 }
