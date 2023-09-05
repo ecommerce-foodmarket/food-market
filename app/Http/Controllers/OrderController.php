@@ -30,7 +30,7 @@ class OrderController extends Controller
         $order->created_at = $request->created_at;
         $order->save();
 
-        return redirect()->route('order.index');
+        return redirect()->route('admin.order.index');
     }
 
     public function edit(Order $order){
@@ -43,7 +43,7 @@ class OrderController extends Controller
 
         $statuses= Status::all();
         $order->update($request->all());
-         return redirect()->route('order.index');
+         return redirect()->route('admin.order.index');
 
     }
 
@@ -55,11 +55,11 @@ class OrderController extends Controller
     public function destroy(Order $order){
 
         $order->delete();
-        return redirect()->route('order.index');
+        return redirect()->route('admin.order.index');
     }
 
    /*
-   
+
    use Illuminate\Http\Request;
 use App\Models\Order;
 
@@ -87,8 +87,8 @@ public function pay(Request $request)
     // Luego, puedes redirigir al usuario a una página de confirmación o a donde sea necesario
     return redirect()->route('confirmation');
 }
-   
-   
+
+
    */
 
 };
