@@ -1,0 +1,36 @@
+body {
+background-color: #ffffff;
+   
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+
+}
+
+h2 {
+font-size: 2em;
+text-align: center;
+margin-top: 2%;
+}
+
+#table {
+width: 90%;
+margin: 3%;
+background-color: #D5ECE4;
+
+}
+
+.button-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.logo{
+height: 4rem;
+}
+
+.bg-custom{
+background-color: #4A6159;
+}

@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Route::resource('/user', UserController::class);
 
 // Route::get('/user', [UserController::class, 'index'])->name('allUsers');
