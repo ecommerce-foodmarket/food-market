@@ -12,7 +12,7 @@ class OrderController extends Controller
         $orders = Order::with('status')->get();
         $orders = Order::with('user')->get();
         //$orders = Order::all();
-        return view('order.index', compact('orders'));
+        return view('admin.order.index', compact('orders'));
     }
 
     public function create(){

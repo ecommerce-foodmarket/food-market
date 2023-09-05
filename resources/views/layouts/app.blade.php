@@ -29,7 +29,7 @@
 
             <!-- Page Content -->
             <main>
-                {{route('admin.order.store')}}
+                @yield ('content')
             </main>
         </div>
     </body>
