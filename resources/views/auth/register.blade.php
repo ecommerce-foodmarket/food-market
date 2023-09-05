@@ -70,58 +70,11 @@
          <!--Picture-->
          <div class="mt-4">
             <x-input-label for="picture" :value="__('Picture')" />
-            <x-text-input id="picture" class="block mt-1 w-full" type="image" name="picture" :value="old('picture')"  />
+            <x-text-input id="picture" class="block mt-1 w-full" type="file" name="picture" :value="old('picture')"  />
             <x-input-error :messages="$errors->get('picture')" class="mt-2" />
         </div>
 
 
-        <!--Phone-->
-
-        <div>
-            <x-input-label for="phone" :value="__('Phone')" />
-            <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
-            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
-        </div>
-
-         <!--Address-->
-         <div>
-            <x-input-label for="address" :value="__('address')" />
-            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus autocomplete="address" />
-            <x-input-error :messages="$errors->get('address')" class="mt-2" />
-        </div>
-
-        <!--House No.-->
-
-        <div>
-            <x-input-label for="house_n" :value="__('house_n')" />
-            <x-text-input id="house_n" class="block mt-1 w-full" type="text" name="house_n" :value="old('house_n')" required autofocus autocomplete="house_n" />
-            <x-input-error :messages="$errors->get('house_n')" class="mt-2" />
-        </div>
-
-        <!--City.-->
-
-        <div>
-            <x-input-label for="city" :value="__('city')" />
-            <x-text-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" required autofocus autocomplete="city" />
-            <x-input-error :messages="$errors->get('city')" class="mt-2" />
-        </div>
-         <!--rol.-->
-
-         <div>
-            <x-input-label for="id_rol" :value= "3" hidden />
-            <x-text-input id="id_rol" class="block mt-1 w-full" type="text" name="id_rol" :value="old('id_rol')" required autofocus autocomplete="id_rol" />
-            <x-input-error :messages="$errors->get('id_rol')" class="mt-2" />
-            
-            
-        </div>
-
-        <!--Picture-->
-
-        <div>
-            <x-input-label for="picture" :value="__('picture')" />
-            <x-text-input id="picture" class="block mt-1 w-full" type="file" name="picture" :value="old('picture')" />
-            <x-input-error :messages="$errors->get('picture')" class="mt-2" />
-        </div>
 
 
 
