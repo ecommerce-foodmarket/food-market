@@ -53,6 +53,12 @@ class OrderController extends Controller
         $order->delete();
         return redirect()->route('admin.order.index');
     }
+
+    public function destroyUser(Order $order){
+
+        $order->delete();
+        return redirect()->route('products.index');
+    }
 }
 
 

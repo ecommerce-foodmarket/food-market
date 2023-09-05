@@ -3,6 +3,13 @@
     background-color: #4A6159;
 }
 
+.cancel-bt{
+    background-color: transparent;
+    border: solid 1px;
+   
+    border-color: #F6AE96;
+}
+
 
 .text-custom-text-color {
     color: #F6AE96;
@@ -40,4 +47,28 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
   }
+
+  .dark [role=tab].active, .dark [role=tab].active:hover, [role=tab].active, [role=tab].active:hover {
+    border-color:#4A6159 ;
+    color:#4A6159;
+    font-weight: 500;
+}
+
+.shoppingBag{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.info{
+    width: 60%;
+}
+
+.mt-bttn{
+    margin-top: 5rem;
+}
+
+
 

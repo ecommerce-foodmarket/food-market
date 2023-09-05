@@ -58,8 +58,11 @@ Route::group(['prefix' => 'admin/order'], function () {
     Route::get('/show/{order}', [OrderController::class, 'show'])->name('admin.order.show');
     Route::get('/edit/{order}', [OrderController::class, 'edit'])->name('admin.order.edit');
     Route::put('/update/{order}', [OrderController::class, 'update'])->name('admin.order.update');
-    Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('admin.order.destroy');
+    Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('admin.order.destroy'); 
 });
+
+Route::delete('/cancel', [OrderController::class, 'destroyUser'])->name('order.destroy');
+
 
 //RUTAS DE STATUS
 Route::group(['prefix' => 'status'], function () {
@@ -78,7 +81,8 @@ Route::group(['prefix' => 'cart'], function () {
     Route::delete('cart/{order}{product}', [OrdersProductsController::class, 'destroy'])->name('cart.destroy');
     Route::get('/empty', [OrdersProductsController::class, 'empty'])->name('cart.empty');
     Route::post('/pay', [OrderController::class, 'pay'])->name('pay');
-    Route::get('/pastorders', [OrdersProductsController::class, 'pastorders'])->name('cart.pastorders');
+    Route::get('/pastOrders', [OrderController::class, 'pastOrders'])->name('cart.pastOrders');
+  
     Route::get('/confirm', [OrdersProductsController::class, 'confirm'])->name('cart.confirm');
     
 });
