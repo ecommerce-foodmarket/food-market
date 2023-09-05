@@ -1,6 +1,6 @@
 @extends('layoutsUser.app')
 @section('content')
-<div class=" w-screen h-screen container ">
+{{-- <div class=" w-screen h-screen container ">
   <div class="">
     <h1 class="text-dark font-Poppins text-3xl font-bold w-full">Log In</h1>
     <div>
@@ -53,5 +53,5 @@
         
     </form>
     </div>
-  </div>
+  </div> --}}
     @endsection
