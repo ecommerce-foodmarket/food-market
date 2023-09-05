@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -61,8 +62,18 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('user.index');
     }
+  
+
    public function dashboard(){
-    return view('user.dashboard');
+    $user = Auth::user();
+    
+    
+
+    if($user){
+        return view ('user.dashboard', compact('user'));
+    }else{
+        return redirect()->route('login');
+    }
    }
 }
 

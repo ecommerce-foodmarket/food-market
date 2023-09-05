@@ -20,7 +20,17 @@
 @extends('layouts.user')
 
 @section('content')
-<h1>usuario</h1>
+<div class="bg-white w-22.5rem h-6.75rem flex-shrink-0">
+    <div class="flex items-center">
+        <div class= "m-4">
+            <h3 class="text-xl font-semibold">SpeedyBite</h3>
+            <h4>Let’s get some foods, {{$user->name}}</h4>
+        </div>
+    <div>
+        {{$user->picture}}
+    </div>
+    </div>
+</div>
 
 
 

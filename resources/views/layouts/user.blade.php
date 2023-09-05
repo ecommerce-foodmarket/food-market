@@ -58,13 +58,13 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css" />
     <link rel="stylesheet" href="{{ asset('css/cart.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}" type="text/css">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen flex flex-col">
-    <div class="min-h-full bg-gray-100">
+    <div class="min-h-full bg-white">
         @include('layouts.navigation')
 
         <!-- Page Heading -->

@@ -9,6 +9,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 
 Route::get('/', function () {
@@ -21,9 +22,9 @@ Route::view('/login', 'login');
 
 Route::get('/dashboard', function () {
     return view('user.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('user.dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth',)->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -32,7 +33,7 @@ Route::middleware('auth')->group(function () {
     })->name('user.dashboard');
 });
 
-Route::middleware(['auth', 'can:admin-staff'])->group(function(){
+Route::middleware(['auth'])->group(function(){
     Route::get('/admin/dashboard', function(){
         return view ('admin.dashboard');
     })->name('admin.dashboard');
@@ -117,3 +118,6 @@ Route::group(['prefix' => 'cart'], function () {
     Route::get('/confirm', [OrdersProductsController::class, 'confirm'])->name('cart.confirm');
     
 });
+Route::get('/dashboard', 'App\Http\Controllers\DashboardController@redirectToDashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
