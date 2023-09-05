@@ -1,37 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Añadir nuevo usuario</h1>
-    <form action="{{route('storeuser')}}"method="POST" enctype="multipart/form-data">
+@extends('layoutsUser.app')
+@section('content')
+    <h1>Sing Up Now</h1>
+    <a href="{{ route('user.index')}}">Back</a>
+    <form action="{{route('user.store')}}" method="POST" //enctype="multipart/form-data">
         {{csrf_field()}}
-        <label for="name">Nombre</label>
+        @csrf
+        <label for="name">Full Name</label>
         <input type="text" name="name">
-        <label for="email">Email</label>
+        <br>
+        <label for="email">Email Address</label>
         <input type="email" name="email">
-        <label for="password">Contraseña</label>
+        <br>
+        <label for="password">Password</label>
         <input type="password" name="password">
-        <label for="phone">Teléfono</label>
+        <br>
+        <label for="phone">Phone No.</label>
         <input type="text" name="phone">
-        <label for="address">calle</label>
+        <br>
+        <label for="address">Address</label>
         <input type="text" name="address">
-        <label for="house_n">Número</label>
-        <input type="number" name="house_n">
-        <label for="city">Ciudad</label>
+        <br>
+        <label for="house_n">House No.</label>
+        <input type="text" name="house_n">
+        <br>
+        <label for="city">City</label>
         <input type="text" name="city">
-        <label for="id_rol">Rol</label>
-        <input type="number" name="id_rol">
-        <label for="picture">Foto</label>
+        <br>
+        
+        <input type="hidden" name="id_rol" value="3">
+        <br>
+        <label for="picture">Photo</label>
+        <br>
         <input type="file" name="picture" id="user_picture">
-        <button type="Submit">Agregar usuario</button>
-
+        <br><br>
+        <input type="submit" value="Sing Up Now">
     </form>
-
-    </form>
-</body>
-</html>
+    @endsection

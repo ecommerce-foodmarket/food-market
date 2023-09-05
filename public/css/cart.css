@@ -1,0 +1,43 @@
+
+.bg-custom-background {
+    background-color: #4A6159;
+}
+
+
+.text-custom-text-color {
+    color: #F6AE96;
+}
+
+.link {
+    color: #4A6159; 
+}
+
+.text-custom-selected {
+    color: #4A6159;
+    font-weight: bold; 
+    text-decoration: underline; 
+}
+
+
+.text-custom-default {
+    color: gray; 
+}
+
+h3{
+    color: #020202;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  }
+
+  p{
+    color: #8D92A3;
+font-family: Poppins;
+font-size: 0.8125rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+  }
+

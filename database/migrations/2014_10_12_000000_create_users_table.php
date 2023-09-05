@@ -21,11 +21,11 @@ return new class extends Migration
             $table->text('address');
             $table->integer('house_n');
             $table->string('city');
-            $table->bigInteger('id_rol');
+            $table->unsignedBigInteger('id_rol');
             $table->string('picture')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            
+
         });
     }
 

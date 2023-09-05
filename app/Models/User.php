@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Role;
+use App\Models\Order;
 
 class User extends Authenticatable
 {
@@ -21,6 +24,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'address',
+        'house_n',
+        'city',
+        'id_rol',
+        'picture',
+
     ];
 
     /**
@@ -42,4 +52,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class, 'id_rol');
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->HasMany(Order::class, 'id_user', 'id');
+    }
+
+
 }
