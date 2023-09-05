@@ -9,13 +9,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\OrdersProductsController;
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\StatusController;
-use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,14 +41,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
-// Route::get('/login' () {
-//     return view('login')->name('log');
-// });
-Route::view('/login', 'login');
 
 //RUTAS DE PRODUCTS
 Route::group(['prefix' => 'products'], function () {
