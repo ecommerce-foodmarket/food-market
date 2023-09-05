@@ -16,7 +16,9 @@
     </div>
 </x-app-layout> --}}
 
-@extends('layouts.app')
+
+@extends('layouts.user')
+
 @section('content')
 <h1>usuario</h1>
 
@@ -24,3 +26,7 @@
 
 
 @endsection
+
+@php
+   $section= 'dashboard';
+@endphp

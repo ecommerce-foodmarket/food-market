@@ -5,7 +5,7 @@
     $totalPrice = 0;    
     @endphp
 
-<div class="bg-white-900 w-22.5rem h-6.75rem flex-shrink-0">
+<div class="bg-white w-22.5rem h-6.75rem flex-shrink-0">
     <div class="flex items-center">
        
         <div class="w-10 h-10 bg-white-400 m-8 flex-shrink-0">
@@ -98,7 +98,7 @@
                     </form>
                     
                     
-                    <a href="{{ route('products.index') }}" class="block mt-4 link hover:underline text-center">Back to products</a>
+                    <a href="{{ route('user.dashboard') }}" class="block mt-4 link hover:underline text-center">Back to products</a>
                     </div>
                     </div>
                     

@@ -10,16 +10,6 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,13 +20,22 @@ Route::get('/', function () {
 Route::view('/login', 'login');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('user.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/login', function(){
+        return view('user.dashboard');
+    })->name('user.dashboard');
+});
+
+Route::middleware(['auth', 'can:admin-staff'])->group(function(){
+    Route::get('/admin/dashboard', function(){
+        return view ('admin.dashboard');
+    })->name('admin.dashboard');
 });
 
 require __DIR__.'/auth.php';
@@ -70,6 +69,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::put('/update/{user}', [UserController::class, 'update'])->name('user.update');
     Route::get('show/{user}', [UserController::class, 'show']) ->name('user.show');
     Route::delete('/destroy{user}', [UserController::class, 'destroy']) ->name('user.destroy');
+    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
 });
 //RUTAS DE ROLE
 Route::group(['prefix' => 'role'], function () {
