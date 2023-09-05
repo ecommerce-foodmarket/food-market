@@ -14,10 +14,14 @@
         <input type="text" name="cost">
         <label for="id_user">User ID</label>
         <input type="number" name="id_user">
-        <label for="id_status">Status ID</label>
-        <input type="number" name="id_status">
-        <label for="created_at">Date</label>
-        <input type="date" name="created_at	">
+        <label for="id_status" class="block font-semibold">Status</label>
+            <select name="id_status" class="form-select">
+                @foreach ( $statuses as $status )
+                 <option value="{{$status['id']}}">{{$status['name_status']}}</option>
+                @endforeach
+            </select>
+
+        
         <button type="Submit">Add order</button>
     </form>
 </body>
