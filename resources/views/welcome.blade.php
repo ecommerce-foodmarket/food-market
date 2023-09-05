@@ -13,9 +13,9 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
         <!-- Styles -->
-        {{-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <script src="{{ asset('js/app.js') }}"></script> --}}
+        <script src="{{ asset('js/app.js') }}"></script>
 
     </head>
     <body class="backWel bg-yellow">

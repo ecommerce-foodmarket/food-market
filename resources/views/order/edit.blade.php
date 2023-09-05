@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Edit order</h1>
-    <form action="{{ route('order.update' , $order->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.order.update' , $order->id) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         {{csrf_field()}}
         <label for="cost">Order Total</label>
@@ -23,7 +23,7 @@
                 </option>
             @endforeach
             </select>
-        
+
         <button type="Submit">Update</button>
     </form>
 </body>

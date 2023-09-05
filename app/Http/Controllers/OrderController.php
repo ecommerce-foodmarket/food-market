@@ -27,6 +27,7 @@ class OrderController extends Controller
         $order->save();
 
         return redirect()->route('admin.order.index');
+        return redirect()->route('admin.order.index');
     }
 
     public function edit(Order $order){
@@ -51,6 +52,7 @@ class OrderController extends Controller
     public function destroy(Order $order){
 
         $order->delete();
+        return redirect()->route('admin.order.index');
         return redirect()->route('admin.order.index');
     }
 
