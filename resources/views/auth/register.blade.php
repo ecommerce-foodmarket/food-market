@@ -70,9 +70,12 @@
          <!--Picture-->
          <div class="mt-4">
             <x-input-label for="picture" :value="__('Picture')" />
-            <x-text-input id="picture" class="block mt-1 w-full" type="image" name="picture" :value="old('picture')"  />
+            <x-text-input id="picture" class="block mt-1 w-full" type="file" name="picture" :value="old('picture')"  />
             <x-input-error :messages="$errors->get('picture')" class="mt-2" />
         </div>
+
+
+
 
 
         <div class="flex items-center justify-end mt-4">

@@ -14,27 +14,29 @@ class OrdersProductsController extends Controller
     {
         $order = Order::with('products')->find(2); 
 
-        if($order){
-            return view('cart.index', ['order'=>$order]);
-        }else {
+        if ($order) {
+             
+            return view('cart.index', ['order' => $order]);
+        } else {
             return redirect()->route('cart.empty');
         }
-
     }
 
-    // public function pastorders(){
-    //     $pastOrders = Order::where('id_status', '4')->get();
-    //     if($pastOrders->isEmpty()){
-    //         return view('cart.index', ['orders'=>$pastOrders, 'pastOrdersView'=>true]);
+    public function pastOrders()
+    {
+        $order = Order::where('status', '4')->get();
 
-    //     }else{
-    //         return view('cart.index', ['orders'=>$pastOrders, 'pastOrdersView'=>false]);
-    //     }
-       
-    // }
+        if($order){
+            return view('cart.pastOrders', ['order'=>$order]);
+        }else{
+            return  "You haven't done an order yet";
+        }
+    }
 
-    public function confirm(){
-        return "confirma aquí tu pedido";
+
+    public function confirm()
+    {
+        return view('cart.confirm') ;
     }
         
        
@@ -89,6 +91,10 @@ class OrdersProductsController extends Controller
 
             return redirect()->route('cart.index');
 
+        }
+
+        public function empty(){
+            return view ('cart.empty');
         }
 
        

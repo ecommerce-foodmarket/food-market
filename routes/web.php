@@ -1,16 +1,14 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrdersProductsController;
 use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -104,6 +102,7 @@ Route::group(['prefix' => 'status'], function () {
 });
 
 require __DIR__.'/auth.php';
+
 //RUTAS DE PRODUCTS
 Route::group(['prefix' => 'products'], function () {
     Route::get('/',[ProductsController::class, 'index'])->name('products.index');
@@ -152,9 +151,12 @@ Route::group(['prefix' => 'admin/order'], function () {
     Route::get('/show/{order}', [OrderController::class, 'show'])->name('admin.order.show');
     Route::get('/edit/{order}', [OrderController::class, 'edit'])->name('admin.order.edit');
     Route::put('/update/{order}', [OrderController::class, 'update'])->name('admin.order.update');
-    Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('admin.order.destroy');
+    Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('admin.order.destroy'); 
 });
+
 Route::delete('/cancel', [OrderController::class, 'destroyUser'])->name('order.destroy');
+
+
 //RUTAS DE STATUS
 Route::group(['prefix' => 'status'], function () {
     Route::get('/', [StatusController::class, 'index'])->name('status.index');
@@ -165,6 +167,7 @@ Route::group(['prefix' => 'status'], function () {
     Route::put('/update/{status}', [StatusController::class, 'update'])->name('status.update');
     Route::delete('/destroy/{status}', [StatusController::class, 'destroy'])->name('status.destroy');
 });
+
 Route::group(['prefix' => 'cart'], function () {
     Route::get('/', [OrdersProductsController::class, 'index'])->name('cart.index');
     Route::post('/update', [OrdersProductsController::class, 'update'])->name('cart.update');
@@ -172,5 +175,7 @@ Route::group(['prefix' => 'cart'], function () {
     Route::get('/empty', [OrdersProductsController::class, 'empty'])->name('cart.empty');
     Route::post('/pay', [OrderController::class, 'pay'])->name('pay');
     Route::get('/pastOrders', [OrderController::class, 'pastOrders'])->name('cart.pastOrders');
+  
     Route::get('/confirm', [OrdersProductsController::class, 'confirm'])->name('cart.confirm');
+    
 });
