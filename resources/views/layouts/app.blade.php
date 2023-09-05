@@ -29,7 +29,7 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                {{route('admin.order.store')}}
             </main>
         </div>
     </body>
