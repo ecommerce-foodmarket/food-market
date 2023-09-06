@@ -9,15 +9,17 @@ use App\Models\Status;
 class OrderController extends Controller
 {
     public function index(){
+<<<<<<<<< Temporary merge branch 1
+        $orders = Order::all();
         $orders = Order::with('status')->get();
         $orders = Order::with('user')->get();
-        $orders = Order::all();
         return view('admin.order.index', compact('orders'));
     }
 
     public function create(){
-        $statuses= Status::all();
-        return view('admin.order.create');
+          $statuses= Status::all();
+            return view('admin.order.create');
+        //$orders = Order::all();
     }
 
     public function store(Request $request){
@@ -33,10 +35,14 @@ class OrderController extends Controller
     }
 
     public function edit(Order $order){
-        
+<<<<<<<<< Temporary merge branch 1
+        // $order = Order::find($id);
+         return view ('admin.order.edit', compact('order'));
+=========
         $statuses= Status::all();
          return view ('admin.order.edit', compact('order', 'statuses'));
 
+         return view ('admin.order.edit', compact('order','statuses'));
     }
 
     public function update(Request $request, Order $order){
@@ -49,11 +55,9 @@ class OrderController extends Controller
 
     public function show(Order $order){
         return view('admin.order.show' , compact('order'));
-
     }
 
     public function destroy(Order $order){
-
         $order->delete();
         return redirect()->route('admin.order.index');
 
