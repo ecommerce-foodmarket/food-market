@@ -9,6 +9,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,14 +43,14 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 //RUTAS DE PRODUCTS
-Route::group(['prefix' => 'admin/products'], function () {
-    Route::get('/',[ProductsController::class, 'index'])->name('admin.products.index');
-    Route::get('/create',[ProductsController::class, 'create'])->name('admin.products.create');
-    Route::post('/store',[ProductsController::class, 'store'])->name('admin.products.store');
-    Route::get('/edit/{product}',[ProductsController::class, 'edit'])->name('admin.products.edit');
-    Route::put('/update/{product}',[ProductsController::class, 'update'])->name('admin.products.update');
-    Route::get('/show/{product}',[ProductsController::class, 'show'])->name('admin.products.show');
-    Route::delete('/destroy/{product}',[ProductsController::class, 'destroy'])->name('admin.products.destroy');
+Route::group(['prefix' => '/products'], function () {
+    Route::get('/',[ProductsController::class, 'index'])->name('products.index');
+    Route::get('/create',[ProductsController::class, 'create'])->name('products.create');
+    Route::post('/store',[ProductsController::class, 'store'])->name('products.store');
+    Route::get('/edit/{product}',[ProductsController::class, 'edit'])->name('products.edit');
+    Route::put('/update/{product}',[ProductsController::class, 'update'])->name('products.update');
+    Route::get('/show/{product}',[ProductsController::class, 'show'])->name('products.show');
+    Route::delete('/destroy/{product}',[ProductsController::class, 'destroy'])->name('products.destroy');
 });
 //RUTAS DE CATEGORY
 Route::group(['prefix' => 'category'], function () {
@@ -116,4 +117,15 @@ Route::group(['prefix' => 'cart'], function () {
 
     Route::get('/confirm', [OrdersProductsController::class, 'confirm'])->name('cart.confirm');
 
+});
+
+//RUTAS DE PRODUCTS
+Route::group(['prefix' => 'admin/products'], function () {
+    Route::get('/',[AdminProductsController::class, 'index'])->name('admin.products.index');
+    Route::get('/create',[AdminProductsController::class, 'create'])->name('admin.products.create');
+    Route::post('/store',[AdminProductsController::class, 'store'])->name('admin.products.store');
+    Route::get('/edit/{product}',[AdminProductsController::class, 'edit'])->name('admin.products.edit');
+    Route::put('/update/{product}',[AdminProductsController::class, 'update'])->name('admin.products.update');
+    Route::get('/show/{product}',[AdminProductsController::class, 'show'])->name('admin.products.show');
+    Route::delete('/destroy/{product}',[AdminProductsController::class, 'destroy'])->name('admin.products.destroy');
 });
