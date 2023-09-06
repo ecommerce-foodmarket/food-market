@@ -14,22 +14,22 @@ class CategorySeeder extends Seeder
     {
         Category::create([
             'id'=> 1,
-            'name_category'=> 'Salads'
+            'name_category'=> 'Fish'
         ]);
     
         Category::create([
             'id'=> 2,
-            'name_category'=> 'Burguers'
+            'name_category'=> 'Rice'
         ]);
 
         Category::create([
             'id'=> 3,
-            'name_category'=> 'Pizzas'
+            'name_category'=> 'Meat'
         ]);
 
         Category::create([
             'id'=> 4,
-            'name_category'=> 'Desserts'
+            'name_category'=> 'Vegetables'
         ]);
     }
 }

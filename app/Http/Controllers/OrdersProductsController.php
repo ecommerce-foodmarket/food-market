@@ -10,28 +10,29 @@ use Illuminate\Support\Facades\DB;
 
 class OrdersProductsController extends Controller
 {
-    public function index()
-    {
-        $order = Order::with('products')->find(2); 
+    // public function index()
+    // {
+    //     $order = Order::with('products')->find(2); 
 
-        if ($order) {
+    //     if ($order) {
              
-            return view('cart.index', ['order' => $order]);
-        } else {
-            return redirect()->route('cart.empty');
-        }
-    }
+    //         return view('cart.index', ['order' => $order]);
+    //     } else {
+    //         return redirect()->route('cart.empty');
+    //     }
+    // }
 
-    public function pastOrders()
-    {
-        $order = Order::where('status', '4')->get();
-
-        if($order){
-            return view('cart.pastOrders', ['order'=>$order]);
-        }else{
-            return  "You haven't done an order yet";
-        }
-    }
+    // public function pastOrders()
+    // {
+    //     $pastOrder = Order::where('status', '4')->get();
+    
+    //     if ($pastOrder->isEmpty()) {
+    //         return  "You haven't done an order yet";
+    //     } else {
+    //         return view('cart.pastOrders', ['pastOrder' => $pastOrder]);
+    //     }
+    // }
+    
 
 
     public function confirm()
@@ -40,15 +41,48 @@ class OrdersProductsController extends Controller
     }
         
        
+    // public function index()
+    // {
+    //     $user = auth()->user()->id;
+    
+    //     $cart = Product::whereHas('order', function ($query) use ($user) {
+            
+    //         $query->where('id_user', $user);
+    //     })->get(); 
+    
+    //     return view('cart.index', compact('cart'));
+    // }
 
+    public function index()
+{
+    $user = auth()->user();
+    
+    $orders = Order::where('id_user', $user->id)
+                  ->where('id_status', 0) 
+                  ->with('products') 
+                  ->get();
 
-        //PARA USUARIOS AUTENTICADOS
-        /*
-        $user=auth()->user()->id;
-        $cart=Product::whereHas ('order, function ($query) use ($user))
+    $pastOrders = Order::where('id_user', $user->id)
+    ->where('id_status', 4) 
+    ->with('products') 
+    ->get();
 
-        return view ('cart.index', compact('cart'));
-        */ 
+    if ($orders->isEmpty()) {
+        return redirect()->route('cart.empty'); 
+    }
+
+    return view('cart.index', compact('ordersInProgress', 'pastOrders'));
+}
+
+    
+
+    
+
+    
+
+        
+       
+        
 
     
 

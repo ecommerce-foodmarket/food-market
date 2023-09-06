@@ -1,26 +1,16 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrdersProductsController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminProductsController;
+use App\Http\Controllers\DashboardController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,10 +21,10 @@ Route::get('/', function () {
 Route::view('/login', 'login');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('user.dashboard');
+})->middleware(['auth', 'verified'])->name('user.dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth',)->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -91,11 +81,9 @@ Route::group(['prefix' => 'admin/order'], function () {
     Route::get('/edit/{order}', [OrderController::class, 'edit'])->name('admin.order.edit');
     Route::put('/update/{order}', [OrderController::class, 'update'])->name('admin.order.update');
     Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('admin.order.destroy');
+    Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('admin.order.destroy');
 });
-
 Route::delete('/cancel', [OrderController::class, 'destroyUser'])->name('order.destroy');
-
-
 //RUTAS DE STATUS
 Route::group(['prefix' => 'status'], function () {
     Route::get('/', [StatusController::class, 'index'])->name('status.index');
@@ -106,7 +94,6 @@ Route::group(['prefix' => 'status'], function () {
     Route::put('/update/{status}', [StatusController::class, 'update'])->name('status.update');
     Route::delete('/destroy/{status}', [StatusController::class, 'destroy'])->name('status.destroy');
 });
-
 Route::group(['prefix' => 'cart'], function () {
     Route::get('/', [OrdersProductsController::class, 'index'])->name('cart.index');
     Route::post('/update', [OrdersProductsController::class, 'update'])->name('cart.update');
@@ -117,15 +104,4 @@ Route::group(['prefix' => 'cart'], function () {
 
     Route::get('/confirm', [OrdersProductsController::class, 'confirm'])->name('cart.confirm');
 
-});
-
-//RUTAS DE PRODUCTS
-Route::group(['prefix' => 'admin/products'], function () {
-    Route::get('/',[AdminProductsController::class, 'index'])->name('admin.products.index');
-    Route::get('/create',[AdminProductsController::class, 'create'])->name('admin.products.create');
-    Route::post('/store',[AdminProductsController::class, 'store'])->name('admin.products.store');
-    Route::get('/edit/{product}',[AdminProductsController::class, 'edit'])->name('admin.products.edit');
-    Route::put('/update/{product}',[AdminProductsController::class, 'update'])->name('admin.products.update');
-    Route::get('/show/{product}',[AdminProductsController::class, 'show'])->name('admin.products.show');
-    Route::delete('/destroy/{product}',[AdminProductsController::class, 'destroy'])->name('admin.products.destroy');
 });

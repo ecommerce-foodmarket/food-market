@@ -15,6 +15,15 @@ class ProductsController extends Controller
         return view('products.index', compact('products'));
     }
 
+    public function dashboardCards(){
+        $user = auth()->user();
+        $products=Product::inRandomOrder()
+            ->take(10)
+            ->get();
+
+        return view('user.dashboard', compact('user', 'products'));
+    }
+
     public function create()
     {
         $categories= Category::all();

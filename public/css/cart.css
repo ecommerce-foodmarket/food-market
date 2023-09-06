@@ -1,7 +1,5 @@
 
-.bg-custom-background {
-    background-color: #4A6159;
-}
+
 
 .cancel-bt{
     background-color: transparent;
@@ -67,7 +65,7 @@ line-height: normal;
 }
 
 .mt-bttn{
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 .confirm-image{
