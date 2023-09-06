@@ -10,21 +10,15 @@ class OrderController extends Controller
 {
     public function index(){
         $orders = Order::all();
+        $orders = Order::with('status')->get();
+        $orders = Order::with('user')->get();
         return view('admin.order.index', compact('orders'));
     }
 
     public function create(){
+          $statuses= Status::all();
             return view('admin.order.create');
-        $orders = Order::with('status')->get();
-        $orders = Order::with('user')->get();
         //$orders = Order::all();
-        return view('order.index', compact('orders'));
-    }
-
-    public function createStatus(){
-        $statuses= Status::all();
-        return view('order.create', compact('statuses'));
-
     }
 
     public function store(Request $request){
@@ -41,10 +35,8 @@ class OrderController extends Controller
 
     public function edit(Order $order){
         // $order = Order::find($id);
-         return view ('admin.order.edit', compact('order')); 
         $statuses= Status::all();
-         return view ('order.edit', compact('order', 'statuses'));
-
+         return view ('admin.order.edit', compact('order','statuses')); 
     }
 
     public function update(Request $request, Order $order){
@@ -57,13 +49,17 @@ class OrderController extends Controller
 
     public function show(Order $order){
         return view('admin.order.show' , compact('order'));
-
     }
 
     public function destroy(Order $order){
-
         $order->delete();
         return redirect()->route('admin.order.index');
+    } 
+
+    public function destroyUser(Order $order){
+
+        $order->delete();
+        return redirect()->route('products.index');
     }
 
    /*

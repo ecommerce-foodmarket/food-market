@@ -26,6 +26,11 @@ Route::get('/', function () {
 });
 
 // Route::resource('/user', UserController::class);
+Route::view('/login', 'login');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -105,10 +110,6 @@ Route::group(['prefix' => 'admin/order'], function () {
     Route::put('/update/{order}', [OrderController::class, 'update'])->name('admin.order.update');
     Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('admin.order.destroy');
 
-});
-
-Route::group(['prefix' => 'admin/product'], function () {
-    Route::get('/all', [ProductController::class, 'index'])->name('admin.product.index');
 });
 
 
