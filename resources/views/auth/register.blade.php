@@ -82,8 +82,8 @@
         </div>
         <!--Id_ROl-->
         <div class="mt-4">
-            <x-input-label class="font-Poppins " for="Id_rol" :value="__('Id_rol')" />
-            <x-text-input id="id_rol" class="mt-2 font-Poppins border border-gray-300 rounded  w-full" type="text" name="id_rol" :value="old('id_rol')"  />
+            {{-- <x-input-label class="font-Poppins " for="Id_rol" :value="__('Id_rol')" /> --}}
+            <x-text-input id="id_rol" class="mt-2 font-Poppins border border-gray-300 rounded  w-full" type="hidden" name="id_rol" :value=3  />
             <x-input-error :messages="$errors->get('id_rol')" class="mt-2" />
         </div>
 
