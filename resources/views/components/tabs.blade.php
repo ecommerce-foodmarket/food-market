@@ -2,7 +2,7 @@
     {{-- Pestañas --}}
     <div class="max-w-2xl mx-auto">
         <div class="border-b border-gray-200 dark:border-gray-700 mb-4">
-            <ul class="flex flex-wrap -mb-px" 
+            <ul class="flex flex-nowrap -mb-px" 
             id="myTab" 
             data-tabs-toggle="#myTabContent" 
             role="tablist">
@@ -78,7 +78,9 @@
                         </div>
                     </div>
                     <div class="flex items-center space-x-4"> 
-                        <!-- Otros elementos si es necesario -->
+                        {{-- <a href="{{route('products.show')}}"> --}}
+                        <button>+</button>
+                    </a>
                     </div>
                 </div>
                 @endif
@@ -107,7 +109,7 @@
                         </div>
                     </div>
                     <div class="flex items-center space-x-4"> 
-                        <!-- Otros elementos si es necesario -->
+                        <button>+</button>
                     </div>
                 </div>
                 @endif
@@ -135,7 +137,7 @@
                         </div>
                     </div>
                     <div class="flex items-center space-x-4"> 
-                        <!-- Otros elementos si es necesario -->
+                        <button>+</button>
                     </div>
                 </div>
                 @endif
@@ -163,7 +165,7 @@
                         </div>
                     </div>
                     <div class="flex items-center space-x-4"> 
-                        <!-- Otros elementos si es necesario -->
+                        <button>+</button>
                     </div>
                 </div>
                 @endif
