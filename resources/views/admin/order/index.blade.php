@@ -21,20 +21,23 @@
         <tr>
             <th scope="col" class="px-6 py-3">Order</th>
             <th  scope="col" class="px-6 py-3">Total</th>
+            <th  scope="col" class="px-6 py-3">Actions</th> 
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><a href="{{ route ('admin.order.show', $order->id) }}">Order:{{$order->id}}</a></td>
+            <td><a href="{{ route ('admin.order.shodw', $order->id) }}">Order:{{$order->id}}</a></td>
             <td>{{$order->cost}}</td>
-
+            
+        <td class="button-container">
             <form method="POST" action="{{ route('admin.order.destroy' , $order->id) }}"> 
                 @csrf
                 @method('DELETE')
                 <input type="submit" value="DELETE" />
 
             </form>
-            <form method="GET" action="{{ route('admin.order.edit' , $order->id) }}"> 
+            <button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 mx-6 rounded-full"><a href="{{ route('admin.order.edit', $order->id) }}">EDIT</a></button>
+             {{-- <form method="GET" action="{{ route('admin.order.edit' , $order->id) }}"> 
                 @csrf
                 <input type="submit" value="EDIT" />
             </form>

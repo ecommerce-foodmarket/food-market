@@ -126,13 +126,14 @@ class OrdersProductsController extends Controller
             return redirect()->route('cart.index');
 
         }
-
+         
         public function empty(){
             return view ('cart.empty');
         }
 
-       
-
-
+        public function detailOrder(){
+            $order = Order::with('products')->find('id'); 
+            return view ('admin.order.detail', ['order'=>$order]);
+        }
     }
 
