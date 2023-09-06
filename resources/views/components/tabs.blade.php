@@ -60,31 +60,27 @@
 
             {{-- Pestaña 1 --}}
             
-            <div class="tab-content p-4 rounded-lg" 
-            id="fish" 
-                role="tabpanel" 
-                aria-labelledby="fish_tab">
-
+            <div class="tab-content p-4 rounded-lg" id="fish" role="tabpanel" aria-labelledby="fish_tab">
                 @foreach ($categories as $category)
-
-                @foreach ($category->products as $product)
-                @if ($product->id_category === 1)
-                <div class="flex items-center justify-between border-b border-gray-300 pb-4 mb-4">
-                    <div class="flex items-center">
-                        <img src="{{ asset('imagen-producto.jpg') }}" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
-                        <div class="ml-4">
-                            <h3>{{ $product->name_product }}</h3>
-                            <p>€{{ $product->price }}</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-4"> 
-                        {{-- <a href="{{route('products.show')}}"> --}}
-                        <button>+</button>
-                    </a>
-                    </div>
-                </div>
-                @endif
-                @endforeach
+                    @foreach ($category->products as $product)
+                        @if ($product->id_category === 1)
+                            <div class="flex items-center justify-between border-b border-gray-300 pb-4 mb-4">
+                                <div class="flex items-center">
+                                    <img src="{{ asset('imagen-producto.jpg') }}" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
+                                    <div class="ml-4">
+                                        <h3>{{ $product->name_product }}</h3>
+                                        <p>€{{ $product->price }}</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <form action="{{ route('products.show', $product->id) }}" method="GET">
+                                        @csrf
+                                        <button type="submit">+</button>
+                                    </form>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
                 @endforeach
             </div>
   
@@ -108,8 +104,11 @@
                             <p>€{{ $product->price }}</p>
                         </div>
                     </div>
-                    <div class="flex items-center space-x-4"> 
-                        <button>+</button>
+                    <div class="flex items-center space-x-4">
+                        <form action="{{ route('products.show', $product->id) }}" method="GET">
+                            @csrf
+                            <button type="submit">+</button>
+                        </form>
                     </div>
                 </div>
                 @endif
@@ -136,8 +135,11 @@
                             <p>€{{ $product->price }}</p>
                         </div>
                     </div>
-                    <div class="flex items-center space-x-4"> 
-                        <button>+</button>
+                    <div class="flex items-center space-x-4">
+                        <form action="{{ route('products.show', $product->id) }}" method="GET">
+                            @csrf
+                            <button type="submit">+</button>
+                        </form>
                     </div>
                 </div>
                 @endif
@@ -164,8 +166,11 @@
                             <p>€{{ $product->price }}</p>
                         </div>
                     </div>
-                    <div class="flex items-center space-x-4"> 
-                        <button>+</button>
+                    <div class="flex items-center space-x-4">
+                        <form action="{{ route('products.show', $product->id) }}" method="GET">
+                            @csrf
+                            <button type="submit">+</button>
+                        </form>
                     </div>
                 </div>
                 @endif

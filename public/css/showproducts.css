@@ -1,0 +1,25 @@
+.total-price,
+.total-price * {
+  box-sizing: border-box;
+}
+.total-price {
+  color: #8d92a3;
+  text-align: left;
+  font: 400 13px "Poppins", sans-serif;
+  position: relative;
+  width: 70px;
+  height: 20.5px;
+}
+
+.price,
+.price * {
+  box-sizing: border-box;
+}
+.price {
+  color: #020202;
+  text-align: left;
+  font: 400 18px "Poppins", sans-serif;
+  position: relative;
+  width: 62px;
+  height: 27.67px;
+}

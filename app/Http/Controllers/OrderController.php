@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Status;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -50,9 +52,11 @@ class OrderController extends Controller
 
     }
 
-    public function show(Order $order){
-        return view('admin.order.show' , compact('order'));
-    }
+     public function show(Order $order){
+         return view('admin.order.show' , compact('order'));
+     }
+
+  
 
     public function destroy(Order $order){
         $order->delete();
@@ -63,8 +67,36 @@ class OrderController extends Controller
     public function destroyUser(Order $order){
 
         $order->delete();
-        return redirect()->route('products.index');
+        return redirect()->route('user.dashboard');
     }
+
+
+    public function addToCart(Product $product)
+{
+    $user = auth()->user();
+    $orderInProgress = auth()->user()->orders->where('id_status', 0)->first();
+
+    
+    if (!$orderInProgress) {
+        $orderInProgress = new Order;
+        $orderInProgress->cost = 0;
+        $orderInProgress->id_user = $user->id;
+        $orderInProgress->id_status = 0;
+        $orderInProgress->save();
+    }
+
+    
+    if ($orderInProgress->products->contains($product->id)) {
+        
+        $orderInProgress->products()->updateExistingPivot($product->id, ['amount' => DB::raw('amount + 1')]);
+    } else {
+        
+        $orderInProgress->products()->attach($product->id, ['amount' => 1]);
+    }
+
+    return redirect()->route('user.dashboard')->with('success', 'Product added successfully.');
+}
+
 }
 
 

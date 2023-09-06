@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css" />
     <link rel="stylesheet" href="{{ asset('css/cart.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/showproducts.css') }}" type="text/css">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -30,7 +31,7 @@
         @endif
 
         <!-- Page Content -->
-        <main>
+        <main class="py-16">
             @yield('content')
         </main>
     </div>
@@ -44,9 +45,20 @@
             <iconify-icon icon="material-symbols:favorite-outline" style="color: {{ $section === 'favs' ? '#4A6159' : '#ADADAF' }};" width="32" height="32"></iconify-icon>
         </a>
 
-        <a href="{{ route('cart.index') }}">
-            <iconify-icon icon="tabler:shopping-bag" style="color: {{ $section === 'cart' ? '#4A6159' : '#ADADAF' }};" width="32" height="32"></iconify-icon>
-        </a>
+        @php
+    $cartProducts = auth()->user()->cartProducts;
+    $cartItemCount = $cartProducts ? count($cartProducts) : 0; 
+@endphp
+
+<div>
+    <a href="{{ route('cart.index') }}">
+        <iconify-icon icon="tabler:shopping-bag" style="color: {{ $section === 'cart' ? '#4A6159' : '#ADADAF' }};" width="32" height="32"></iconify-icon>
+    </a>
+
+    @if ($cartItemCount > 0)
+        <span class="cart-badge">{{ $cartItemCount }}</span>
+    @endif
+</div>
 
         <a href="#" >
             <iconify-icon icon="ri:user-fill" style="color: {{ $section === 'profile' ? '#4A6159' : '#ADADAF' }};" width="32" height="32"></iconify-icon>

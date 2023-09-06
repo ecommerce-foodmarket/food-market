@@ -145,7 +145,8 @@ Route::group(['prefix' => 'admin/order'], function () {
     Route::put('/update/{order}', [OrderController::class, 'update'])->name('admin.order.update');
     Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('admin.order.destroy');
 });
-Route::delete('/cancel', [OrderController::class, 'destroyUser'])->name('order.destroy');
+Route::delete('/cancel{order}', [OrderController::class, 'destroyUser'])->name('order.destroy');
+
 //RUTAS DE STATUS
 Route::group(['prefix' => 'status'], function () {
     Route::get('/', [StatusController::class, 'index'])->name('status.index');
@@ -179,3 +180,6 @@ Route::get('/dashboard', 'App\Http\Controllers\DashboardController@redirectToDas
         Route::delete('/destroy/{product}',[ProductsController::class, 'destroy'])->name('admin.products.destroy');
 
 });
+
+
+Route::post('/add-to-cart/{product}', [OrderController::class, 'addToCart'])->name('add-to-cart');

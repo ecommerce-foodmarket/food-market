@@ -56,6 +56,14 @@ class OrdersProductsController extends Controller
     public function index()
 {
     $user = auth()->user();
+
+    $cartProducts = $user->cartProducts;
+
+    if ($cartProducts === null) {
+        $cartItemCount = 0;
+    } else {
+        $cartItemCount = $cartProducts->count();
+    }
     
     $orders = Order::where('id_user', $user->id)
                   ->where('id_status', 0) 
@@ -71,48 +79,48 @@ class OrdersProductsController extends Controller
         return redirect()->route('cart.empty'); 
     }
 
-    return view('cart.index', compact('ordersInProgress', 'pastOrders'));
+    return view('cart.index', compact('orders', 'pastOrders'));
 }
 
-    
-
-    
-
-    
-
-        
-       
-        
-
-    
-
-    public function update(Request $request){
-        $order = $request->input('order_id');
-        $product = $request->input('product_id');
-        $increment = $request->input('increment');
-
-
-
-        DB::table('order_product')
+public function update(Request $request){
+    $order = $request->input('order_id');
+    $product = $request->input('product_id');
+    $increment = $request->input('increment');
+    DB::table('order_product')
+    ->where('order_id', $order)
+    ->where('product_id', $product)
+    ->update(['amount'=> DB::raw("amount + $increment")]);
+    $newAmount = DB::table('order_product')
+    ->where('order_id', $order)
+    ->where('product_id', $product)
+    ->value('amount');
+    if($newAmount <=0){
+        DB::table('order_products')
         ->where('order_id', $order)
         ->where('product_id', $product)
-        ->update(['amount'=> DB::raw("amount + $increment")]);
+        ->delete();
+    }
+    return redirect()->route('cart.index');
+    }
 
-        $newAmount = DB::table('order_product')
-        ->where('order_id', $order)
-        ->where('product_id', $product)
-        ->value('amount');
+public function show(Product $product)
+{
+    $order = auth()->user()->orders->where('id_status', 0)->first();
 
-        if($newAmount <=0){
-            DB::table('order_products')
-            ->where('order_id', $order)
-            ->where('product_id', $product)
-            ->delete();
-        }
+    if (!$order) {
+        
+        $order = new Order;
+        $order->cost = 0; 
+        $order->id_user = auth()->user()->id;
+        $order->id_status = 0; 
+        $order->save();
+    }
 
-        return redirect()->route('cart.index');
+    return view('product.show', compact('product', 'order'));
+}
 
-        }
+
+
 
         public function destroy($order_id, $product_id){
 

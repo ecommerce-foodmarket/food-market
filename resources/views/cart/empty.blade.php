@@ -54,7 +54,7 @@
                     
                     
             </div>
-            <a href="{{route ('products.index')}}">
+            <a href="{{route ('user.dashboard')}}">
                 <button type="submit" class="bg-custom-background text-custom-text-color py-2 px-4 rounded-full w-full mt-bttn">Start Ordering</button>
             </a>
         </div>
