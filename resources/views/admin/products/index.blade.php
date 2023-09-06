@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-
+<h1>Hola</h1>
 <main class= "flex-col flex-wrap w-screen">
 <button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 mx-6 rounded-full BtnMenu"><a href="{{route('admin.products.create')}}">+ Add Menu</a></button>
 
