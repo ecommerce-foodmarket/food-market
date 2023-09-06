@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 @section('content')
 
-<main class= "flex-col ">
+<main class= "flex-col flex-wrap w-screen">
 <button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 mx-6 rounded-full BtnMenu"><a href="{{route('admin.products.create')}}">+ Add Menu</a></button>
 
 
-        <div class="cardContainer">
+        <div class="cardContainer ">
             @foreach ($products as $product)
             <div class="max-w-sm rounded overflow-hidden shadow-lg space-y-1.5">
                 <img class="w-full" src="/assets/images/gnocchi.avif" alt="Sunset in the mountains">
