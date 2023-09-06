@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/adminOrderIndex.css')}}">
+    <link rel="stylesheet" href="{{asset('css/adminProductsIndex.css')}}">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
             <img class="logo" src="{{asset('speedynav.png')}}" />
           <h1 class="text-white text-xl font-semibold">SpeedyBite</h1>
         </div>
-    
+
         <div class="text-white flex items-center justify-end h-0">
           <span class="">My account</span>
           <i class="fas fa-user-circle text-white text-2xl"></i>
@@ -61,7 +62,7 @@
                 <span>Settings</span>
             </a>
         </aside>
-       
+
         @yield('content')
         </div>
 </body>

@@ -37,6 +37,11 @@
                 </td>
             </tr>
             @endforeach
-        </tbody>    
+        </tbody>
 </div>
 @endsection
+<script>
+    $(document).ready(function() {
+  $('#myTable').DataTable();
+});
+</script>

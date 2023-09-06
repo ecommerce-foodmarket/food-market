@@ -6,28 +6,19 @@ use App\Models\Product;
 use App\Models\Category;
 
 
-class ProductsController extends Controller
+class AdminProductsController extends Controller
 {
     public function index()
     {
         $products = Product::with('category')->get();
 
-        return view('products.index', compact('products'));
-    }
-
-    public function dashboardCards(){
-        $user = auth()->user();
-        $products=Product::inRandomOrder()
-            ->take(10)
-            ->get();
-
-        return view('user.dashboard', compact('user', 'products'));
+        return view('admin.products.index', compact('products'));
     }
 
     public function create()
     {
         $categories= Category::all();
-        return view('products.create', compact('categories'));
+        return view('admin.products.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -41,12 +32,12 @@ class ProductsController extends Controller
          $product-> picture = $request->picture;
          $product-> save();
 
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
     }
     public function edit(Product $product)
 {
     $categories = Category::all();
-    return view('products.edit', compact('product', 'categories'));
+    return view('admin.products.edit', compact('product', 'categories'));
 }
     public function update(Request $request, Product $product)
      {
@@ -58,18 +49,18 @@ class ProductsController extends Controller
         'price' => $request-> price,
         'picture' => $request->picture,
         ]);
-         return redirect('/products');
+         return redirect('/admin/products');
      }
 
      public function show(Product $product)
      {
-         return view('products.show', compact('product'));
+         return view('admin.products.show', compact('product'));
      }
 
      public function destroy(Product $product)
      {
         $product->delete();
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
      }
 
 
@@ -78,5 +69,4 @@ class ProductsController extends Controller
 
 
     }
-
 

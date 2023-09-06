@@ -32,7 +32,7 @@
                 <td>{{ $user->address }}</td>
                 <td>{{ $user->house_n }}</td>
                 <td>{{ $user->city }}</td>
-                <td>{{ $user->role->type }}</td>
+                {{-- <td>{{ $user->role->type }}</td> --}}
                 <td>{{ $user->photo }}</td>
                 <td>    <a href="{{ route('user.show', $user->id) }}"></a>     |
                         <a href="{{ route('user.edit', $user->id)}}">EDIT</a>

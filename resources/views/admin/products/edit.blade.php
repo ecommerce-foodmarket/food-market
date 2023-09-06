@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 
 @section('content')
     <h1>Product Edition</h1>
-    <a href="{{route('products.index')}}">Back</a>
+    <a href="{{route('admin.products.index')}}">Back</a>
 
-    <form action="{{route('products.update', $product->id)}}" method="POST">
+    <form action="{{route('admin.products.update', $product->id)}}" method="POST">
         @method('PUT')
         @csrf
 
