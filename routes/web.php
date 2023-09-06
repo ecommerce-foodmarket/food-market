@@ -178,3 +178,4 @@ Route::group(['prefix' => 'cart'], function () {
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@redirectToDashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
