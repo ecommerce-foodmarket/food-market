@@ -26,9 +26,14 @@
             <h3 class="text-xl font-semibold">SpeedyBite</h3>
             <h4>Let’s get some foods, {{$user->name}}</h4>
         </div>
-    <div>
-        {{$user->picture}}
-    </div>
+        <div>
+            @if ($user->picture)
+                <img src="{{ asset($user->picture)}}" alt="{{ $user->name }}" class="rounded-full h-20 w-20 object-cover">
+            @else
+                <img src="{{ asset('assets/images/default_profile_image.png') }}" alt="Default" class="rounded-full h-20 w-20 object-cover">
+            @endif
+        </div>
+        
     </div>
 </div>
 
