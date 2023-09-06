@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrdersProductsController;
@@ -10,8 +9,6 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,11 +16,9 @@ Route::get('/', function () {
 //     return view('login')->name('log');
 // });
 Route::view('/login', 'login');
-
 Route::get('/dashboard', function () {
     return view('user.dashboard');
 })->middleware(['auth', 'verified'])->name('user.dashboard');
-
 Route::middleware('auth',)->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -32,15 +27,11 @@ Route::middleware('auth',)->group(function () {
         return view('user.dashboard');
     })->name('user.dashboard');
 });
-
 Route::middleware(['auth'])->group(function(){
     Route::get('/admin/dashboard', function(){
         return view ('admin.dashboard');
     })->name('admin.dashboard');
 });
-
-
-
 //RUTAS DE PRODUCTS
 Route::group(['prefix' => 'products'], function () {
     Route::get('/',[ProductsController::class, 'index'])->name('products.index');
@@ -102,7 +93,6 @@ Route::group(['prefix' => 'status'], function () {
     Route::put('/update/{status}', [StatusController::class, 'update'])->name('status.update');
     Route::delete('/destroy/{status}', [StatusController::class, 'destroy'])->name('status.destroy');
 });
-
 require __DIR__.'/auth.php';
 //RUTAS DE PRODUCTS
 Route::group(['prefix' => 'products'], function () {
@@ -179,3 +169,13 @@ Route::get('/dashboard', 'App\Http\Controllers\DashboardController@redirectToDas
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+    Route::group(['prefix' => 'admin/products'], function () {
+        Route::get('/',[ProductsController::class, 'index'])->name('admin.products.index');
+        Route::get('/create',[ProductsController::class, 'create'])->name('admin.products.create');
+        Route::post('/store',[ProductsController::class, 'store'])->name('admin.products.store');
+        Route::get('/edit/{product}',[ProductsController::class, 'edit'])->name('admin.products.edit');
+        Route::put('/update/{product}',[ProductsController::class, 'update'])->name('admin.products.update');
+        Route::get('/show/{product}',[ProductsController::class, 'show'])->name('admin.products.show');
+        Route::delete('/destroy/{product}',[ProductsController::class, 'destroy'])->name('admin.products.destroy');
+
+});
