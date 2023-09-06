@@ -1,10 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+
 
 
 @section('content')
-    <h1>Add new Product</h1>
-    <a href="{{route('products.index')}}">Back</a>
-    <form action="{{route('products.store')}}" method="POST">
+    
+    <a href="{{route('admin.products.index')}}">Back</a>
+    <form action="{{route('admin.products.store')}}" method="POST">
         @csrf
         <label for="name_product">Name</label>
         <input type="text" name="name_product">

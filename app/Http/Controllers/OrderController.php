@@ -9,7 +9,7 @@ use App\Models\Status;
 class OrderController extends Controller
 {
     public function index(){
-<<<<<<<<< Temporary merge branch 1
+
         $orders = Order::all();
         $orders = Order::with('status')->get();
         $orders = Order::with('user')->get();
@@ -35,14 +35,11 @@ class OrderController extends Controller
     }
 
     public function edit(Order $order){
-<<<<<<<<< Temporary merge branch 1
+
         // $order = Order::find($id);
-         return view ('admin.order.edit', compact('order'));
-=========
         $statuses= Status::all();
          return view ('admin.order.edit', compact('order', 'statuses'));
 
-         return view ('admin.order.edit', compact('order','statuses'));
     }
 
     public function update(Request $request, Order $order){
