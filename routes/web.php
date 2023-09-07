@@ -164,6 +164,7 @@ Route::group(['prefix' => 'cart'], function () {
     Route::get('/empty', [OrdersProductsController::class, 'empty'])->name('cart.empty');
     Route::post('/pay', [OrderController::class, 'pay'])->name('pay');
     Route::get('/pastOrders', [OrderController::class, 'pastOrders'])->name('cart.pastOrders');
+    Route::put('/checkout/{order}', [OrderController::class, 'checkout'])->name('order.checkout');
     Route::get('/confirm', [OrdersProductsController::class, 'confirm'])->name('cart.confirm');
 });
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@redirectToDashboard')

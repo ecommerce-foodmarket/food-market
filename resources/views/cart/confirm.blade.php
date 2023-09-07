@@ -18,12 +18,14 @@
 </div>
 
 <div class="mr-10 ml-10 mb-10">
-    <a href="{{route ('user.dashboard')}}">
-        <button type="submit" 
-        class="bg-custom-background text-custom-text-color py-2 px-4 rounded-full w-full">
-        Checkout Now
-    </button>
-    </a>
+    <form action="{{ route('order.checkout', ['order' => $order->id]) }}" method="POST">
+        @csrf
+        @method('PUT')
+        <button type="submit" class="bg-custom-background text-custom-text-color py-2 px-4 rounded-full w-full">
+            Checkout Now
+        </button>
+    </form>
+    
 </div>
 
 

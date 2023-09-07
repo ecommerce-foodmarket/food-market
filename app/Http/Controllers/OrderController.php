@@ -97,30 +97,15 @@ class OrderController extends Controller
     return redirect()->route('user.dashboard')->with('success', 'Product added successfully.');
 }
 
+public function checkout(Order $order){
+    $order->update(['id_status'=>1]);
+    return redirect()->route('user.dashboard')->with('success', 'Order checked out successfully.');
 }
 
 
 
 
-// public function pay(Request $request)
-// {
-//     // Obtén el valor de $totalPrice desde el formulario
-//     $totalPrice = $request->input('totalPrice');
 
-//     // Aquí debes crear una nueva orden y guardarla en la base de datos
-//     // Asegúrate de llenar los otros campos de la orden según sea necesario
-//     $order = new Order;
-//     $order->cost = $totalPrice;
-//     $order->id_user = auth()->user()->id; // Asígnale el ID del usuario autenticado
-//     $order->id_status = 1; // Supongamos que el ID del estado de la orden es 1
-//     // Llena otros campos de la orden según tu estructura
 
-//     $order->save();
 
-//     // También debes guardar los productos relacionados con esta orden en la tabla pivot
-//     // Recorre los productos en el carrito y guarda cada uno en la tabla pivot
-//     foreach (auth()->user()->cart->products as $product) {
-//         $order->products()->attach($product->id, ['amount' => $product->pivot->amount]);
-//     }
-
-// };
+}

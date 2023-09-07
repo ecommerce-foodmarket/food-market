@@ -1,23 +1,10 @@
 @extends('layouts.user')
 
 @section('content')
-<div class="bg-white-900 w-22.5rem h-6.75rem flex-shrink-0">
-    <div class="flex items-center">
-        <!-- Bloque de la flecha SVG -->
-        <div class="w-10 h-10 bg-white-400 m-8 flex-shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" width="29" height="24" viewBox="0 0 29 24" fill="none">
-                <rect x="0.599609" width="27.6" height="24" rx="4" fill="#4A6159"/>
-                <path d="M18.6809 6.32303L17.1508 5L8.64941 12.4L17.1594 19.8L18.6809 18.477L11.6924 12.4L18.6809 6.32303Z" fill="white"/>
-            </svg>
-        </div>
-
-        <!-- Columna del título y la descripción -->
-        <div>
-            <h3 class="text-xl font-semibold">Your Orders</h3>
-            <h4>Wait for the best meal</h4>
-        </div>
-    </div>
-</div>
+@include('components.secondHeader', [
+    'title' =>'Your Orders',
+    'subtitle'=>'Wait for the best meal'
+])
 
 
 <div class="max-w-2xl mx-auto">
@@ -60,9 +47,26 @@
         </div>
         
         <div class="bg-gray-50 p-4 rounded-lg hidden" id="pastOrders" role="tabpanel" aria-labelledby="pastOrders-tab">
-            <p>
-                Pedidos anteriores
-            </p>
+            @if($pastOrders->isEmpty())
+            <p>No past orders yet.</p>
+            @else
+    @foreach ($pastOrders as $pastOrder)
+        @foreach ($pastOrder->products as $product)
+            <div class="w-full mb-4">
+                <div class="flex items-center justify-between border-b border-gray-300 pb-4">
+                    <div class="flex items-center">
+                        <img src="imagen-producto.jpg" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
+                        <div class="ml-4">
+                            <h3>{{ $product->name_product }}</h3>
+                            <p>€{{ $product->price }}</p>
+                            <p>{{ $product->created_at }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                @endforeach
+            @endforeach
+        @endif
         </div>
     </div>
     

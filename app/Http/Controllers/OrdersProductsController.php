@@ -25,9 +25,7 @@ class OrdersProductsController extends Controller
 
     public function confirm()
 {
-    $user = auth()->user();
-    
-    
+    $user = auth()->user(); 
     $order = $user->orders->where('id_status', 0)->first();
 
     
@@ -37,6 +35,13 @@ class OrdersProductsController extends Controller
 
         
         if ($cartProducts->isNotEmpty()) {
+            $totalPrice = 0;
+            foreach ($cartProducts as $product){
+                $totalPrice +=$product->price * $product->pivot->amount;
+            }
+            $order->cost = $totalPrice;
+            $order->save();
+            
             return view('cart.confirm', compact('cartProducts', 'order', 'user'));
         }
     }
@@ -130,8 +135,15 @@ public function show(Product $product)
 
         }
 
-        public function empty(){
-            return view ('cart.empty');
+         public function empty(){
+            $user = auth()->user();
+
+            $pastOrders = Order::where('id_user', $user->id)
+            ->where('id_status', 4) 
+            ->with('products') 
+            ->get();
+
+         return view ('cart.empty', compact('pastOrders'));
         }
 
        
