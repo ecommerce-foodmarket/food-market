@@ -18,7 +18,7 @@ class OrderController extends Controller
 
     public function create(){
           $statuses= Status::all();
-            return view('admin.order.create');
+            return view('admin.order.create', compact('statuses'));
         //$orders = Order::all();
     }
 
@@ -48,11 +48,6 @@ class OrderController extends Controller
         $order->update($request->all());
          return redirect()->route('admin.order.index');
 
-    }
-
-    public function show(Order $order){
-        
-        return view('admin.order.show' , compact('order'));
     }
 
     public function destroy(Order $order){

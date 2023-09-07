@@ -36,6 +36,9 @@ class Product extends Model
 
     public function order():BelongsToMany
     {
-    return $this->belongsToMany(Order::class)->withPivot('amount');
+
+    
+    return $this->belongsToMany(Order::class)->withPivot('amount'); 
+
     }
 }

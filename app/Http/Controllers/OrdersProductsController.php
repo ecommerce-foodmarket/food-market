@@ -131,9 +131,11 @@ class OrdersProductsController extends Controller
             return view ('cart.empty');
         }
 
-        public function detailOrder(){
-            $order = Order::with('products')->find('id'); 
-            return view ('admin.order.detail', ['order'=>$order]);
+        public function detail($order_id){
+
+            $order = Order::with('products')->find($order_id); 
+            return view ('admin.order.show', ['order'=>$order]);
         }
+
     }
 
