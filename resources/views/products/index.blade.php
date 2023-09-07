@@ -8,7 +8,7 @@
         <div class="w-11/12 flex flex-row flex-wrap justify-between mx-3 my-3 ">
             @foreach ($products as $product)
             <div class="w-1/5 rounded overflow-hidden shadow-lg space-y-1.5 mx-3 my-3">
-                <img class="w-full" src="/assets/images/gnocchi.avif" alt="Sunset in the mountains">
+                <img class="w-full" src="/images/Products/{{ $product->picture }}">
                 <div class="px-6 py-4 ">
                   <div class="font-bold text-xl text-white-700 mb-2">{{ $product->name_product }}</div>
                   <p class="text-gray-700 text-base">
@@ -18,6 +18,15 @@
                 <div class="px-6 pt-4 pb-2">
                   <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Category: {{ $product->category->name_category }}</span>
                   <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Price: {{ $product->price }}</span>
+                </div>
+                <div>
+                    <button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 mx-6 rounded-full"><a href="{{ route('admin.products.edit', $product->id) }}">Edit</a></button>
+                    <form method="POST" action="{{ route('admin.products.destroy', $product->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 mx-6 rounded-full">DELETE</button>
+                    </form>
+
                 </div>
             </div>
             @endforeach
