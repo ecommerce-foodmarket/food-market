@@ -10,18 +10,6 @@ use Illuminate\Support\Facades\DB;
 
 class OrdersProductsController extends Controller
 {
-    // public function index()
-    // {
-    //     $order = Order::with('products')->find(2); 
-
-    //     if ($order) {
-             
-    //         return view('cart.index', ['order' => $order]);
-    //     } else {
-    //         return redirect()->route('cart.empty');
-    //     }
-    // }
-
     // public function pastOrders()
     // {
     //     $pastOrder = Order::where('status', '4')->get();
@@ -36,22 +24,29 @@ class OrdersProductsController extends Controller
 
 
     public function confirm()
-    {
-        return view('cart.confirm') ;
-    }
-        
+{
+    $user = auth()->user();
+    
+    
+    $order = $user->orders->where('id_status', 0)->first();
+
+    
+    if ($order) {
        
-    // public function index()
-    // {
-    //     $user = auth()->user()->id;
+        $cartProducts = $order->products;
+
+        
+        if ($cartProducts->isNotEmpty()) {
+            return view('cart.confirm', compact('cartProducts', 'order', 'user'));
+        }
+    }
+
     
-    //     $cart = Product::whereHas('order', function ($query) use ($user) {
-            
-    //         $query->where('id_user', $user);
-    //     })->get(); 
-    
-    //     return view('cart.index', compact('cart'));
-    // }
+    return redirect()->route('cart.empty'); 
+}
+
+        
+  
 
     public function index()
 {
