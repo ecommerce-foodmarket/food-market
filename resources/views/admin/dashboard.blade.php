@@ -1,6 +1,11 @@
-@extends('layouts.user')
+@extends('layouts.admin')
+
+
+
 @section('content')
-ERES ADMIN
+<main>
+¡Bienvenido ADMIN!
+</main>
 @endsection
 
 @php

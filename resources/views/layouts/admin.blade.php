@@ -25,25 +25,25 @@
         </div>
 
         <div class="text-white flex items-center justify-end h-0">
-          <span class="">My account</span>
-          <i class="fas fa-user-circle text-white text-2xl"></i>
+          <span class="">My account </span>
+          <a href="{{route('admin.dashboard')}}"><i class="fas fa-user-circle text-white text-2xl"></i></a>
         </div>
       </nav>
       {{-- aside --}}
       <div class="main">
       <aside class="bg-custom flex w-72 flex-col space-y-2 border-r-2 border-green-600 bg-white p-2" style="height: 90.5vh"
             x-show="asideOpen">
-            <a href="#" class="bg-gray-100 flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-yellow-600 hover:text-gray-200">
+            <a href="{{route('admin.dashboard')}}" class="bg-gray-100 flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-yellow-600 hover:text-gray-200">
                 <span class="text-2xl"><i class="bx bx-home"></i></span>
                 <span>Dashboard</span>
             </a>
 
-            <a href="#" class="bg-gray-100 flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-yellow-600 hover:text-gray-200">
+            <a href="{{route('order.index')}}" class="bg-gray-100 flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-yellow-600 hover:text-gray-200">
                 <span class="text-2xl"><i class="bx bx-cart"></i></span>
                 <span>Orders</span>
             </a>
 
-            <a href="#" class="bg-gray-100 flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-yellow-600 hover:text-gray-200">
+            <a href="{{route('products.index')}}" class="bg-gray-100 flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-yellow-600 hover:text-gray-200">
                 <span class="text-2xl"><i class="bx bx-shopping-bag"></i></span>
                 <span>Food Menu</span>
             </a>
