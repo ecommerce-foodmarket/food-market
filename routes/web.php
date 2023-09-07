@@ -180,6 +180,8 @@ Route::get('/dashboard', 'App\Http\Controllers\DashboardController@redirectToDas
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+    Route::post('/add-to-cart/{product}', [OrderController::class, 'addToCart'])->name('add-to-cart');
+
 
 
 
