@@ -6,7 +6,7 @@
 <main class="flex flex-column justify-center items-center flex-col w-screen bg-green">
     <button class="bg-custom shadow hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"><a href="{{route('admin.products.index')}}">Back</a></button>
     
-    <form class="product_form" method="POST" action="{{ route('admin.products.store') }}" >
+    <form class="product_form" method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data" >
         @csrf
 
         
@@ -41,7 +41,7 @@
 
          <div class="mt-4">
             <x-input-label for="picture" class=" name_font" /> Picture:
-            <x-text-input id="picture" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="file" name="picture" :value="old('picture')"  />
+            <x-text-input id="picture" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="file" name="picture"   />
             <x-input-error :messages="$errors->get('picture')" class="mt-2" />
         </div>
         

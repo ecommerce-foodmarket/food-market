@@ -32,6 +32,8 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
+
+
         $categories= Category::all();
          $product = new Product;
          $product-> name_product = $request-> name_product;
@@ -41,6 +43,14 @@ class ProductsController extends Controller
          $product-> picture = $request->picture;
          $product-> save();
 
+         if($request->hasFile('picture')){
+            $destination_path = 'public/images/products';
+            $image = $request->file('picture');
+            $image_name=$image->getClientOriginalName();
+            $path = $request->file('picture')->storeAs($destination_path,$image);
+
+            $input['image'] = $image_name;
+         }
         return redirect()->route('products.index');
     }
     public function edit(Product $product)
