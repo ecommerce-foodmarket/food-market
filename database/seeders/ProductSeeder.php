@@ -15,273 +15,273 @@ class ProductSeeder extends Seeder
     {
         Product::create([
             'id' => '1',
-            'name_product' => 'Ceviche de Vieiras con Espuma de Mango',
-            'description' => 'Vieiras frescas marinadas en jugo de limón con una suave espuma de mango y toques de cilantro.',
+            'name_product' => 'Scallop Ceviche with Mango Foam',
+            'description' => 'Fresh scallops marinated in lime juice with a soft mango foam and hints of coriander.',
             'id_category' => '1',
             'price' => '18.99',
-            'picture' => 'ceviche_vieiras.jpg',
+            'picture' => 'ceviche.jpg',
         ]);
 
         Product::create([
             'id' => '2',
-            'name_product' => 'Tartar de Atún con Salsa de Maracuyá',
-            'description' => 'Delicioso tartar de atún fresco servido con una salsa de maracuyá y crujientes tostadas de sésamo.',
+            'name_product' => 'Tuna Tartar with Passion Fruit Sauce',
+            'description' => 'Delicious fresh tuna tartar served with a passion fruit sauce and crunchy sesame toast.',
             'id_category' => '1',
             'price' => '22.50',
-            'picture' => 'tartar_atun.jpg',
+            'picture' => 'tartar.jpg',
         ]);
 
         Product::create([
             'id' => '3',
-            'name_product' => 'Risotto de Setas Salvajes',
-            'description' => 'Arroz cremoso cocinado con una mezcla de setas silvestres, caldo de champiñones y parmesano rallado.',
+            'name_product' => 'Wild Mushroom Risotto',
+            'description' => 'Creamy rice cooked with a mixture of wild mushrooms, mushroom broth and grated Parmesan.',
             'id_category' => '2',
             'price' => '20.99',
-            'picture' => 'risotto_setas.jpg',
+            'picture' => 'risotto-de-setas.jpg',
         ]);
 
         Product::create([
             'id' => '4',
-            'name_product' => 'Salmón Glaseado con Salsa de Miso',
-            'description' => 'Filete de salmón glaseado con una deliciosa salsa de miso y acompañado de verduras al vapor.',
+            'name_product' => 'Glazed Salmon with Miso Sauce',
+            'description' => 'Salmon fillet glazed with a delicious miso sauce and served with steamed vegetables.',
             'id_category' => '1',
             'price' => '24.75',
-            'picture' => 'salmon_glaseado.jpg',
+            'picture' => 'salmonGlaseado.jpg',
         ]);
 
         Product::create([
             'id' => '5',
-            'name_product' => 'Cochinillo Asado con Pure de Manzana',
-            'description' => 'Crujiente cochinillo asado lentamente y servido con un suave puré de manzana y salsa de romero.',
+            'name_product' => 'Roast Suckling Pig with Apple Puree',
+            'description' => 'Crispy slow-roasted suckling pig served with a smooth apple puree and rosemary sauce.',
             'id_category' => '3',
             'price' => '32.99',
-            'picture' => 'cochinillo_asado.jpg',
+            'picture' => 'cochinillo.jpg',
         ]);
 
         Product::create([
             'id' => '6',
-            'name_product' => 'Tartar de Remolacha y Queso de Cabra',
-            'description' => 'Tartar refrescante de remolacha, queso de cabra y nueces, aliñado con vinagreta balsámica.',
+            'name_product' => 'Beetroot and Goat Cheese Tartar',
+            'description' => 'Refreshing beetroot, goat´s cheese and walnut tartar, dressed with balsamic vinaigrette.',
             'id_category' => '4',
             'price' => '16.50',
-            'picture' => 'tartar_remolacha.jpg',
+            'picture' => 'tartarremolacha.jpg',
         ]);
 
         Product::create([
             'id' => '7',
-            'name_product' => 'Pasta Fresca con Trufa Negra',
-            'description' => 'Pasta casera cocida al dente con una generosa cantidad de trufa negra y queso parmesano.',
+            'name_product' => 'Fresh Pasta with Black Truffle',
+            'description' => 'Homemade pasta cooked al dente with a generous amount of black truffle and parmesan cheese.',
             'id_category' => '2',
             'price' => '28.99',
-            'picture' => 'pasta_trufa.jpg',
+            'picture' => 'espaguetisTrufa.jpg',
         ]);
 
         Product::create([
             'id' => '8',
-            'name_product' => 'Langosta a la Parrilla con Salsa de Ajo',
-            'description' => 'Langosta fresca a la parrilla con mantequilla de ajo y hierbas, acompañada de espárragos a la brasa.',
+            'name_product' => 'Grilled Lobster with Garlic Sauce',
+            'description' => 'Fresh grilled lobster with garlic and herb butter, accompanied by grilled asparagus.',
             'id_category' => '1',
             'price' => '42.75',
-            'picture' => 'langosta_parrilla.jpg',
+            'picture' => 'langosta.webp',
         ]);
 
         Product::create([
             'id' => '9',
-            'name_product' => 'Taco de Pulpo con Guacamole',
-            'description' => 'Taco de pulpo a la brasa con guacamole casero, pico de gallo y cilantro fresco.',
+            'name_product' => 'Octopus Taco with Guacamole',
+            'description' => 'Grilled octopus taco with homemade guacamole, pico de gallo and fresh coriander.',
             'id_category' => '4',
             'price' => '14.25',
-            'picture' => 'taco_pulpo.jpg',
+            'picture' => 'tacoPulpo.jpg',
         ]);
 
         Product::create([
             'id' => '10',
-            'name_product' => 'Solomillo de Ternera con Reducción de Vino Tinto',
-            'description' => 'Jugoso solomillo de ternera cocido a la perfección, acompañado de una rica reducción de vino tinto.',
+            'name_product' => 'Beef Sirloin with Red Wine Reduction',
+            'description' => 'Juicy beef tenderloin cooked to perfection, accompanied by a rich red wine reduction.',
             'id_category' => '3',
             'price' => '36.50',
-            'picture' => 'solomillo_ternera.jpg',
+            'picture' => 'solomillo.jpg',
         ]);
 
         Product::create([
             'id' => '11',
-            'name_product' => 'Ensalada de Espárragos y Huevo Poche',
-            'description' => 'Ensalada fresca de espárragos verdes, huevo poché, queso parmesano y vinagreta de mostaza y miel.',
+            'name_product' => 'Asparagus and Egg Poche Salad',
+            'description' => 'Fresh green asparagus salad, poached egg, parmesan cheese and honey mustard vinaigrette.',
             'id_category' => '4',
             'price' => '15.99',
-            'picture' => 'ensalada_esparragos.jpg',
+            'picture' => 'ensaladaEsparragos.jpg',
         ]);
 
         Product::create([
             'id' => '12',
-            'name_product' => 'Sushi de Autor con Salmón y Aguacate',
-            'description' => 'Sushi creativo con finas láminas de salmón, aguacate y salsa de soja reducida con sésamo.',
+            'name_product' => 'Signature Sushi with Salmon and Avocado',
+            'description' => 'Creative sushi with thin slices of salmon, avocado and sesame reduced soy sauce.',
             'id_category' => '1',
             'price' => '19.99',
-            'picture' => 'sushi_autor.jpg',
+            'picture' => 'sushi.jpg',
         ]);
 
         Product::create([
             'id' => '13',
-            'name_product' => 'Magret de Pato con Puré de Calabaza',
-            'description' => 'Magret de pato a la parrilla con un suave puré de calabaza y salsa de arándanos rojos.',
+            'name_product' => 'Duck Magret with Pumpkin Purée',
+            'description' => 'Grilled duck breast with a smooth pumpkin puree and cranberry sauce.',
             'id_category' => '3',
             'price' => '26.75',
-            'picture' => 'magret_pato.jpg',
+            'picture' => 'Magret.jpg',
         ]);
 
         Product::create([
             'id' => '14',
-            'name_product' => 'Carpaccio de Remolacha y Queso de Cabra',
-            'description' => 'Finas láminas de remolacha con queso de cabra marinado en hierbas y vinagreta balsámica.',
+            'name_product' => 'Beetroot and Goat Cheese Carpaccio',
+            'description' => 'Thin slices of beetroot with herb-marinated goat´s cheese and balsamic vinaigrette.',
             'id_category' => '4',
             'price' => '17.50',
-            'picture' => 'carpaccio_remolacha.jpg',
+            'picture' => 'carpaccioRemolacha.jpg',
         ]);
 
         Product::create([
             'id' => '15',
-            'name_product' => 'Lubina al Horno con Hierbas Frescas',
-            'description' => 'Lubina fresca al horno con una mezcla de hierbas frescas y aceite de oliva, acompañada de vegetales asados.',
+            'name_product' => 'Baked Sea Bass with Fresh Herbs',
+            'description' => 'Baked fresh sea bass with a mixture of fresh herbs and olive oil, accompanied by grilled vegetables.',
             'id_category' => '1',
             'price' => '28.99',
-            'picture' => 'lubina_horno.jpg',
+            'picture' => 'lubina.jpg',
         ]);
 
         Product::create([
             'id' => '16',
-            'name_product' => 'Tacos de Cordero con Salsa de Yogur',
-            'description' => 'Tacos de cordero a la parrilla con salsa de yogur, menta fresca y rodajas de pepino.',
+            'name_product' => 'Lamb Tacos with Yoghurt Sauce',
+            'description' => 'Grilled lamb tacos with yoghurt sauce, fresh mint and cucumber slices.',
             'id_category' => '3',
             'price' => '21.99',
-            'picture' => 'tacos_cordero.jpg',
+            'picture' => 'tacoCordero.jpg',
         ]);
 
         Product::create([
             'id' => '17',
-            'name_product' => 'Ensalada de Kale y Granada',
-            'description' => 'Ensalada saludable de kale fresco, granos de granada, nueces y vinagreta de limón y miel.',
+            'name_product' => 'Kale and Pomegranate Salad',
+            'description' => 'Healthy salad of fresh kale, pomegranate seeds, walnuts and lemon-honey vinaigrette.',
             'id_category' => '4',
             'price' => '16.25',
-            'picture' => 'ensalada_kale.jpg',
+            'picture' => 'ensaladaKale.jpg',
         ]);
 
         Product::create([
             'id' => '18',
-            'name_product' => 'Sushi de Salmón con Salsa de Soja Dulce',
-            'description' => 'Rolls de sushi rellenos de salmón fresco, aguacate y salsa de soja dulce.',
+            'name_product' => 'Salmon Sushi with Sweet Soy Sauce',
+            'description' => 'Sushi rolls filled with fresh salmon, avocado and sweet soy sauce.',
             'id_category' => '1',
             'price' => '20.99',
-            'picture' => 'sushi_salmón.jpg',
+            'picture' => 'sushiSalmon.jpg',
         ]);
 
         Product::create([
             'id' => '19',
-            'name_product' => 'Pechuga de Pavo Rellena de Espinacas y Queso',
-            'description' => 'Pechuga de pavo rellena de espinacas y queso, horneada a la perfección y servida con salsa de mostaza y miel.',
+            'name_product' => 'Turkey Breast Stuffed with Spinach and Cheese',
+            'description' => 'Turkey breast stuffed with spinach and cheese, baked to perfection and served with honey mustard sauce.',
             'id_category' => '3',
             'price' => '19.75',
-            'picture' => 'pechuga_pavo.jpg',
+            'picture' => 'rolloPavo.jpg',
         ]);
 
         Product::create([
             'id' => '20',
-            'name_product' => 'Crema de Champiñones con Crutones',
-            'description' => 'Crema suave de champiñones con crutones de pan casero y cebollino fresco.',
+            'name_product' => 'Cream of Mushroom Soup with Croutons',
+            'description' => 'Smooth cream of mushroom soup with homemade bread croutons and fresh chives.',
             'id_category' => '4',
             'price' => '14.99',
-            'picture' => 'crema_champiñones.jpg',
+            'picture' => 'crema-champinones.jpg',
         ]);
 
         Product::create([
             'id' => '21',
-            'name_product' => 'Tacos de Camarones con Salsa de Mango',
-            'description' => 'Tacos de camarones a la parrilla con salsa de mango, cilantro fresco y cebolla morada encurtida.',
+            'name_product' => 'Shrimp Tacos with Mango Sauce',
+            'description' => 'Grilled shrimp tacos with mango salsa, fresh cilantro and pickled red onion.',
             'id_category' => '1',
             'price' => '17.50',
-            'picture' => 'tacos_camarones.jpg',
+            'picture' => 'tacosCamaron.jpg',
         ]);
 
         Product::create([
             'id' => '22',
-            'name_product' => 'Chuletas de Cordero con Salsa de Romero',
-            'description' => 'Chuletas de cordero a la parrilla con una rica salsa de romero y acompañadas de puré de patatas.',
+            'name_product' => 'Lamb Chops with Rosemary Sauce',
+            'description' => 'Grilled lamb chops with a rich rosemary sauce and served with mashed potatoes.',
             'id_category' => '3',
             'price' => '29.99',
-            'picture' => 'chuletas_cordero.jpg',
+            'picture' => 'cordero.jpg',
         ]);
 
         Product::create([
             'id' => '23',
-            'name_product' => 'Ensalada de Quinua y Aguacate',
-            'description' => 'Ensalada refrescante de quinua, aguacate, tomate y cilantro, aliñada con limón y aceite de oliva.',
+            'name_product' => 'Quinoa and Avocado Salad',
+            'description' => 'Refreshing salad of quinoa, avocado, tomato and coriander, dressed with lemon and olive oil.',
             'id_category' => '4',
             'price' => '15.75',
-            'picture' => 'ensalada_quinua.jpg',
+            'picture' => 'ensaladaQuinoa.jpg',
         ]);
 
         Product::create([
             'id' => '24',
-            'name_product' => 'Sushi de Aguacate y Pepino',
-            'description' => 'Rolls de sushi rellenos de aguacate, pepino y aderezo de sésamo y soja.',
+            'name_product' => 'Avocado and Cucumber Sushi',
+            'description' => 'Sushi rolls filled with avocado, cucumber and sesame-soy dressing.',
             'id_category' => '1',
             'price' => '18.99',
-            'picture' => 'sushi_aguacate.jpg',
+            'picture' => 'sushiAguacate.webp',
         ]);
 
         Product::create([
             'id' => '25',
-            'name_product' => 'Magret de Pato con Salsa de Naranja',
-            'description' => 'Magret de pato a la naranja, cocido a la perfección y acompañado de una salsa de naranja y hierbas frescas.',
+            'name_product' => 'Duck Magret with Orange Sauce',
+            'description' => 'Duck breast with orange, cooked to perfection and served with an orange and fresh herbs sauce.',
             'id_category' => '3',
             'price' => '25.50',
-            'picture' => 'magret_pato_naranja.jpg',
+            'picture' => 'magretNaranja.jpg',
         ]);
 
         Product::create([
             'id' => '26',
-            'name_product' => 'Ensalada de Berros y Fresas',
-            'description' => 'Ensalada fresca de berros, fresas, nueces y queso de cabra, aliñada con vinagreta balsámica.',
+            'name_product' => 'Watercress and Strawberry Salad',
+            'description' => 'Fresh salad of watercress, strawberries, walnuts and goat cheese, dressed with balsamic vinaigrette.',
             'id_category' => '4',
             'price' => '16.99',
-            'picture' => 'ensalada_berros.jpg',
+            'picture' => 'EnsaladaBerros.jpg',
         ]);
 
         Product::create([
             'id' => '27',
-            'name_product' => 'Lenguado al Limón con Almendras',
-            'description' => 'Filete de lenguado cocido a la mantequilla de limón y almendras tostadas, servido con puré de patatas.',
+            'name_product' => 'Lemon Sole with Almonds',
+            'description' => 'Fillet of sole cooked in lemon butter and toasted almonds, served with mashed potatoes.',
             'id_category' => '1',
             'price' => '26.99',
-            'picture' => 'lenguado_limon.jpg',
+            'picture' => 'lenguado.jpg',
         ]);
 
         Product::create([
             'id' => '28',
-            'name_product' => 'Costillas de Cerdo Glaseadas con Barbacoa',
-            'description' => 'Costillas de cerdo glaseadas con salsa de barbacoa casera, acompañadas de maíz a la parrilla.',
+            'name_product' => 'Barbecue Glazed Pork Ribs',
+            'description' => 'Glazed pork ribs with homemade barbecue sauce, served with grilled corn.',
             'id_category' => '3',
             'price' => '21.75',
-            'picture' => 'costillas_cerdo.jpg',
+            'picture' => 'costillas.jpg',
         ]);
 
         Product::create([
             'id' => '29',
-            'name_product' => 'Gazpacho de Sandía con Hierbabuena',
-            'description' => 'Refrescante gazpacho de sandía con hojas de hierbabuena y aceite de oliva virgen extra.',
+            'name_product' => 'Watermelon and Mint Gazpacho',
+            'description' => 'Refreshing watermelon gazpacho with mint leaves and extra virgin olive oil.',
             'id_category' => '4',
             'price' => '12.99',
-            'picture' => 'gazpacho_sandia.jpg',
+            'picture' => 'gazpacho-sandia.jpg',
         ]);
 
         Product::create([
             'id' => '30',
-            'name_product' => 'Raviolis de Langosta con Salsa de Azafrán',
-            'description' => 'Raviolis rellenos de langosta en una delicada salsa de azafrán y crema, decorados con caviar.',
-            'id_category' => '2',
+            'name_product' => 'Lobster Ravioli with Saffron Sauce',
+            'description' => 'Ravioli stuffed with lobster in a delicate saffron and cream sauce, garnished with caviar.',
+            'id_category' => '1',
             'price' => '34.50',
-            'picture' => 'raviolis_langosta.jpg',
+            'picture' => 'Raviolis.jpg',
         ]);
-        
+
     }
 }
