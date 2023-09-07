@@ -1,55 +1,45 @@
 @extends('layouts.admin')
+
 @section('content')
 
 <main class="flex flex-column justify-center items-center flex-col w-screen bg-green">
-    <button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 mx-6 rounded-full BtnMenu "><a href="{{route('admin.products.index')}}">Back</a></button>
+    <h1>Product Edition</h1>
+    <button class="bg-custom shadow hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"><a href="{{route('admin.products.index')}}">Back</a></button>
 
-    <form class="product_form" method="POST" action="{{ route('admin.products.update',$product->id) }}" >
+    <form action="{{route('admin.products.update', $product->id)}}" method="POST">
         @method('PUT')
         @csrf
-        <div class="create_product_form">
+        <div class="bg-white shadow-xl rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mt-4">
+        <label for="name" class="">Name</label>
+        <input type="text" name="name_product" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"  value="{{$product->name_product}}">
+            </div>
         <div class="mt-4">
-            <x-input-label for="name" class="name_font"> Name:
-            <x-text-input id="name" class="block mt-1 p-3 w-full" type="text" name="name_product" value="{{$product->name_product}}"/>
-            <x-input-error :messages="$errors->get('name_product')" class="mt-2" />
-        </div>
-        
-        <div class="mt-4">
-            <x-input-label for="description" class="name_font"/> Description:
-            <x-text-input id="description" class="block mt-1 p-3 w-full" type="text" name="description" value="{{$product->description}}"/>
-            <x-input-error :messages="$errors->get('description')" class="mt-2" />
-        </div>
-
-         <div class="mt-4">
-            <label for="id_category" class="name_font">Category</label>
-            <select name="id_category" class="form-select p-3" value="{{$product->id_category}}">
-                @foreach ( $categories as $category )
-                 <option value="{{$category->id}}"{{ $product->id_category == $category->id ? 'selected' : '' }}>{{ $category->name_category }}</option>
-                @endforeach
-            </select>
-
-        <div class="mt-4">
-            <x-input-label for="price" class="block font-semibold name_font"/>Price
-            <x-text-input id="price" class="block mt-1 p-3 w-full " type="float" name="price" value="{{$product->price}}" />
-            <x-input-error :messages="$errors->get('price')" class="mt-2" />
-        </div>
-
-
-        {{-- <div class="mt-4">
-            <x-input-label for="picture" class=" name_font" /> Current Picture:
-            <img src="{{ asset('storage/' . $product->picture) }}" alt="Current Picture" width="100">
-            <x-input-error :messages="$errors->get('picture')" class="mt-2" />
-        </div>
-        <div>
-            <x-input-label for="new_picture">New Picture</label>
-                <x-text-input type="file" name="new_picture" id="new_picture">
-        </div> --}}
-
-        <button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 mx-6 rounded-full" type="submit">UPDATE</button>
-
+        <label for="description">Description</label>
+        <input type="text" name="description" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"  value="{{$product->description}}">
     </div>
+        <div class="mt-4">
+        <label for="id_category" class="block font-semibold">Category</label>
+            <select name="id_category" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{$product->id_category}}">
+                @foreach ($categories as $category)
+                <option value="{{ $category->id }}" {{ $product->id_category == $category->id ? 'selected' : '' }}>
+                    {{ $category->name_category }}
+                </option>
+            @endforeach
+            </select>
+        </div>
+            <div class="mt-4">
+        <label for="price">Price</label>
+        <input type="float" name="price" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"  value="{{$product->price}}">
+    </div>
+        <div class="mt-4">
+        <label for="picture">Current Picture</label>
+        <img src="{{ asset('storage/' . $product->picture) }}" alt="Current Picture" width="100" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+    </div>
+        <div class="mt-4">
+        <label for="new_picture">New Picture</label>
+        <input type="file" name="new_picture" class="block mt-1 p-3 w-full"  id="new_picture">
+        <button class="bg-custom shadow  hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"" type="Submit">Update Product</button>
     </div>
     </form>
-</main>
-
-@endsection
+    @endsection
