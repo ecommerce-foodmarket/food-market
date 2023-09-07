@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrdersProductsController;
@@ -10,8 +9,6 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,11 +16,9 @@ Route::get('/', function () {
 //     return view('login')->name('log');
 // });
 Route::view('/login', 'login');
-
 Route::get('/dashboard', function () {
     return view('user.dashboard');
 })->middleware(['auth', 'verified'])->name('user.dashboard');
-
 Route::middleware('auth',)->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -32,15 +27,11 @@ Route::middleware('auth',)->group(function () {
         return view('user.dashboard');
     })->name('user.dashboard');
 });
-
 Route::middleware(['auth'])->group(function(){
     Route::get('/admin/dashboard', function(){
         return view ('admin.dashboard');
     })->name('admin.dashboard');
 });
-
-
-
 //RUTAS DE PRODUCTS
 Route::group(['prefix' => 'products'], function () {
     Route::get('/',[ProductsController::class, 'index'])->name('products.index');
@@ -51,6 +42,15 @@ Route::group(['prefix' => 'products'], function () {
     Route::get('/show/{product}',[ProductsController::class, 'show'])->name('products.show');
     Route::delete('/destroy/{product}',[ProductsController::class, 'destroy'])->name('products.destroy');
 });
+Route::group(['prefix' => 'admin/products'], function () {
+        Route::get('/',[ProductsController::class, 'index'])->name('admin.products.index');
+        Route::get('/create',[ProductsController::class, 'create'])->name('admin.products.create');
+        Route::post('/store',[ProductsController::class, 'store'])->name('admin.products.store');
+        Route::get('/edit/{product}',[ProductsController::class, 'edit'])->name('admin.products.edit');
+        Route::put('/update/{product}',[ProductsController::class, 'update'])->name('admin.products.update');
+        Route::get('/show/{product}',[ProductsController::class, 'show'])->name('admin.products.show');
+        Route::delete('/destroy/{product}',[ProductsController::class, 'destroy'])->name('admin.products.destroy');
+});      
 //RUTAS DE CATEGORY
 Route::group(['prefix' => 'category'], function () {
     Route::get('/', [CategoryController::class, 'index'])->name('category.index');
@@ -102,7 +102,6 @@ Route::group(['prefix' => 'status'], function () {
     Route::put('/update/{status}', [StatusController::class, 'update'])->name('status.update');
     Route::delete('/destroy/{status}', [StatusController::class, 'destroy'])->name('status.destroy');
 });
-
 require __DIR__.'/auth.php';
 //RUTAS DE PRODUCTS
 Route::group(['prefix' => 'products'], function () {
@@ -155,7 +154,8 @@ Route::group(['prefix' => 'admin/order'], function () {
     Route::put('/update/{order}', [OrderController::class, 'update'])->name('admin.order.update');
     Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('admin.order.destroy');
 });
-Route::delete('/cancel', [OrderController::class, 'destroyUser'])->name('order.destroy');
+Route::delete('/cancel{order}', [OrderController::class, 'destroyUser'])->name('order.destroy');
+
 //RUTAS DE STATUS
 Route::group(['prefix' => 'status'], function () {
     Route::get('/', [StatusController::class, 'index'])->name('status.index');
@@ -173,8 +173,15 @@ Route::group(['prefix' => 'cart'], function () {
     Route::get('/empty', [OrdersProductsController::class, 'empty'])->name('cart.empty');
     Route::post('/pay', [OrderController::class, 'pay'])->name('pay');
     Route::get('/pastOrders', [OrderController::class, 'pastOrders'])->name('cart.pastOrders');
+    Route::put('/checkout/{order}', [OrderController::class, 'checkout'])->name('order.checkout');
     Route::get('/confirm', [OrdersProductsController::class, 'confirm'])->name('cart.confirm');
 });
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@redirectToDashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+    Route::post('/add-to-cart/{product}', [OrderController::class, 'addToCart'])->name('add-to-cart');
+
+
+
+

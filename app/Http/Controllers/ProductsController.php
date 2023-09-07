@@ -15,6 +15,15 @@ class ProductsController extends Controller
         return view('products.index', compact('products'));
     }
 
+    public function dashboardCards(){
+        $user = auth()->user();
+        $products=Product::inRandomOrder()
+            ->take(10)
+            ->get();
+
+        return view('user.dashboard', compact('user', 'products'));
+    }
+
     public function create()
     {
         $categories= Category::all();
@@ -52,10 +61,13 @@ class ProductsController extends Controller
          return redirect('/products');
      }
 
-     public function show(Product $product)
-     {
-         return view('products.show', compact('product'));
-     }
+      public function show(Product $product)
+      {
+        return view('products.show', compact('product'));
+  }
+
+
+
 
      public function destroy(Product $product)
      {

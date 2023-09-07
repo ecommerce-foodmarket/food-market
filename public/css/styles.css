@@ -60,3 +60,29 @@ a{
 }
 
 
+body{
+    background-color: #ffffff;  
+    }
+    
+.main{
+    display: flex;
+    flex-direction: row;
+    }
+
+.logo{
+    height: 4rem;
+    }
+    
+.bg-custom{
+    background-color: #4A6159;
+    }
+
+
+.edit-container {
+        width: 90%;
+        margin: 8%;
+        margin-top: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }

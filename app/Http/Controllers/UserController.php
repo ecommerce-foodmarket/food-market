@@ -8,6 +8,8 @@ use App\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
+use App\Models\Category;
 
 class UserController extends Controller
 {
@@ -64,16 +66,22 @@ class UserController extends Controller
     }
   
 
-   public function dashboard(){
-    $user = Auth::user();
+    public function dashboard()
+    {
+        $user = Auth::user();
+        $products = Product::inRandomOrder()
+            ->take(5)
+            ->get();
     
+        $categories = Category::with('products')->get(); // Cargar productos relacionados
+    
+        if ($user) {
+            return view('user.dashboard', compact('user', 'products', 'categories'));
+        } else {
+            return redirect()->route('login');
+        }
+    }
     
 
-    if($user){
-        return view ('user.dashboard', compact('user'));
-    }else{
-        return redirect()->route('login');
-    }
-   }
 }
 

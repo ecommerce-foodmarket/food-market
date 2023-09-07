@@ -1,42 +1,37 @@
-@extends('layouts.app')
-
-
+@extends('layouts.admin')
 @section('content')
-<h1>Product List</h1>
-<a href="{{route('products.create')}}">Add new Product</a>
 
-<div>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Picture</th>
-                <th width="200px">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+<main class= "flex flex-col flex-wrap w-11/12 ml-30">
+<button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 mt-6 mx-6 ml-5 mb-5 w-1/5 rounded-full BtnMenu"><a href="{{route('admin.products.create')}}">+ Add Menu</a></button>
+
+
+        <div class="w-11/12 flex flex-row flex-wrap justify-between mx-3 my-3 ">
             @foreach ($products as $product)
-            <tr>
-                <td>{{ $product->id }}</td>
-                <td><a href="{{ route('products.show', $product->id) }}">{{ $product->name_product }}</a></td>
-                <td>{{ $product->description }}</td>
-                <td>{{ $product->category->name_category }}</td>
-                <td>{{ $product->price }}</td>
-                <td>{{ $product->picture }}</td>
-                <td>
-                    <a href="{{ route('products.edit', $product->id) }}"><button type="submit">Edit</button></a>
-                    <form method="POST" action="{{ route('products.destroy', $product->id) }}">
+            <div class="w-1/5 rounded overflow-hidden shadow-lg space-y-1.5 mx-3 my-3">
+                <img class="w-full" src="/images/Products/{{ $product->picture }}">
+                <div class="px-6 py-4 ">
+                  <div class="font-bold text-xl text-white-700 mb-2">{{ $product->name_product }}</div>
+                  <p class="text-gray-700 text-base">
+                    {{ $product->description }}
+                  </p>
+                </div>
+                <div class="px-6 pt-4 pb-2">
+                  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Category: {{ $product->category->name_category }}</span>
+                  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Price: {{ $product->price }}</span>
+                </div>
+                <div>
+                    <button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 mx-6 rounded-full"><a href="{{ route('admin.products.edit', $product->id) }}">Edit</a></button>
+                    <form method="POST" action="{{ route('admin.products.destroy', $product->id) }}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit">Delete</button>
+                        <button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 mx-6 rounded-full">DELETE</button>
                     </form>
-                </td>
-            </tr>
+
+                </div>
+            </div>
             @endforeach
-        </tbody>    
-</div>
+        </div>
+</main>
+
 @endsection
+
