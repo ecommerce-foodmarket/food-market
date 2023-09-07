@@ -82,16 +82,7 @@ Route::group(['prefix' => 'role'], function () {
     Route::put('/update/{role}', [RoleController::class, 'update'])->name('role.update');
     Route::delete('/destroy/{role}', [RoleController::class, 'destroy'])->name('role.destroy');
 });
-//RUTAS DE ORDERS
-Route::group(['prefix' => 'order'], function () {
-    Route::get('/all', [OrderController::class, 'index'])->name('order.index');
-    Route::get('/create', [OrderController::class, 'create'])->name('order.create');
-    Route::post('/save', [OrderController::class, 'store'])->name('order.store');
-    Route::get('/show/{order}', [OrderController::class, 'show'])->name('order.show');
-    Route::get('/edit/{order}', [OrderController::class, 'edit'])->name('order.edit');
-    Route::put('/update/{order}', [OrderController::class, 'update'])->name('order.update');
-    Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('order.destroy');
-});
+
 //RUTAS DE STATUS
 Route::group(['prefix' => 'status'], function () {
     Route::get('/', [StatusController::class, 'index'])->name('status.index');
@@ -149,7 +140,7 @@ Route::group(['prefix' => 'admin/order'], function () {
     Route::get('/all', [OrderController::class, 'index'])->name('admin.order.index');
     Route::get('/create', [OrderController::class, 'create'])->name('admin.order.create');
     Route::post('/save', [OrderController::class, 'store'])->name('admin.order.store');
-    Route::get('/show/{order}', [OrderController::class, 'show'])->name('admin.order.show');
+    Route::get('/show/{order}', [OrdersProductsController::class, 'detail'])->name('admin.order.show');
     Route::get('/edit/{order}', [OrderController::class, 'edit'])->name('admin.order.edit');
     Route::put('/update/{order}', [OrderController::class, 'update'])->name('admin.order.update');
     Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('admin.order.destroy');

@@ -20,7 +20,7 @@ class OrderController extends Controller
 
     public function create(){
           $statuses= Status::all();
-            return view('admin.order.create');
+            return view('admin.order.create', compact('statuses'));
         //$orders = Order::all();
     }
 
@@ -52,9 +52,11 @@ class OrderController extends Controller
 
     }
 
-     public function show(Order $order){
-         return view('admin.order.show' , compact('order'));
-     }
+    public function show(Order $order){
+        return view('admin.order.show' , compact('order'));
+    }
+
+
 
   
 
