@@ -61,6 +61,12 @@ class OrderController extends Controller
         $order->delete();
         return redirect()->route('products.index');
     }
+    public function show($order_id){
+
+        $order = Order::with('products')->find($order_id); 
+        return view ('admin.order.show', ['order'=>$order]);
+    }
+
 }
 
 
