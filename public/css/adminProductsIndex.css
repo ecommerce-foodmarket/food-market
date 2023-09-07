@@ -1,11 +1,14 @@
-.cardContainer{
+/* .cardContainer{
     display: flex;
     flex-direction: row;
     padding: 5%;
     gap: 2%;
+    width: 200%;
+    height: auto;
 }
 main{
     margin-top: 5px;
+    
 }
 .product_form{
     width: 50%;
@@ -35,4 +38,4 @@ main{
     font-size: 17px;
     font-weight: 600;
     color: black;
-}
+} */

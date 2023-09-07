@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 @section('content')
-<h1>Hola</h1>
-<main class= "flex-col flex-wrap w-screen">
-<button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 mx-6 rounded-full BtnMenu"><a href="{{route('admin.products.create')}}">+ Add Menu</a></button>
+
+<main class= "flex flex-col flex-wrap w-11/12 ml-30">
+<button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 mt-6 mx-6 ml-5 mb-5 w-1/5 rounded-full BtnMenu"><a href="{{route('admin.products.create')}}">+ Add Menu</a></button>
 
 
-        <div class="cardContainer ">
+        <div class="w-11/12 flex flex-row flex-wrap justify-between mx-3 my-3 ">
             @foreach ($products as $product)
-            <div class="max-w-sm rounded overflow-hidden shadow-lg space-y-1.5">
+            <div class="w-1/5 rounded overflow-hidden shadow-lg space-y-1.5 mx-3 my-3">
                 <img class="w-full" src="/assets/images/gnocchi.avif" alt="Sunset in the mountains">
                 <div class="px-6 py-4 ">
                   <div class="font-bold text-xl text-white-700 mb-2">{{ $product->name_product }}</div>
