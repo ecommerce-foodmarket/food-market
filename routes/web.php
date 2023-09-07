@@ -50,6 +50,7 @@ Route::group(['prefix' => 'admin/products'], function () {
         Route::put('/update/{product}',[ProductsController::class, 'update'])->name('admin.products.update');
         Route::get('/show/{product}',[ProductsController::class, 'show'])->name('admin.products.show');
         Route::delete('/destroy/{product}',[ProductsController::class, 'destroy'])->name('admin.products.destroy');
+});      
 //RUTAS DE CATEGORY
 Route::group(['prefix' => 'category'], function () {
     Route::get('/', [CategoryController::class, 'index'])->name('category.index');
@@ -179,4 +180,4 @@ Route::get('/dashboard', 'App\Http\Controllers\DashboardController@redirectToDas
 
 
 
-});
+
