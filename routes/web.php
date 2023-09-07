@@ -42,6 +42,15 @@ Route::group(['prefix' => 'products'], function () {
     Route::get('/show/{product}',[ProductsController::class, 'show'])->name('products.show');
     Route::delete('/destroy/{product}',[ProductsController::class, 'destroy'])->name('products.destroy');
 });
+Route::group(['prefix' => 'admin/products'], function () {
+        Route::get('/',[ProductsController::class, 'index'])->name('admin.products.index');
+        Route::get('/create',[ProductsController::class, 'create'])->name('admin.products.create');
+        Route::post('/store',[ProductsController::class, 'store'])->name('admin.products.store');
+        Route::get('/edit/{product}',[ProductsController::class, 'edit'])->name('admin.products.edit');
+        Route::put('/update/{product}',[ProductsController::class, 'update'])->name('admin.products.update');
+        Route::get('/show/{product}',[ProductsController::class, 'show'])->name('admin.products.show');
+        Route::delete('/destroy/{product}',[ProductsController::class, 'destroy'])->name('admin.products.destroy');
+});      
 //RUTAS DE CATEGORY
 Route::group(['prefix' => 'category'], function () {
     Route::get('/', [CategoryController::class, 'index'])->name('category.index');
@@ -171,16 +180,6 @@ Route::get('/dashboard', 'App\Http\Controllers\DashboardController@redirectToDas
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-    Route::group(['prefix' => 'admin/products'], function () {
-        Route::get('/',[ProductsController::class, 'index'])->name('admin.products.index');
-        Route::get('/create',[ProductsController::class, 'create'])->name('admin.products.create');
-        Route::post('/store',[ProductsController::class, 'store'])->name('admin.products.store');
-        Route::get('/edit/{product}',[ProductsController::class, 'edit'])->name('admin.products.edit');
-        Route::put('/update/{product}',[ProductsController::class, 'update'])->name('admin.products.update');
-        Route::get('/show/{product}',[ProductsController::class, 'show'])->name('admin.products.show');
-        Route::delete('/destroy/{product}',[ProductsController::class, 'destroy'])->name('admin.products.destroy');
-
-});
 
 
-Route::post('/add-to-cart/{product}', [OrderController::class, 'addToCart'])->name('add-to-cart');
+
