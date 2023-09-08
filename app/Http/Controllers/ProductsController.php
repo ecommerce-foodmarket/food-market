@@ -29,20 +29,29 @@ class ProductsController extends Controller
         $categories= Category::all();
         return view('products.create', compact('categories'));
     }
-
     public function store(Request $request)
     {
-        $categories= Category::all();
-         $product = new Product;
-         $product-> name_product = $request-> name_product;
-         $product-> description = $request-> description;
-         $product-> id_category = $request-> id_category;
-         $product-> price = $request-> price;
-         $product-> picture = $request->picture;
-         $product-> save();
-
+        $categories = Category::all();
+        $product = new Product;
+        $product->name_product = $request->name_product;
+        $product->description = $request->description;
+        $product->id_category = $request->id_category;
+        $product->price = $request->price;
+    
+        // Verifica si se ha cargado un archivo antes de intentar obtener sus propiedades
+        if ($request->hasFile('picture') && $request->file('picture')->isValid()) {
+            $fileName = time() . $request->file('picture')->getClientOriginalName();
+            $path = $request->file('picture')->storeAs('public/images', $fileName);
+    
+            // Asegúrate de almacenar la ruta completa en la base de datos
+            $product->picture = 'storage/images/' . $fileName;
+        }
+    
+        $product->save();
+    
         return redirect()->route('products.index');
     }
+    
     public function edit(Product $product)
 {
     $categories = Category::all();

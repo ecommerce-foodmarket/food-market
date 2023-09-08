@@ -6,7 +6,7 @@
 <main class="flex flex-column justify-center items-center flex-col w-screen bg-green">
     <button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 mx-6 rounded-full BtnMenu "><a href="{{route('admin.products.index')}}">Back</a></button>
     
-    <form class="product_form" method="POST" action="{{ route('admin.products.store') }}" >
+    <form class="product_form" method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data" >
         @csrf
 
         
