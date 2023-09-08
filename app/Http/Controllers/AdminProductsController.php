@@ -56,10 +56,11 @@ class AdminProductsController extends Controller
 
         // Asegúrate de almacenar la ruta completa en la base de datos
         $product->picture = 'storage/images/' . $fileName;
+
     }
 
     $product->save();
-
+    dd($product);
     return redirect()->route('products.index');
 }
 
