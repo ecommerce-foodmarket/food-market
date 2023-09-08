@@ -6,7 +6,7 @@
 <div class="bg-gray-50 w-full h-full">
     <!-- Imagen del producto -->
     <div class="bg-cover bg-center bg-lightgray w-full">
-      <img src="https://s1.eestatic.com/2020/12/26/cocinillas/recetas/546455422_168316322_1706x960.jpg" alt="{{$product->name_product}}" class="w-full h-full flex-shrink-0">
+      <img src=" {{ asset($product->picture) }}">
     </div>
   
     <!-- Tarjeta de información -->
