@@ -7,9 +7,10 @@
 
         <div class="w-11/12 flex flex-row flex-wrap justify-around mx-3 my-3 ">
             @foreach ($products as $product)
-            <div class="w-full max-w-sm bg-white mt-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="w-1/5 rounded overflow-hidden shadow-lg space-y-1.5 mx-3 my-3">
+              <img src="{{ asset($product->picture) }}" alt="">
 
-                <img src="{{ asset('storage/images/Products/' . $product->picture) }}">
+
                 <div class="px-6 py-4 ">
                   <div class="font-bold text-xl text-white-700 mb-2">{{ $product->name_product }}</div>
                   <p class="text-gray-700 text-base">
