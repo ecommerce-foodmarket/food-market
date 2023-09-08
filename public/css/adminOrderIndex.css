@@ -7,6 +7,7 @@ background-color: #ffffff;
 display: flex;
 flex-direction: row;
 
+
 }
 
 h2 {
@@ -25,6 +26,7 @@ background-color: #D5ECE4;
 .button-container{
     display: flex;
     flex-direction: row;
+    align-items: baseline;
 }
 
 .logo{
@@ -38,3 +40,12 @@ background-color: #4A6159;
 .table-container{
     width: 100%;
 }
+
+.edit-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #D5ECE4;
+    
+  }
+  

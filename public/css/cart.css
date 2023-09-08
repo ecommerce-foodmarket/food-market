@@ -78,5 +78,24 @@ justify-content: center;
 align-items: center;
 }
 
+.cart-badge{
+    background-color: #4A6159;
+    color: #F6AE96;
+    border-radius: 50%; 
+    padding: 6px 10px;
+    font-size: 14px; /* Tamaño de fuente */
+}
+
+h2{
+    color: #4A6159;
+    text-align: center;
+    font-family: SF Pro Text;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  
+  }
+
 
 

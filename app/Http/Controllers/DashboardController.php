@@ -14,7 +14,7 @@ class DashboardController extends Controller
         if ($user && $user->id_rol === 3) {
             return redirect()->route('user.dashboard');
         } else {
-            return redirect()->route('admin.dashboard'); 
+            return redirect()->route('admin.order.index'); 
         }
     }
 }
