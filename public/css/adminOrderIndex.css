@@ -65,3 +65,14 @@ background-color: #4A6159;
    
 
   }
+  .card-product{
+    min-width: 300px;
+  }
+
+  .button-product{
+    background-color: #4A6159;
+    color: #ffffff;
+  }
+  .button-product a{
+    color: #ffffff;
+  }
