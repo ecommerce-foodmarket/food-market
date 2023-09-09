@@ -58,7 +58,7 @@ class OrderController extends Controller
 
 
 
-  
+
 
     public function destroy(Order $order){
         $order->delete();
@@ -71,6 +71,12 @@ class OrderController extends Controller
         $order->delete();
         return redirect()->route('user.dashboard');
     }
+    public function show($order_id){
+
+        $order = Order::with('products')->find($order_id);
+        return view ('admin.order.show', ['order'=>$order]);
+    }
+
 
 
     public function addToCart(Product $product)
@@ -78,7 +84,7 @@ class OrderController extends Controller
     $user = auth()->user();
     $orderInProgress = auth()->user()->orders->where('id_status', 0)->first();
 
-    
+
     if (!$orderInProgress) {
         $orderInProgress = new Order;
         $orderInProgress->cost = 0;
@@ -87,12 +93,12 @@ class OrderController extends Controller
         $orderInProgress->save();
     }
 
-    
+
     if ($orderInProgress->products->contains($product->id)) {
-        
+
         $orderInProgress->products()->updateExistingPivot($product->id, ['amount' => DB::raw('amount + 1')]);
     } else {
-        
+
         $orderInProgress->products()->attach($product->id, ['amount' => 1]);
     }
 

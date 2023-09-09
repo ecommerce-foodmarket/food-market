@@ -145,12 +145,6 @@ public function show(Product $product)
 
          return view ('cart.empty', compact('pastOrders'));
         }
-
-        public function detail($order_id){
-
-            $order = Order::with('products')->find($order_id); 
-            return view ('admin.order.show', ['order'=>$order]);
-        }
-
+ 
     }
 
