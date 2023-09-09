@@ -32,8 +32,6 @@
                 </div>
             </div>
             @endforeach
-        </div>
-</main>
-
+        </tbody>    
+</div>
 @endsection
-

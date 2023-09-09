@@ -11,17 +11,12 @@ use Illuminate\Support\Facades\DB;
 class OrderController extends Controller
 {
     public function index(){
-
         $orders = Order::all();
-        $orders = Order::with('status')->get();
-        $orders = Order::with('user')->get();
         return view('admin.order.index', compact('orders'));
     }
 
     public function create(){
-          $statuses= Status::all();
-            return view('admin.order.create', compact('statuses'));
-        //$orders = Order::all();
+            return view('admin.order.create');
     }
 
     public function store(Request $request){
@@ -34,13 +29,12 @@ class OrderController extends Controller
         $order->save();
 
         return redirect()->route('admin.order.index');
+        return redirect()->route('admin.order.index');
     }
 
     public function edit(Order $order){
-
         // $order = Order::find($id);
-        $statuses= Status::all();
-         return view ('admin.order.edit', compact('order', 'statuses'));
+         return view ('admin.order.edit', compact('order')); 
 
     }
 
@@ -49,11 +43,12 @@ class OrderController extends Controller
         $statuses= Status::all();
         $order->update($request->all());
          return redirect()->route('admin.order.index');
-
+        
     }
 
     public function show(Order $order){
         return view('admin.order.show' , compact('order'));
+
     }
 
 
@@ -61,9 +56,10 @@ class OrderController extends Controller
   
 
     public function destroy(Order $order){
+
         $order->delete();
         return redirect()->route('admin.order.index');
-
+        return redirect()->route('admin.order.index');
     }
 
     public function destroyUser(Order $order){
@@ -71,43 +67,30 @@ class OrderController extends Controller
         $order->delete();
         return redirect()->route('user.dashboard');
     }
-
-
-    public function addToCart(Product $product)
-{
-    $user = auth()->user();
-    $orderInProgress = auth()->user()->orders->where('id_status', 0)->first();
-
-    
-    if (!$orderInProgress) {
-        $orderInProgress = new Order;
-        $orderInProgress->cost = 0;
-        $orderInProgress->id_user = $user->id;
-        $orderInProgress->id_status = 0;
-        $orderInProgress->save();
-    }
-
-    
-    if ($orderInProgress->products->contains($product->id)) {
-        
-        $orderInProgress->products()->updateExistingPivot($product->id, ['amount' => DB::raw('amount + 1')]);
-    } else {
-        
-        $orderInProgress->products()->attach($product->id, ['amount' => 1]);
-    }
-
-    return redirect()->route('user.dashboard')->with('success', 'Product added successfully.');
-}
-
-public function checkout(Order $order){
-    $order->update(['id_status'=>1]);
-    return redirect()->route('user.dashboard')->with('success', 'Order checked out successfully.');
 }
 
 
+ 
 
+// public function pay(Request $request)
+// {
+//     // Obtén el valor de $totalPrice desde el formulario
+//     $totalPrice = $request->input('totalPrice');
 
+//     // Aquí debes crear una nueva orden y guardarla en la base de datos
+//     // Asegúrate de llenar los otros campos de la orden según sea necesario
+//     $order = new Order;
+//     $order->cost = $totalPrice;
+//     $order->id_user = auth()->user()->id; // Asígnale el ID del usuario autenticado
+//     $order->id_status = 1; // Supongamos que el ID del estado de la orden es 1
+//     // Llena otros campos de la orden según tu estructura
 
+//     $order->save();
 
+//     // También debes guardar los productos relacionados con esta orden en la tabla pivot
+//     // Recorre los productos en el carrito y guarda cada uno en la tabla pivot
+//     foreach (auth()->user()->cart->products as $product) {
+//         $order->products()->attach($product->id, ['amount' => $product->pivot->amount]);
+//     }
 
-}
+// };

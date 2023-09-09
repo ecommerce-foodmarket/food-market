@@ -34,9 +34,8 @@
     </div>
         <div class="mt-4">
         <label for="picture">Current Picture</label>
-        <img src="{{ asset('storage/' . $product->picture) }}" alt="Current Picture" width="100" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-    </div>
-        <div class="mt-4">
+        <img src="{{ asset('storage/' . $product->picture) }}" alt="Current Picture" width="100">
+        
         <label for="new_picture">New Picture</label>
         <input type="file" name="new_picture" class="block mt-1 p-3 w-full"  id="new_picture">
         <button class="bg-custom shadow  hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"" type="Submit">Update Product</button>
