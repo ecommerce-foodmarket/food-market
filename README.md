@@ -61,12 +61,12 @@ write in your terminal to migrate DB tables
 ```bash
 php artisan migrate
 ```
-To migrate seeders
+Migrate seeders,
+to seed with values some of your tables
 ```bash
 php artisan db:seed
 
 ```
-to seed with values some of your tables
 Install npm to show Blade
 Then command 
 ```bash
