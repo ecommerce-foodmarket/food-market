@@ -14,12 +14,12 @@ class ProductFactory extends Factory
 
     public function definition()
     {
-        $categoryIds = Category::pluck('id'); // Obtén todos los IDs de categoría disponibles en la base de datos
+        
 
         return [
             'name_product' => $this->faker->word,
             'description' => $this->faker->sentence,
-            'id_category' => $this->faker->randomElement($categoryIds), // Elige un ID de categoría aleatorio de los disponibles
+            'id_category' => 1,
             'price' => $this->faker->randomFloat(2, 5, 100),
             'picture' => null,
         ];
