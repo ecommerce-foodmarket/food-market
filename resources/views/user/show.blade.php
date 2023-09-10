@@ -19,7 +19,7 @@
         <td>{{ $user->address }}</td>
         <td>{{ $user->house_n }}</td>
         <td>{{ $user->city }}</td>
-        <td>{{ $user->photo }}</td>
+        <td>{{ $user->picture }}</td>
 
 
     </tr>

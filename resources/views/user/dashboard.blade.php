@@ -6,10 +6,10 @@
 @include('components.header', [
     'title' => 'SpeedyBite',
     'subtitle' => "Let's get some foods, " . $user->name,
-    'image' => $user->picture ? asset($user->picture) : asset('assets/images/default_profile_image.png'),
-   
+    'picture' => $user->picture,
     'alt' => $user->name,
 ])
+{{-- <img src="{{ asset($user->picture) }}" alt=""> --}}
 
 {{-- Scroll de imágenes --}}
 <div>

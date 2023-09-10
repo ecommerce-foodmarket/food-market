@@ -3,7 +3,7 @@
 @section('content')
 
 <div class=confirm-image>
-    <img src="{{asset('assets/images/confirm_image.png')}}" alt="">
+    <img src="{{ asset($user->picture) }}" alt="">
 </div>
 
 
