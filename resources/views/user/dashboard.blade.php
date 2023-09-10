@@ -7,6 +7,7 @@
     'title' => 'SpeedyBite',
     'subtitle' => "Let's get some foods, " . $user->name,
     'image' => $user->picture ? asset($user->picture) : asset('assets/images/default_profile_image.png'),
+   
     'alt' => $user->name,
 ])
 

@@ -8,7 +8,10 @@
         <div class="cardContainer ">
             @foreach ($products as $product)
             <div class="max-w-sm rounded overflow-hidden shadow-lg space-y-1.5">
-                <img class="w-full" src="/assets/images/gnocchi.avif" alt="Sunset in the mountains">
+                {{-- <img src="{{ $product->picture }}" alt=""> --}}
+                <img src="{{ asset($product->picture) }}" alt="">
+
+
                 <div class="px-6 py-4 ">
                   <div class="font-bold text-xl text-white-700 mb-2">{{ $product->name_product }}</div>
                   <p class="text-gray-700 text-base">

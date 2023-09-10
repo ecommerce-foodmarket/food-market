@@ -21,19 +21,51 @@ class AdminProductsController extends Controller
         return view('admin.products.create', compact('categories'));
     }
 
-    public function store(Request $request)
-    {
-        $categories= Category::all();
-         $product = new Product;
-         $product-> name_product = $request-> name_product;
-         $product-> description = $request-> description;
-         $product-> id_category = $request-> id_category;
-         $product-> price = $request-> price;
-         $product-> picture = $request->picture;
-         $product-> save();
+    // public function store(Request $request)
+    // {
+    //     $categories= Category::all();
+    //      $product = new Product;
+    //      $product-> name_product = $request-> name_product;
+    //      $product-> description = $request-> description;
+    //      $product-> id_category = $request-> id_category;
+    //      $product-> price = $request-> price;
+    //     //  $product-> picture = $request->picture;
+    //     $fileName = time().$request->file('picture')->getClientOriginalName();
+    //     $path = $request->file('picture')->storeAs('images', $fileName, 'public');
+    //     $product["picture"] = '/storage/' .$path;
 
-        return redirect()->route('admin.products.index');
+    //     Product::create($product);
+    //     //  $product-> save();
+
+    //     return redirect()->route('products.index');
+    // }
+
+    public function store(Request $request)
+{
+    $categories = Category::all();
+    $product = new Product;
+    $product->name_product = $request->name_product;
+    $product->description = $request->description;
+    $product->id_category = $request->id_category;
+    $product->price = $request->price;
+
+    // Verifica si se ha cargado un archivo antes de intentar obtener sus propiedades
+    if ($request->hasFile('picture') && $request->file('picture')->isValid()) {
+        $fileName = time() . $request->file('picture')->getClientOriginalName();
+        $path = $request->file('picture')->storeAs('public/images', $fileName);
+
+        // Asegúrate de almacenar la ruta completa en la base de datos
+        $product->picture = 'storage/images/' . $fileName;
+
     }
+
+    $product->save();
+    dd($product);
+    return redirect()->route('products.index');
+}
+
+    
+
     public function edit(Product $product)
 {
     $categories = Category::all();

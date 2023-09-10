@@ -66,7 +66,7 @@
                         @if ($product->id_category === 1)
                             <div class="flex items-center justify-between border-b border-gray-300 pb-4 mb-4">
                                 <div class="flex items-center">
-                                    <img src="{{ asset('imagen-producto.jpg') }}" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
+                                    <img src=" {{ asset($product->picture) }}" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
                                     <div class="ml-4">
                                         <h3>{{ $product->name_product }}</h3>
                                         <p>€{{ $product->price }}</p>
@@ -98,7 +98,7 @@
                 @if ($product->id_category === 2)
                 <div class="flex items-center justify-between border-b border-gray-300 pb-4 mb-4">
                     <div class="flex items-center">
-                        <img src="{{ asset('imagen-producto.jpg') }}" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
+                        <img src=" {{ asset($product->picture) }}" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
                         <div class="ml-4">
                             <h3>{{ $product->name_product }}</h3>
                             <p>€{{ $product->price }}</p>
@@ -129,7 +129,7 @@
                 @if ($product->id_category === 3)
                 <div class="flex items-center justify-between border-b border-gray-300 pb-4 mb-4">
                     <div class="flex items-center">
-                        <img src="{{ asset('imagen-producto.jpg') }}" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
+                        <img src=" {{ asset($product->picture) }}" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
                         <div class="ml-4">
                             <h3>{{ $product->name_product }}</h3>
                             <p>€{{ $product->price }}</p>
@@ -160,7 +160,7 @@
                 @if ($product->id_category === 4)
                 <div class="flex items-center justify-between border-b border-gray-300 pb-4 mb-4">
                     <div class="flex items-center">
-                        <img src="{{ asset('imagen-producto.jpg') }}" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
+                        <img src=" {{ asset($product->picture) }}" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
                         <div class="ml-4">
                             <h3>{{ $product->name_product }}</h3>
                             <p>€{{ $product->price }}</p>

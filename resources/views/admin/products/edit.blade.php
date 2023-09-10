@@ -1,6 +1,4 @@
 @extends('layouts.admin')
-
-
 @section('content')
     <h1>Product Edition</h1>
     <a href="{{route('admin.products.index')}}">Back</a>
