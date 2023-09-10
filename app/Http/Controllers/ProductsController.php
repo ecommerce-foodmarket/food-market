@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
-
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
@@ -57,25 +57,46 @@ class ProductsController extends Controller
     $categories = Category::all();
     return view('products.edit', compact('product', 'categories'));
 }
-    public function update(Request $request, Product $product)
-     {
-         $categories= Category::all();
-        $product->update([
-        'name_product' => $request-> name_product,
-        'description' => $request-> description,
-        'id_category' => $request-> id_category,
-        'price' => $request-> price,
-        'picture' => $request->picture,
-        ]);
-         return redirect('/products');
-     }
+  
+
+public function update(Request $request, Product $product)
+{
+    $categories = Category::all();
+
+    $request->validate([
+        'name_product' => 'required|string|max:255',
+        'description' => 'required|string',
+        'id_category' => 'required|integer|exists:categories,id',
+        'price' => 'required|numeric',
+        'new_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validación de imagen
+    ]);
+
+    $product->name_product = $request->name_product;
+    $product->description = $request->description;
+    $product->id_category = $request->id_category;
+    $product->price = $request->price;
+
+
+    if ($request->hasFile('new_picture') && $request->file('new_picture')->isValid()) {
+        if ($product->picture) {
+            Storage::delete($product->picture);
+        }
+
+        $fileName = time() . '.' . $request->file('new_picture')->getClientOriginalExtension();
+        $path = $request->file('new_picture')->storeAs('public/images', $fileName);
+        $product->picture = 'storage/images/' . $fileName;
+    }
+
+    $product->save();
+
+    return redirect('/products');
+}
+
 
       public function show(Product $product)
       {
         return view('products.show', compact('product'));
   }
-
-
 
 
      public function destroy(Product $product)
@@ -90,5 +111,6 @@ class ProductsController extends Controller
 
 
     }
+
 
 
