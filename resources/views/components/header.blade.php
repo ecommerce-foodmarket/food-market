@@ -7,7 +7,7 @@
             </div>
         </div>
         <div>
-            <img src="{{ $image }}" alt="{{ $alt }}" class="rounded-full h-12 w-12 object-cover">
+            <img src="{{ asset($user->picture) }}" alt="Imagen de perfil" width="60px" height="60px" class="rounded-full">
         </div>
     </div>
 </div>

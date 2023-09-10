@@ -35,7 +35,17 @@ class UserController extends Controller
         $user_id->house_n=$request->house_n;
         $user_id->city=$request->city;
         $user_id->id_rol=$request->id_rol;
-        $user_id->picture=$request->picture;
+        // $user_id->picture=$request->picture;
+
+
+        if ($request->hasFile('picture') && $request->file('picture')->isValid()) {
+            $fileName = time() . $request->file('picture')->getClientOriginalName();
+            $path = $request->file('picture')->storeAs('public/images', $fileName);
+    
+            // Asegúrate de almacenar la ruta completa en la base de datos
+            $user_id->picture = 'storage/images/' . $fileName;
+        }
+
         $user_id->save();
         return redirect()->route('user.index');
     }

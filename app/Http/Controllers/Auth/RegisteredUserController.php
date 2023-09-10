@@ -45,8 +45,17 @@ class RegisteredUserController extends Controller
             'house_n' => $request->house_n,
             'city' => $request->city,
             'id_rol' => $request->id_rol,
-            'picture' => $request->picture,
+            // 'picture' => $request->picture,
+            
         ]);
+        if ($request->hasFile('picture') && $request->file('picture')->isValid()) {
+            $fileName = time() . $request->file('picture')->getClientOriginalName();
+            $path = $request->file('picture')->storeAs('public/images', $fileName);
+    
+            // Asegúrate de almacenar la ruta completa en la base de datos
+            $user->picture = 'storage/images/' . $fileName;
+            $user->save();
+        }
 
         event(new Registered($user));
 

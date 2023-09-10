@@ -12,11 +12,11 @@
 
 <div class=" w-full h-full  md:w-full lg:w-1/2 m-auto">
 
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
             <!--Picture-->
             <div class="mt-4">
-                <x-input-label for="picture" :value="__('Picture')" />
+                <x-input-label for="picture" :value="__('picture')" />
                 <x-text-input id="picture" class="mt-2 border border-gray-300 rounded  w-full" type="file" name="picture" :value="old('picture')"  />
                 <x-input-error :messages="$errors->get('picture')" class="mt-2" />
             </div>

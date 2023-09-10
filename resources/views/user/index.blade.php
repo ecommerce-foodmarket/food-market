@@ -33,7 +33,7 @@
                 <td>{{ $user->house_n }}</td>
                 <td>{{ $user->city }}</td>
                 {{-- <td>{{ $user->role->type }}</td> --}}
-                <td>{{ $user->photo }}</td>
+                <img src="{{ $user->picture }}" alt="" height="50px" width="50px">
                 <td>    <a href="{{ route('user.show', $user->id) }}"></a>     |
                         <a href="{{ route('user.edit', $user->id)}}">EDIT</a>
                 </td>
