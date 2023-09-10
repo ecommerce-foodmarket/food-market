@@ -64,6 +64,7 @@ php artisan migrate
 To migrate seeders
 ```bash
 php artisan db:seed
+to seed with values some of your tables
 ```
 Install npm to show Blade
 Then command 
@@ -74,7 +75,7 @@ Then command
 ```bash
 npm run build
 ```
-to seed with values some of your tables
+
 Finally Command for files
 ```bash
 php artisan storage:link
