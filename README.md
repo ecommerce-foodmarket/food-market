@@ -64,8 +64,9 @@ php artisan migrate
 To migrate seeders
 ```bash
 php artisan db:seed
-to seed with values some of your tables
+
 ```
+to seed with values some of your tables
 Install npm to show Blade
 Then command 
 ```bash
