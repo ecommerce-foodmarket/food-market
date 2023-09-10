@@ -1,12 +1,13 @@
+Edit 
 @extends('layouts.admin')
 
 @section('content')
 
 <main class="flex flex-column justify-center items-center flex-col w-screen bg-green">
     <h1>Product Edition</h1>
-    <button class="button-product shadow  hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"><a href="{{route('admin.products.index')}}">Back</a></button>
+    <button class="button-product shadow hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"><a href="{{route('admin.products.index')}}">Back</a></button>
 
-    <form action="{{route('admin.products.update', $product->id)}}" method="POST">
+    <form action="{{route('admin.products.update', $product->id)}}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <div class="bg-white shadow-xl rounded px-8 pt-6 pb-8 mb-4">
@@ -30,7 +31,7 @@
         </div>
             <div class="mt-4">
         <label for="price">Price</label>
-        <input type="float" name="price" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"  value="{{$product->price}}">
+        <input type="number" name="price" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"  value="{{$product->price}}">
     </div>
         <div class="mt-4">
         <label for="picture">Current Picture</label>
@@ -39,7 +40,9 @@
         <div class="mt-4">
         <label for="new_picture">New Picture</label>
         <input type="file" name="new_picture" class="block mt-1 p-3 w-full"  id="new_picture">
-        <button class="bg-custom shadow  hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="Submit">Update Product</button>
+        <button class="button-product shadow  hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="Submit">Update Product</button>
     </div>
     </form>
+</main>
     @endsection
+

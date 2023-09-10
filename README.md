@@ -1,66 +1,126 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![SpeedyBite](https://github.com/Dafnay/HeroesApp/assets/109661844/f0ec2809-4c7c-47d4-aa26-d89fc3bddd52)
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<h1 align="center"> SpeedyBite </h1>
+<h4> 1. Description of the Project </h4>
+<p>Create a web application that allows different types of users to efficiently and systematically manage a restaurant's products and home delivery orders. Users will be able to add, edit, or delete dishes from the shopping cart and also add some to favorites. It will also allow users to review and reorder their previous orders; the administrator can create dishes and track all orders made in the store.</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<h4> 2. Project Objectives </h4>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<ul>Functional Requirements <b>User</b>:</ul>
+<li>Add Dish: Users WILL BE ABLE TO add new dishes to the shopping cart.</li>
+<li>View Shopping Cart: Users WILL HAVE constant access to the shopping cart to monitor selected dishes in a list format.</li>
+<li>Delete Dish: Users WILL BE ABLE TO delete dishes from the shopping cart, one by one or several at a time.</li>
+<li>Filter Dishes: Users WILL BE ABLE TO sort items by price and type (e.g., meat, fish, specific ingredients...).</li>
+<br>
 
-## Learning Laravel
+<ul>Functional Requirements <b>Superadmin</b>:</ul>
+<li>Add, Edit, or Delete Dishes: The super administrator SHOULD manage the dishes.</li>
+<li>Dish Categorization: The super administrator CAN categorize the dishes.</li>
+<li>Order Reception: The super administrator SHOULD receive and manage order requests.</li>
+<br>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<ul>Additional Functionalities <b> User:</b></ul>
+<li>Favorites: Allow users to assign dishes as favorites.</li>
+<li>User Registration: Users CAN register in the application by providing a username and password.</li>
+<li>Login: Users CAN log in to the application using their credentials.</li>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+  
+  
 
-## Laravel Sponsors
+ 
+<h4> 🛠️5. Open and Run the Project:</h4>
+   
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Clone your repository
 
-### Premium Partners
+```bash
+(https://github.com/ecommerce-foodmarket/food-market.git)
+```
+Open the repository in VS Code and write in terminal:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```bash
+composer install
+```
+Duplicate .env.example, rename as .env, and put your values
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+Comand for an APP_KEY
+```bash
+php artisan key:generate
+```
+write in your terminal to migrate DB tables
+```bash
+php artisan migrate
+```
+To migrate seeders
+```bash
+php artisan db:seed
+```
+Install npm to show Blade
+Then command 
+```bash
+npm install
+```
+Then command 
+```bash
+npm run build
+```
+to seed with values some of your tables
+Finally Command for files
+```bash
+php artisan storage:link
+```
 
-## Contributing
+<h4> 💻6. Technologies Used:</h4>
+   <ul>
+    <li>LARAVEL</li>
+    <li>BLADE</li>
+    <li>TAILWIND</li>
+    <li>FIGMA</li>
+    <li>JIRA</li>
+     <li>CANVA</li> 
+   </ul>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   <h2> Our Figma Prototype </h2>
 
-## Code of Conduct
+  -  User view
+![USUARIO](https://github.com/ecommerce-foodmarket/food-market/assets/109661844/476c71f3-19cd-4a29-b6b9-03339b7b9772)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+  -  Admin view
 
-## Security Vulnerabilities
+![ADMIN](https://github.com/ecommerce-foodmarket/food-market/assets/109661844/a2670b05-8b5f-41ae-ab70-5f6028f3c013)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   <h2> Nuestro User Flow </h2>
+ 
+![userflow](https://github.com/ecommerce-foodmarket/food-market/assets/109661844/11a250be-a41b-4d2f-a30e-27bf091b43d1)
+
+
+
+  <h2> User Stories </h2>
+  
+![HasUsuario](https://github.com/ecommerce-foodmarket/food-market/assets/109661844/7c33c9f6-b26b-4b42-99ad-c539d9d56c0f)
+
+
+ 
+<h2> Database Modeling </h2>
+
+
+![DATOS](https://github.com/ecommerce-foodmarket/food-market/assets/109661844/e281d57a-4d85-4a10-b56c-12e930a0aa60)
+
+
+   ## Authors
+
+| [<img src="https://avatars.githubusercontent.com/u/132446921?v=4" width=115><br><sub>Ana Encinas</sub>](https://github.com/anaencinasd)) |  [<img src="https://avatars.githubusercontent.com/u/110493210?v=4" width=115><br><sub>Helena Ponte</sub>](https://github.com/helenaponted) | [<img src="https://avatars.githubusercontent.com/u/132447075?v=4" width=115><br><sub>Jimena Castellanos</sub>](https://github.com/Jimena81) | [<img src="https://avatars.githubusercontent.com/u/110122046?v=4" width=115><br><sub>Raissa de León</sub>](https://github.com/Ninetthe) |  [<img src="https://avatars.githubusercontent.com/u/109661844?v=4" width=115><br><sub>Alba Velasco</sub>](https://github.com/Dafnay) |
+| :---: | :---: | :---: | :---: | :---: |
+ 
