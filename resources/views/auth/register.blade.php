@@ -3,9 +3,9 @@
     <div class="flex flex-nowrap w-full ">
         <a href="{{  url('/login')}}"  class=" w-8 h-8 bg-DarkSlateGray text-white font-bold text-xl rounded text-center align-content-center px-1 "><</a>
         <div class="pl-5" >
-            <h1 class="text-dark font-Poppins text-3xl font-bold">Log In</h1>
+            <h1 class="text-dark  text-3xl font-bold">Sign In</h1>
             <div>
-                <p class="text-gray-300 font-Poppins text-md">Register and eat</p>
+                <p class="text-gray-300  text-md">Register and eat</p>
             </div>
         </div>
     </div>
@@ -16,29 +16,29 @@
         @csrf
             <!--Picture-->
             <div class="mt-4">
-                <x-input-label class="font-Poppins " for="picture" :value="__('Picture')" />
-                <x-text-input id="picture" class="mt-2 font-Poppins border border-gray-300 rounded  w-full" type="file" name="picture" :value="old('picture')"  />
+                <x-input-label for="picture" :value="__('Picture')" />
+                <x-text-input id="picture" class="mt-2 border border-gray-300 rounded  w-full" type="file" name="picture" :value="old('picture')"  />
                 <x-input-error :messages="$errors->get('picture')" class="mt-2" />
             </div>
             <br>
         <!-- Name -->
         <div>
-            <x-input-label class="font-Poppins" for="name" :value="__('Full Name')" />
-            <x-text-input id="name" class="mt-2 font-Poppins border border-gray-300 rounded  w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-input-label for="name" :value="__('Full Name')" />
+            <x-text-input id="name" class="mt-2  border border-gray-300 rounded  w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')"  />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
-            <x-input-label class="font-Poppins " for="email" :value="__('Email Address')" />
-            <x-text-input id="email" class="mt-2 font-Poppins border border-gray-300 rounded  w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-input-label class=" " for="email" :value="__('Email Address')" />
+            <x-text-input id="email" class="mt-2  border border-gray-300 rounded  w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label class="font-Poppins " for="password" :value="__('Password')" />
+            <x-input-label class=" " for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="mt-2 font-Poppins border border-gray-300 rounded  w-full"
+            <x-text-input id="password" class="mt-2  border border-gray-300 rounded  w-full"
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
@@ -48,9 +48,9 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label class="font-Poppins " for="password_confirmation" :value="__('Confirm Password')" />
+            <x-input-label class=" " for="password_confirmation" :value="__('Confirm Password')" />
 
-            <x-text-input id="password_confirmation" class="mt-2 font-Poppins border border-gray-300 rounded  w-full"
+            <x-text-input id="password_confirmation" class="mt-2  border border-gray-300 rounded  w-full"
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" />
 
@@ -58,32 +58,32 @@
         </div>
         <!-- Phone -->
         <div class="mt-4">
-            <x-input-label class="font-Poppins " for="phone" :value="__('Phone No.')" />
-            <x-text-input id="phone" class="mt-2 font-Poppins border border-gray-300 rounded  w-full" type="text" name="phone" :value="old('phone')" required autocomplete="username" />
+            <x-input-label class=" " for="phone" :value="__('Phone No.')" />
+            <x-text-input id="phone" class="mt-2  border border-gray-300 rounded  w-full" type="text" name="phone" :value="old('phone')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>
         <!-- Addres -->
         <div class="mt-4">
-            <x-input-label class="font-Poppins " for="address" :value="__('Address')" />
-            <x-text-input id="address" class="mt-2 font-Poppins border border-gray-300 rounded  w-full" type="text" name="address" :value="old('address')" required autocomplete="username" />
+            <x-input-label class=" " for="address" :value="__('Address')" />
+            <x-text-input id="address" class="mt-2  border border-gray-300 rounded  w-full" type="text" name="address" :value="old('address')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('address')" class="mt-2" />
         </div>
         <!-- House_n -->
         <div class="mt-4">
-            <x-input-label class="font-Poppins " for="house_n" :value="__('House No.')" />
-            <x-text-input id="house_n" class="mt-2 font-Poppins border border-gray-300 rounded  w-full" type="number" name="house_n" :value="old('house_n')" required autocomplete="username" />
+            <x-input-label class=" " for="house_n" :value="__('House No.')" />
+            <x-text-input id="house_n" class="mt-2  border border-gray-300 rounded  w-full" type="number" name="house_n" :value="old('house_n')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('house_n')" class="mt-2" />
         </div>
         <!-- City-->
         <div class="mt-4">
-            <x-input-label class="font-Poppins " for="city" :value="__('City')" />
-            <x-text-input id="city" class="mt-2 font-Poppins border border-gray-300 rounded  w-full" type="text" name="city" :value="old('city')" required autocomplete="username" />
+            <x-input-label class=" " for="city" :value="__('City')" />
+            <x-text-input id="city" class="mt-2  border border-gray-300 rounded  w-full" type="text" name="city" :value="old('city')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('city')" class="mt-2" />
         </div>
         <!--Id_ROl-->
         <div class="mt-4">
-            {{-- <x-input-label class="font-Poppins " for="Id_rol" :value="__('Id_rol')" /> --}}
-            <x-text-input id="id_rol" class="mt-2 font-Poppins border border-gray-300 rounded  w-full" type="hidden" name="id_rol" :value=3  />
+            {{-- <x-input-label class=" " for="Id_rol" :value="__('Id_rol')" /> --}}
+            <x-text-input id="id_rol" class="mt-2  border border-gray-300 rounded  w-full" type="hidden" name="id_rol" :value=3  />
             <x-input-error :messages="$errors->get('id_rol')" class="mt-2" />
         </div>
 
@@ -93,8 +93,8 @@
                 {{ __('Already registered?') }}
             </a> --}}
 
-            <button class="ml-4 bg-DarkSlateGray text-LightOrange font-semibold font-Poppins py-2 px-20  rounded shadow text-center w-full  lg:w-1/2">
-                {{ __('Sing Up Now') }}
+            <button class="ml-4 bg-DarkSlateGray text-LightOrange font-semibold py-2 px-20  rounded shadow text-center w-full  lg:w-1/2">
+                {{ __('Sign Up Now') }}
             </button>
             <br>
             <p class=" text-gray-500 text-m text-center">

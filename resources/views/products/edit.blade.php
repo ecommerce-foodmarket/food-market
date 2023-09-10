@@ -1,10 +1,11 @@
+Edit 
 @extends('layouts.admin')
 
 @section('content')
 
 <main class="flex flex-column justify-center items-center flex-col w-screen bg-green">
     <h1>Product Edition</h1>
-    <button class="bg-custom shadow hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"><a href="{{route('admin.products.index')}}">Back</a></button>
+    <button class="button-product shadow hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"><a href="{{route('admin.products.index')}}">Back</a></button>
 
     <form action="{{route('admin.products.update', $product->id)}}" method="POST" enctype="multipart/form-data">
         @method('PUT')
@@ -39,8 +40,9 @@
         <div class="mt-4">
         <label for="new_picture">New Picture</label>
         <input type="file" name="new_picture" class="block mt-1 p-3 w-full"  id="new_picture">
-        <button class="bg-custom shadow  hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="Submit">Update Product</button>
+        <button class="button-product shadow  hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="Submit">Update Product</button>
     </div>
     </form>
 </main>
     @endsection
+

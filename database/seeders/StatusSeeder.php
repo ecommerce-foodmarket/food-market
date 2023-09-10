@@ -15,26 +15,26 @@ class StatusSeeder extends Seeder
     {
         Status::create([
             'id'=> 1,
-            'name_status'=> 'Pendiente'
+            'name_status'=> 'Pending'
         ]);
 
         Status::create([
             'id'=> 2,
-            'name_status'=> 'Pagado'
+            'name_status'=> 'Paid'
         ]);
 
         Status::create([
             'id'=> 3,
-            'name_status'=> 'En Reparto'
+            'name_status'=> 'On delivery'
         ]);
 
         Status::create([
             'id'=> 4,
-            'name_status'=> 'Completado'
+            'name_status'=> 'Complete'
         ]);
         Status::create([
             'id'=> 5,
-            'name_status'=> 'Cancelado'
+            'name_status'=> 'Cancelled'
         ]);
     }
 }

@@ -10,16 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class OrdersProductsController extends Controller
 {
-    // public function pastOrders()
-    // {
-    //     $pastOrder = Order::where('status', '4')->get();
     
-    //     if ($pastOrder->isEmpty()) {
-    //         return  "You haven't done an order yet";
-    //     } else {
-    //         return view('cart.pastOrders', ['pastOrder' => $pastOrder]);
-    //     }
-    // }
     
 
 
@@ -145,12 +136,6 @@ public function show(Product $product)
 
          return view ('cart.empty', compact('pastOrders'));
         }
-
-        public function detail($order_id){
-
-            $order = Order::with('products')->find($order_id); 
-            return view ('admin.order.show', ['order'=>$order]);
-        }
-
+ 
     }
 

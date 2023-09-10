@@ -24,7 +24,7 @@
         </div>
 
         <div class="text-white flex items-center justify-end h-0">
-          <span class="">My account </span>
+          <span class="">Go to user view </span>
           <a href="{{route('user.dashboard')}}"><i class="fas fa-user-circle text-white text-2xl"></i></a>
         </div>
       </nav>

@@ -140,7 +140,7 @@ Route::group(['prefix' => 'admin/order'], function () {
     Route::get('/all', [OrderController::class, 'index'])->name('admin.order.index');
     Route::get('/create', [OrderController::class, 'create'])->name('admin.order.create');
     Route::post('/save', [OrderController::class, 'store'])->name('admin.order.store');
-    Route::get('/show/{order}', [OrdersProductsController::class, 'detail'])->name('admin.order.show');
+    Route::get('/show/{order}', [OrderController::class, 'show'])->name('admin.order.show');
     Route::get('/edit/{order}', [OrderController::class, 'edit'])->name('admin.order.edit');
     Route::put('/update/{order}', [OrderController::class, 'update'])->name('admin.order.update');
     Route::delete('/destroy/{order}', [OrderController::class, 'destroy'])->name('admin.order.destroy');
@@ -166,6 +166,7 @@ Route::group(['prefix' => 'cart'], function () {
     Route::get('/pastOrders', [OrderController::class, 'pastOrders'])->name('cart.pastOrders');
     Route::put('/checkout/{order}', [OrderController::class, 'checkout'])->name('order.checkout');
     Route::get('/confirm', [OrdersProductsController::class, 'confirm'])->name('cart.confirm');
+    Route::get('/complete')->name('cart.complete');
 });
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@redirectToDashboard')
     ->middleware(['auth', 'verified'])
