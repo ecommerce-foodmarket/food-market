@@ -1,0 +1,88 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+body{
+    margin:0;
+
+
+}
+
+p{
+  font-size: 1rem;
+}
+
+/* style.css */
+body, p, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif !important;
+ 
+}
+
+h2{
+  color: #4A6159;
+text-align: center;
+font-family: SF Pro Text;
+font-size: 1.75rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+
+}
+
+.header{
+  background-color:#4A6159;
+}
+
+h4{
+  color: #4A6159;
+text-align: center;
+font-family: SF Pro Text;
+font-size: 1.0625rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+
+
+.backWel{
+    background-color: #4A6159;
+    color: #fff;
+    
+}
+
+.bg-custom-background {
+  background-color: #4A6159 !important;
+}
+
+a{
+  color: #4A6159;
+}
+
+
+body{
+    background-color: #ffffff;  
+    }
+    
+.main{
+    display: flex;
+    flex-direction: row;
+    }
+
+.logo{
+    height: 4rem;
+    }
+    
+.bg-custom{
+    background-color: #4A6159;
+    }
+
+
+.edit-container {
+        width: 90%;
+        margin: 8%;
+        margin-top: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }

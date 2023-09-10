@@ -1,0 +1,41 @@
+/* .cardContainer{
+    display: flex;
+    flex-direction: row;
+    padding: 5%;
+    gap: 2%;
+    width: 200%;
+    height: auto;
+}
+main{
+    margin-top: 5px;
+    
+}
+.product_form{
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px 0;
+    box-shadow: 8px 10px 23px #4A6159;
+    border-radius: 20px;
+  
+}
+.create_product_form{
+    width: 80%;
+}
+.BtnMenu{
+    position: absolute;
+    top: 115px;
+    left: 260px;
+}
+.BtnForm{
+    margin-top: 20px;
+}
+
+.name_font{
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+} */

@@ -1,0 +1,101 @@
+
+
+
+.cancel-bt{
+    background-color: transparent;
+    border: solid 1px;
+   
+    border-color: #F6AE96;
+}
+
+
+.text-custom-text-color {
+    color: #F6AE96;
+}
+
+.link {
+    color: #4A6159; 
+}
+
+.text-custom-selected {
+    color: #4A6159;
+    font-weight: bold; 
+    text-decoration: underline; 
+}
+
+
+.text-custom-default {
+    color: gray; 
+}
+
+h3{
+    color: #020202;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  }
+
+  p{
+    color: #8D92A3;
+font-family: Poppins;
+font-size: 0.8125rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+  }
+
+  .dark [role=tab].active, .dark [role=tab].active:hover, [role=tab].active, [role=tab].active:hover {
+    border-color:#4A6159 ;
+    color:#4A6159;
+    font-weight: 500;
+}
+
+.shoppingBag{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.info{
+    width: 60%;
+}
+
+.mt-bttn{
+    margin-top: 3rem;
+}
+
+.confirm-image{
+    width: 100%;
+   height: 100%;
+flex-shrink: 0;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.cart-badge{
+    background-color: #4A6159;
+    color: #F6AE96;
+    border-radius: 50%; 
+    padding: 6px 10px;
+    font-size: 14px; /* Tamaño de fuente */
+}
+
+h2{
+    color: #4A6159;
+    text-align: center;
+    font-family: SF Pro Text;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  
+  }
+
+
+
