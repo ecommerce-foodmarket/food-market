@@ -6,7 +6,7 @@
     
 <div class="table-container">
     <div class="button-create">
-        <button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 ml-2 rounded-full">
+        <button class="button-product hover:bg-green-800 text-white font-bold py-2 px-4 ml-2 rounded-full">
             <a href="{{ route('admin.order.create') }}">ADD NEW ORDER</a>
         </button>
         </div>
@@ -35,11 +35,11 @@
                 @method('DELETE')
                 <input class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full" type="submit" value="DELETE" />
             </form>
-            <button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 ml-2 rounded-full">
+            <button class="button-product hover:bg-green-800 text-white font-bold py-2 px-4 ml-2 rounded-full">
                     <a href="{{ route('admin.order.edit', $order->id) }}">EDIT</a>
                 </button>
                 
-                <button class="bg-custom hover:bg-green-800 text-white font-bold py-2 px-4 ml-2 rounded-full">
+                <button class="button-product hover:bg-green-800 text-white font-bold py-2 px-4 ml-2 rounded-full">
                     <a href="{{ route('admin.order.show', $order->id) }}">DETAIL</a>
                 </button>
            

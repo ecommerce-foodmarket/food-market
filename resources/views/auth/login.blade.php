@@ -9,21 +9,21 @@
 
 </div>
 <div class=" w-full h-full p-10 md:w-full lg:w-1/2 m-auto">
-<form  action=""  < method="POST" action="{{ route('login') }}">
+<form   method="POST" action="{{ route('login') }}">
         @csrf
 
         <!-- Email Address -->
         <div class="mt-2">
-            <x-input-label class="font-Poppins font-bold text-lg" for="email" :value="__('Email Address')" />
+            <x-input-label class="font-bold text-lg" for="email" :value="__('Email Address')" />
             <x-text-input id="email" class="block mt-1  border rounded w-full py-2 px-3 text-gray-700 leading-tight " type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Type your email address"/>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4 justify-center">
-            <x-input-label class="font-Poppins font-bold text-lg" for="password" :value="__('Password')" />
+            <x-input-label class="font-bold text-lg" for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class=" font-Poppins w-full block mt-1  border rounded py-2 px-3 text-gray-700 leading-tight"
+            <x-text-input id="password" class=" w-full block mt-1  border rounded py-2 px-3 text-gray-700 leading-tight"
                             type="password"
                             name="password"
                             required autocomplete="current-password"
@@ -43,7 +43,7 @@
           
         </div>
         <div class="mt-4 flex items-center justify-center">
-            <button class="bg-DarkSlateGray  text-LightOrange font-semibold font-Poppins py-1 px-20   rounded shadow text-center">
+            <button class="bg-DarkSlateGray  text-LightOrange font-semibold py-1 px-20   rounded shadow text-center">
                 {{ __('Log in') }}
             </button>
 

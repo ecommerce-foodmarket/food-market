@@ -59,7 +59,7 @@
                     @foreach ($order->products as $product)
                     <div class="flex items-center justify-between border-b border-gray-300 pb-4 mb-4">
                         <div class="flex items-center">
-                            <img src="imagen-producto.jpg" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
+                            <img src="{{ asset($product->picture) }}" alt="Nombre del Producto" class="h-16 w-16 rounded-lg object-cover">
                             <div class="ml-4">
                                 <h3>{{ $product->name_product }}</h3>
                                 <p>€{{ $product->price }}</p>

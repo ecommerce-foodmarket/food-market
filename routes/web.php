@@ -166,6 +166,7 @@ Route::group(['prefix' => 'cart'], function () {
     Route::get('/pastOrders', [OrderController::class, 'pastOrders'])->name('cart.pastOrders');
     Route::put('/checkout/{order}', [OrderController::class, 'checkout'])->name('order.checkout');
     Route::get('/confirm', [OrdersProductsController::class, 'confirm'])->name('cart.confirm');
+    Route::get('/complete')->name('cart.complete');
 });
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@redirectToDashboard')
     ->middleware(['auth', 'verified'])

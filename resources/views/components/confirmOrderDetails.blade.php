@@ -4,7 +4,7 @@
         @if ($cartProducts->isNotEmpty())
             @foreach ($cartProducts as $product)
                 <div class="flex items-center mb-4">
-                    <img src="{{ $product->picture }}" alt="{{ $product->name_product }}" 
+                    <img src="{{ asset($product->picture) }}" alt="{{ $product->name_product }}" 
                         class="h-16 w-16 rounded-lg object-cover">
                     <div class="ml-4">
                         <h4 class="text-left">{{ $product->name_product }}</h4>
