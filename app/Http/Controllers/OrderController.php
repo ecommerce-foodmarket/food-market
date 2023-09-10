@@ -107,7 +107,7 @@ class OrderController extends Controller
 
 public function checkout(Order $order){
     $order->update(['id_status'=>1]);
-    return redirect()->route('user.dashboard')->with('success', 'Order checked out successfully.');
+    return view('cart.complete');
 }
 
 

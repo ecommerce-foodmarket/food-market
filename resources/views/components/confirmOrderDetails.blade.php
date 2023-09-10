@@ -27,6 +27,6 @@
     </div>
     <div class="flex justify-between">
         <p class="text-xl font-semibold">Total Price</p>
-        <p class="text-xl font-semibold mt-6">{{$order->price}}</p>
+        <p class="text-xl font-semibold mt-6">{{$order->cost}}</p>
     </div>
 </div>
