@@ -123,6 +123,6 @@ php artisan storage:link
 
    ## Authors
 
-| [<img src="https://avatars.githubusercontent.com/u/132446921?v=4" width=115><br><sub>Ana Encinas</sub>](https://github.com/anaencinasd)) |  [<img src="https://avatars.githubusercontent.com/u/110493210?v=4" width=115><br><sub>Helena Ponte</sub>](https://github.com/helenaponted) | [<img src="https://avatars.githubusercontent.com/u/132447075?v=4" width=115><br><sub>Jimena Castellanos</sub>](https://github.com/Jimena81) | [<img src="https://avatars.githubusercontent.com/u/110122046?v=4" width=115><br><sub>Raissa de León</sub>](https://github.com/Ninetthe) |  [<img src="https://avatars.githubusercontent.com/u/109661844?v=4" width=115><br><sub>Alba Velasco</sub>](https://github.com/Dafnay) |
+| [<img src="https://avatars.githubusercontent.com/u/132446921?v=4" width=115><br><sub>Ana Encinas</sub>](https://github.com/anaencinasd) |  [<img src="https://avatars.githubusercontent.com/u/110493210?v=4" width=115><br><sub>Helena Ponte</sub>](https://github.com/helenaponted) | [<img src="https://avatars.githubusercontent.com/u/132447075?v=4" width=115><br><sub>Jimena Castellanos</sub>](https://github.com/Jimena81) | [<img src="https://avatars.githubusercontent.com/u/110122046?v=4" width=115><br><sub>Raissa de León</sub>](https://github.com/Ninetthe) |  [<img src="https://avatars.githubusercontent.com/u/109661844?v=4" width=115><br><sub>Alba Velasco</sub>](https://github.com/Dafnay) |
 | :---: | :---: | :---: | :---: | :---: |
  
